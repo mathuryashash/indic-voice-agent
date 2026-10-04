@@ -4,11 +4,9 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-KEY_FILES = [
-    Path(__file__).resolve().parent.parent / ".env",  # project-local (gitignored)
-    Path("D:/aihackthonforbuilder/backend/.env"),
-    Path("D:/ascent_hackathon/.env"),
-    Path.home() / "AppData/Local/hermes/.env",
+# Project-local .env (gitignored). Extra files can be listed in VOICE_AGENT_ENV_FILES (os.pathsep-separated).
+KEY_FILES = [Path(__file__).resolve().parent.parent / ".env"] + [
+    Path(p) for p in os.environ.get("VOICE_AGENT_ENV_FILES", "").split(os.pathsep) if p
 ]
 WANTED = ("GROQ_API_KEY", "NVIDIA_API_KEY", "NVIDIA_BASE_URL")
 

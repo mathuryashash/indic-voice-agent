@@ -56,9 +56,8 @@ Why this stack (checked on this machine, Windows 11 + RTX 4060 8 GB):
 # Python 3.13 with CUDA torch at C:/Python313 (system-site-packages reuses faster-whisper, fastapi, etc.)
 C:/Python313/python.exe -m venv --system-site-packages .venv
 .venv/Scripts/python.exe -m pip install edge-tts jiwer python-multipart nvidia-cublas-cu12 "nvidia-cudnn-cu12==9.*"
-export HF_HOME=D:/hf-cache          # whisper weights (~3 GB for large-v3) are downloaded to D:/hf-cache/whisper
-# API keys: put GROQ_API_KEY / NVIDIA_API_KEY in ./.env (gitignored). app/config.py also reads them from the
-# owner's other local .env files. Key values are never printed or logged.
+export WHISPER_CACHE=/path/to/cache   # optional; whisper large-v3 weights are ~3 GB
+# API keys: put GROQ_API_KEY / NVIDIA_API_KEY in ./.env (gitignored, see .env.example). Key values are never printed or logged.
 
 .venv/Scripts/python.exe -m uvicorn app.server:app --host 127.0.0.1 --port 8765
 # open http://127.0.0.1:8765, press the mic, ask e.g. "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಪರೀಕ್ಷೆ ಯಾವಾಗ?"

@@ -33,7 +33,6 @@ def _add_cuda_dll_dirs() -> None:
 
 
 _add_cuda_dll_dirs()
-os.environ.setdefault("HF_HOME", "D:/hf-cache")
 
 
 @dataclass
@@ -50,7 +49,7 @@ class WhisperSTT:
         from faster_whisper import WhisperModel
 
         self.model_size = model_size or os.environ.get("WHISPER_MODEL", "large-v3")
-        root = os.environ.get("WHISPER_CACHE", "D:/hf-cache/whisper")
+        root = os.environ.get("WHISPER_CACHE") or None
         self.device = device or os.environ.get("WHISPER_DEVICE", "cuda")
         try:
             if self.device != "cuda":
