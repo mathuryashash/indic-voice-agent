@@ -88,3 +88,9 @@ def test_run_tool_dispatch(tmp_path):
 
 def test_schemas_match_registry():
     assert {s["function"]["name"] for s in tools.TOOL_SCHEMAS} == set(tools.TOOLS)
+
+
+def test_syllabus_overview_chunk_has_textbooks_and_credits():
+    top = tools.search_syllabus("Theory of Computation textbook")["results"][0]
+    assert top["code"] == "BCS503" and "Hopcroft" in top["text"]
+    assert "Credits: 4" in tools.search_syllabus("software engineering credits")["results"][0]["text"]

@@ -56,18 +56,34 @@ def voice_for(lang: str, index: int = 0) -> str:
 
 
 _SENT_END = re.compile(r"(.+?[.!?।॥\n]+)(\s+)", re.S)
+_CLAUSE_END = re.compile(r"(.+?[,;:]+)(\s+)", re.S)
 
 
 class SentenceSplitter:
     """Accumulates streamed tokens; yields complete sentences as soon as they end."""
 
-    def __init__(self, min_chars: int = 12):
+    def __init__(self, min_chars: int = 12, first_clause: bool = False, clause_min_chars: int = 30):
         self.buf = ""
         self.min_chars = min_chars
+        # Low-latency mode: the FIRST chunk may end at a clause boundary (comma) so TTS
+        # can start before the first full sentence is generated.
+        self.first_clause = first_clause
+        self.clause_min_chars = clause_min_chars
+        self.emitted = 0
 
     def feed(self, delta: str) -> list[str]:
+        out = self._feed(delta)
+        self.emitted += len(out)
+        return out
+
+    def _feed(self, delta: str) -> list[str]:
         self.buf += delta
         out = []
+        if self.first_clause and self.emitted == 0:
+            m = _CLAUSE_END.match(self.buf)
+            if m and len(m.group(1).strip()) >= self.clause_min_chars and not _SENT_END.match(self.buf):
+                out.append(m.group(1).strip())
+                self.buf = self.buf[m.end():]
         while True:
             m = _SENT_END.match(self.buf)
             if not m:
@@ -91,10 +107,20 @@ class SentenceSplitter:
 
     def flush(self) -> list[str]:
         rest, self.buf = self.buf.strip(), ""
+        self.emitted += bool(rest)
         return [rest] if rest else []
+
+
+_ODD_SPACES = re.compile(r"[\u00a0\u2000-\u200b\u202f\u205f\u3000]")
+_ODD_DASHES = re.compile(r"[\u2010-\u2015\u2212]")
+
+
+def normalize_text(text: str) -> str:
+    """Map the narrow/no-break spaces and Unicode hyphens LLMs emit to plain ASCII."""
+    return _ODD_DASHES.sub("-", _ODD_SPACES.sub(" ", text))
 
 
 def clean_for_tts(text: str) -> str:
     """Strip markdown symbols the LLM sometimes emits so TTS doesn't read them out."""
-    text = re.sub(r"[*_#`>|]+", " ", text)
+    text = re.sub(r"[*_#`>|]+", " ", normalize_text(text))
     return re.sub(r"\s+", " ", text).strip()

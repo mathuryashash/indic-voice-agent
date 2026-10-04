@@ -52,7 +52,7 @@ async def index():
 async def health():
     stt = STATE.get("stt")
     return {"ok": True, "stt": getattr(stt, "model_size", None), "device": getattr(stt, "device", None),
-            "providers": [p.name for p in STATE["llm"].providers]}
+            "providers": [p.name for p in getattr(STATE.get("llm"), "providers", [])]}
 
 
 @app.websocket("/ws")

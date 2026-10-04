@@ -49,7 +49,7 @@ class WhisperSTT:
     def __init__(self, model_size: str | None = None, device: str | None = None):
         from faster_whisper import WhisperModel
 
-        self.model_size = model_size or os.environ.get("WHISPER_MODEL", "large-v3-turbo")
+        self.model_size = model_size or os.environ.get("WHISPER_MODEL", "large-v3")
         root = os.environ.get("WHISPER_CACHE", "D:/hf-cache/whisper")
         self.device = device or os.environ.get("WHISPER_DEVICE", "cuda")
         try:

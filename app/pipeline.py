@@ -37,7 +37,8 @@ Rules:
 textbooks/credits, set_reminder to save reminders (convert relative times like "tomorrow 6 pm" to YYYY-MM-DD HH:MM \
 using today's date), calculate_sgpa / calculate_cgpa for grade calculations (VTU: SGPA = sum(credits*grade point)/sum(credits)).
 - Tool arguments must be in English even when the user speaks Hindi or Kannada.
-- Never invent exam dates, syllabus content or numbers; if a tool returns an error, say so briefly.
+- Never invent exam dates, syllabus content, textbooks or numbers: answer syllabus questions ONLY from search_syllabus results, never from general knowledge. If a tool returns an error, say so briefly.
+- The user's words come from speech recognition and may be misspelled or phonetically garbled (e.g. "sub netting" = subnetting); infer the intended subject or topic before calling a tool.
 - Say dates naturally, e.g. "14 December".
 """
 
@@ -93,7 +94,7 @@ async def run_turn(*, emit: Emit, llm, stt=None, audio=None, text: str | None = 
                 *history, {"role": "user", "content": text}]
 
     # ---- 2. LLM with tool rounds; 3. TTS per sentence, started while tokens still stream
-    splitter = L.SentenceSplitter()
+    splitter = L.SentenceSplitter(first_clause=True)
     tts_tasks: list[asyncio.Task] = []
     audio_q: asyncio.Queue = asyncio.Queue()
     voice = L.voice_for(lang, voice_index)
@@ -141,6 +142,7 @@ async def run_turn(*, emit: Emit, llm, stt=None, audio=None, text: str | None = 
 
     try:
         llm_start = time.perf_counter()
+        llm_retry_wait, llm_calls = 0.0, 0
         for round_no in range(MAX_TOOL_ROUNDS + 1):
             tool_calls: list[dict] = []
             round_text = []
@@ -159,6 +161,8 @@ async def run_turn(*, emit: Emit, llm, stt=None, audio=None, text: str | None = 
                         schedule(s)
                 elif ev.kind == "tool_calls":
                     tool_calls = ev.tool_calls
+            llm_retry_wait += getattr(llm, "last_retry_wait_s", 0.0)
+            llm_calls += getattr(llm, "last_attempts", 1)
             if not tool_calls:
                 break
             if round_no == 0:
@@ -195,6 +199,8 @@ async def run_turn(*, emit: Emit, llm, stt=None, audio=None, text: str | None = 
     timings["total_s"] = round(time.perf_counter() - timer.t0, 3)
     timings["sentences"] = len(tts_tasks)
     timings["provider"] = provider
+    timings["llm_http_attempts"] = llm_calls
+    timings["llm_retry_wait_s"] = round(llm_retry_wait, 3)
     history.extend([{"role": "user", "content": text}, {"role": "assistant", "content": reply}])
     await emit({"type": "timings", **timings})
     await emit({"type": "done", "reply": reply, "language": lang,

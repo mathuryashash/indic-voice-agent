@@ -61,9 +61,12 @@ class ChatClient:
     async def stream(self, messages: list[dict], tools: list[dict] | None = None,
                      temperature: float = 0.2) -> AsyncIterator[StreamEvent]:
         last_err: Exception | None = None
+        self.last_retry_wait_s = 0.0
+        self.last_attempts = 0
         for prov in self.providers:
             for attempt in range(self.max_retries + 1):
                 emitted = False
+                self.last_attempts += 1
                 try:
                     async for ev in self._stream_one(prov, messages, tools, temperature):
                         emitted = True
@@ -75,7 +78,9 @@ class ChatClient:
                         raise
                     status = getattr(getattr(exc, "response", None), "status_code", None)
                     if status == 429 or status is None or status >= 500:
-                        await asyncio.sleep(min(8.0, 1.5 * (2 ** attempt)))
+                        wait = min(8.0, 1.5 * (2 ** attempt))
+                        self.last_retry_wait_s += wait
+                        await asyncio.sleep(wait)
                         continue
                     break  # 4xx other than 429: try next provider
         raise LLMError(f"All LLM providers failed: {type(last_err).__name__}: {str(last_err)[:200]}")

@@ -194,3 +194,23 @@ def test_pipeline_cancellation_cancels_tts():
             await t
     asyncio.run(main())
     assert not any(e["type"] == "done" for e in events)
+
+
+def test_sentence_splitter_first_clause_mode():
+    sp = L.SentenceSplitter(first_clause=True)
+    out = []
+    for tok in ["Your Computer Networks exam is on", " 14 December, ", "Monday, from 9:30 ", "to 12:30 in Room 105. ", "Good luck."]:
+        out += sp.feed(tok)
+    # first chunk released at the comma (>=30 chars) so TTS can start early; later chunks are full sentences
+    assert out == ["Your Computer Networks exam is on 14 December,", "Monday, from 9:30 to 12:30 in Room 105."]
+    assert sp.flush() == ["Good luck."]
+
+
+def test_sentence_splitter_first_clause_ignores_short_clause_and_time_colon():
+    sp = L.SentenceSplitter(first_clause=True)
+    assert sp.feed("Sure, ") == []          # too short to be worth a TTS request
+    assert sp.feed("at 9:30 it starts") == []  # colon inside a time is not a boundary
+
+
+def test_normalize_text_odd_spaces_and_dashes():
+    assert L.normalize_text("2\u202fpm, 9:30\u201112:30") == "2 pm, 9:30-12:30"

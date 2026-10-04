@@ -80,7 +80,13 @@ class SyllabusIndex:
             raw = path.read_text(encoding="utf-8")
             title = raw.splitlines()[0].lstrip("# ").split(" (")[0]
             code, subject = title.split(" ", 1)
-            for part in re.split(r"^## ", raw, flags=re.M)[1:]:
+            parts = re.split(r"^## ", raw, flags=re.M)
+            # preamble (credits, marks, textbooks) becomes its own "Overview" chunk
+            preamble = " ".join(parts[0].splitlines()[1:]).strip()
+            if preamble:
+                self.chunks.append(Chunk(code, subject, "Overview: credits, marks and textbooks",
+                                         " ".join(preamble.split())))
+            for part in parts[1:]:
                 head, _, body = part.partition("\n")
                 self.chunks.append(Chunk(code, subject, head.strip(), " ".join(body.split())))
         # subject name + module title are indexed too so "module 3 of TOC" works

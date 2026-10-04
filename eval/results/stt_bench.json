@@ -1,0 +1,2059 @@
+{
+ "small": {
+  "model": "small",
+  "device": "cuda",
+  "load_s": 8.1,
+  "per_lang": {
+   "hi": {
+    "n": 14,
+    "wer": 0.5519,
+    "cer": 0.311,
+    "lid_acc_whisper": 1.0,
+    "lid_acc_final": 1.0,
+    "stt_p50_s": 1.043
+   },
+   "kn": {
+    "n": 14,
+    "wer": 1.0789,
+    "cer": 0.9949,
+    "lid_acc_whisper": 0.6429,
+    "lid_acc_final": 0.5714,
+    "stt_p50_s": 1.532
+   },
+   "en": {
+    "n": 14,
+    "wer": 0.0458,
+    "cer": 0.014,
+    "lid_acc_whisper": 1.0,
+    "lid_acc_final": 1.0,
+    "stt_p50_s": 0.455
+   }
+  },
+  "rows": [
+   {
+    "id": "en01",
+    "lang": "en",
+    "ref": "When is my Computer Networks exam?",
+    "hyp": "When is my computer networks exam?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.734
+   },
+   {
+    "id": "en02",
+    "lang": "en",
+    "ref": "What time does the Theory of Computation exam start?",
+    "hyp": "What time does the theory of computation exam start?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.459
+   },
+   {
+    "id": "en03",
+    "lang": "en",
+    "ref": "Where is the software engineering exam hall?",
+    "hyp": "Where is the software engineering exam hall?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.405
+   },
+   {
+    "id": "en04",
+    "lang": "en",
+    "ref": "Which day is the web technology lab exam?",
+    "hyp": "Which day is the web technology lab exam?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.422
+   },
+   {
+    "id": "en05",
+    "lang": "en",
+    "ref": "Tell me the date of the TOC exam.",
+    "hyp": "Tell me the date of the TOC exam.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.434
+   },
+   {
+    "id": "en06",
+    "lang": "en",
+    "ref": "Which module of computer networks covers TCP congestion control?",
+    "hyp": "Which module of computer networks covers TCT congestion control?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.45
+   },
+   {
+    "id": "en07",
+    "lang": "en",
+    "ref": "In which module is the pumping lemma taught in Theory of Computation?",
+    "hyp": "In which module is the pumping lemma taught in theory of computation?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.497
+   },
+   {
+    "id": "en08",
+    "lang": "en",
+    "ref": "What is the textbook for Theory of Computation?",
+    "hyp": "What is the textbook for theory of computation?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.444
+   },
+   {
+    "id": "en09",
+    "lang": "en",
+    "ref": "Does the software engineering syllabus include Scrum?",
+    "hyp": "Does the software engineering syllabus include Scrum?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.441
+   },
+   {
+    "id": "en10",
+    "lang": "en",
+    "ref": "Remind me to revise computer networks tomorrow at 6 pm.",
+    "hyp": "Remind me to revise computer networks tomorrow at 6 p.m.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.498
+   },
+   {
+    "id": "en11",
+    "lang": "en",
+    "ref": "Set a reminder to submit the web lab record on October 10 at 9 am.",
+    "hyp": "Set a reminder to submit the web lab record on 10th October at 9 a.m.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.55
+   },
+   {
+    "id": "en12",
+    "lang": "en",
+    "ref": "Calculate my SGPA. I got 92 marks in a 4 credit subject, 85 in another 4 credit subject and 72 in a 3 credit subject.",
+    "hyp": "calculate my SGPA. I got 92 marks in a 4 credit subject, 85 in another 4 credit subject and 72 in a 3 credit subject.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.704
+   },
+   {
+    "id": "en13",
+    "lang": "en",
+    "ref": "My SGPA was 8 in a 20 credit semester and 9 in another 20 credit semester. What is my CGPA?",
+    "hyp": "My SGPA was 8 in a 20 credit semester and 9 in another 20 credit semester. What is my CGPA?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.674
+   },
+   {
+    "id": "en14",
+    "lang": "en",
+    "ref": "Hi, who are you and what can you do?",
+    "hyp": "Hi, who are you and what can you do?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.441
+   },
+   {
+    "id": "hi01",
+    "lang": "hi",
+    "ref": "मेरा Computer Networks का एग्जाम कब है?",
+    "hyp": "मेरा कमफुटर नेट्वोक्स का एक्जाम कब है",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.776
+   },
+   {
+    "id": "hi02",
+    "lang": "hi",
+    "ref": "थ्योरी ऑफ कंप्यूटेशन की परीक्षा किस समय शुरू होगी?",
+    "hyp": "थोरी अफ कम्पुटेशन की परीच्षा किस समय शुरो होगी?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.929
+   },
+   {
+    "id": "hi03",
+    "lang": "hi",
+    "ref": "सॉफ्टवेयर इंजीनियरिंग की परीक्षा किस कमरे में है?",
+    "hyp": "सव्टट्ट्टर इंजन्यरिं की प�रीख्षाग किस कम्रे मे है.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 7.973
+   },
+   {
+    "id": "hi04",
+    "lang": "hi",
+    "ref": "वेब टेक्नोलॉजी लैब की परीक्षा किस दिन है?",
+    "hyp": "वेब टेक्नोलोगी लाप की परीक्षा किस दिन है",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.829
+   },
+   {
+    "id": "hi05",
+    "lang": "hi",
+    "ref": "TOC की परीक्षा की तारीख बताओ।",
+    "hyp": "T.O.C. की परिक्षा की तारीक बताओ.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.724
+   },
+   {
+    "id": "hi06",
+    "lang": "hi",
+    "ref": "कंप्यूटर नेटवर्क्स में TCP congestion control कौन से मॉड्यूल में है?",
+    "hyp": "खम्ब्टर नेटवर्क्स में, TCP, CONJESSION CONTROL कुन से मोडिल में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 4.28
+   },
+   {
+    "id": "hi07",
+    "lang": "hi",
+    "ref": "थ्योरी ऑफ कंप्यूटेशन में ट्यूरिंग मशीन कौन से मॉड्यूल में पढ़ाई जाती है?",
+    "hyp": "क्योरी अफ कमपुटेटेशन में तूरीं मशीन कोंसे मोड्यूल में पड़ाई जाती है.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.158
+   },
+   {
+    "id": "hi08",
+    "lang": "hi",
+    "ref": "सॉफ्टवेयर इंजीनियरिंग में COCOMO मॉडल किस मॉड्यूल में है?",
+    "hyp": "software engineering me Kokomo model kis module me hai.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.47
+   },
+   {
+    "id": "hi09",
+    "lang": "hi",
+    "ref": "कंप्यूटर नेटवर्क्स के सिलेबस में DNS कहाँ आता है?",
+    "hyp": "कमपुटर नेट्वर्क्स के सिलेबस में दीनेस कहा आता है",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.86
+   },
+   {
+    "id": "hi10",
+    "lang": "hi",
+    "ref": "मुझे कल शाम 7 बजे TOC रिवाइज करने की याद दिलाना।",
+    "hyp": "मुजे कल शाम सात भजेटी वोसी रिवाएज करने की याध दिलाना",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.625
+   },
+   {
+    "id": "hi11",
+    "lang": "hi",
+    "ref": "8 अक्टूबर सुबह 10 बजे assignment जमा करने का reminder लगा दो।",
+    "hyp": "आद ठक्तुबर सुभा दस भजे असाईमिन जमा करने का रेमाणडा लगादो",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.463
+   },
+   {
+    "id": "hi12",
+    "lang": "hi",
+    "ref": "मेरा SGPA निकालो: 4 क्रेडिट के विषय में 92 नंबर, दूसरे 4 क्रेडिट विषय में 85 और 3 क्रेडिट विषय में 72 नंबर।",
+    "hyp": "मेरा ASE GPA निकालो चार क्रेटिट के विषय में बानवे नंबर, दुसरे चार क्रेटिट विषय में पचासी और तीन क्रेटिट विषय में बहतर नंबर.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.942
+   },
+   {
+    "id": "hi13",
+    "lang": "hi",
+    "ref": "पहले सेमेस्टर में SGPA 8 था और दूसरे में 9, दोनों 20 क्रेडिट के थे। मेरा CGPA क्या है?",
+    "hyp": "पहले समेस्टर में स्जीप्या आथ ता और दुस्रे में नाउ दोनो भीस क्रेटिट किते, मेरा सीजीप्या क्या है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.654
+   },
+   {
+    "id": "hi14",
+    "lang": "hi",
+    "ref": "नमस्ते, तुम कौन हो और क्या कर सकते हो?",
+    "hyp": "नमस्ते तुम कुन हो और क्या कर सकते हो?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.777
+   },
+   {
+    "id": "kn01",
+    "lang": "kn",
+    "ref": "ನನ್ನ ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಪರೀಕ್ಷೆ ಯಾವಾಗ?",
+    "hyp": "नन nggak कमफुतर नद़्ूर्खष परिजच्ष्या अवागा",
+    "whisper_lang": "kn",
+    "final_lang": "hi",
+    "seconds": 13.526
+   },
+   {
+    "id": "kn02",
+    "lang": "kn",
+    "ref": "ಥಿಯರಿ ಆಫ್ ಕಂಪ್ಯೂಟೇಶನ್ ಪರೀಕ್ಷೆ ಎಷ್ಟು ಗಂಟೆಗೆ ಶುರು?",
+    "hyp": "Theory of Computation Parikse H2 Gentege Shuru",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.543
+   },
+   {
+    "id": "kn03",
+    "lang": "kn",
+    "ref": "ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಪರೀಕ್ಷೆ ಯಾವ ಕೊಠಡಿಯಲ್ಲಿ ಇದೆ?",
+    "hyp": "ಸಿಸಿಕಲ್ತಿಲ್ತಂದ ಸಿಳಾರೆತಿದರಾಸುದ ಸಿ ಸಿವರಾಸಿ ಸಜಾಸಿ ಸಲಾಡ ಸಿಸಿವೆತಿದರ್ತ್ಯಾ ಇತಿವಾಲಸ್ತಿಕದಾಿತಿದಾಧಾಳೆ ಕಮಾರ್ರಿದಿಪ್ಾತಿಂದಿಾದಿ ವಿತೆರ್ದಿದಿದಿ�",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 13.014
+   },
+   {
+    "id": "kn04",
+    "lang": "kn",
+    "ref": "ವೆಬ್ ಟೆಕ್ನಾಲಜಿ ಲ್ಯಾಬ್ ಪರೀಕ್ಷೆ ಯಾವ ದಿನ?",
+    "hyp": "Web Technology Lab Research, Yavadina.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.48
+   },
+   {
+    "id": "kn05",
+    "lang": "kn",
+    "ref": "TOC ಪರೀಕ್ಷೆಯ ದಿನಾಂಕ ಹೇಳಿ.",
+    "hyp": "ताख परिक्षे अ दिनांख हेली",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.746
+   },
+   {
+    "id": "kn06",
+    "lang": "kn",
+    "ref": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್‌ನಲ್ಲಿ TCP congestion control ಯಾವ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಇದೆ?",
+    "hyp": "Computer Networks Nali-Tetap congestion control Yawamadu Nali-De",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.659
+   },
+   {
+    "id": "kn07",
+    "lang": "kn",
+    "ref": "ಥಿಯರಿ ಆಫ್ ಕಂಪ್ಯೂಟೇಶನ್‌ನಲ್ಲಿ ಟ್ಯೂರಿಂಗ್ ಮಷೀನ್ ಯಾವ ಮಾಡ್ಯೂಲ್?",
+    "hyp": "Theory of computationally during machine yaw module.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.548
+   },
+   {
+    "id": "kn08",
+    "lang": "kn",
+    "ref": "ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ COCOMO ಮಾದರಿ ಯಾವ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಇದೆ?",
+    "hyp": "sofware engineering nalli khao kamma madari yawamadhi vul nalli the",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 18.218
+   },
+   {
+    "id": "kn09",
+    "lang": "kn",
+    "ref": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಸಿಲಬಸ್‌ನಲ್ಲಿ DNS ಎಲ್ಲಿ ಬರುತ್ತದೆ?",
+    "hyp": "ಕಾಸ್ಘಾಂಯಲ್ಸಾರೈ ಕಾರ್ಟಿನಿಗಾಟಿತ್ತ ಸಾರಿಲಾಲ್ ಕಾರಿನಾಾ ಕಾಮಾಹಾಮಿಲುಬುದಲಿಲು",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 14.246
+   },
+   {
+    "id": "kn10",
+    "lang": "kn",
+    "ref": "ನಾಳೆ ಸಂಜೆ 6 ಗಂಟೆಗೆ ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಓದಲು ನೆನಪಿಸು.",
+    "hyp": "नाने संज्य आरु गंटिगे, कमपूटर नेटवर्क्स अदलू नेनपिसू",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 1.27
+   },
+   {
+    "id": "kn11",
+    "lang": "kn",
+    "ref": "ಅಕ್ಟೋಬರ್ 9 ಬೆಳಿಗ್ಗೆ 8 ಗಂಟೆಗೆ ಲ್ಯಾಬ್ ರೆಕಾರ್ಡ್ ಸಲ್ಲಿಸಲು ರಿಮೈಂಡರ್ ಇಡು.",
+    "hyp": "अप्तोपर अम्प्त्तू गले एंटू गंते गे ल्याप्रेकाज सली सलू प्रिमाइंटर लिए।",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 1.794
+   },
+   {
+    "id": "kn12",
+    "lang": "kn",
+    "ref": "ನನ್ನ SGPA ಲೆಕ್ಕ ಹಾಕಿ: 4 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 92 ಅಂಕ, ಇನ್ನೊಂದು 4 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 85 ಮತ್ತು 3 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 72 ಅಂಕ.",
+    "hyp": "ಅರಂ್ಯಾಡಿಟ್ತುಕರ ಮಾವಾರೀವಸಿಲಿಟುಕ್ದುಕ್ದು. ಮಾಲಿಎಕೆಕ್ದಿಯಾ ಎಕ್ತ್ದ ಮಾಡಗ್ತುಕ್ಕ್ದಾಲು.ವಾಕಾಟ್ದ ತಾಪುಋರ್ತ್ದಾರಿಲ್ನ್ತಾಕ್ದುಲಿಯಾರರೀ ಹುಗಿಳಿತರಿದುಕ�",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 17.041
+   },
+   {
+    "id": "kn13",
+    "lang": "kn",
+    "ref": "ಮೊದಲ ಸೆಮಿಸ್ಟರ್ SGPA 8, ಎರಡನೇ ಸೆಮಿಸ್ಟರ್ SGPA 9, ಎರಡೂ 20 ಕ್ರೆಡಿಟ್. ನನ್ನ CGPA ಎಷ್ಟು?",
+    "hyp": "12.5. 54.5",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 12.105
+   },
+   {
+    "id": "kn14",
+    "lang": "kn",
+    "ref": "ನಮಸ್ಕಾರ, ನೀವು ಯಾರು ಮತ್ತು ಏನು ಮಾಡಬಹುದು?",
+    "hyp": "नमस्कार, निवू यारु मत्तू एनू माडबूदू।",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.88
+   }
+  ]
+ },
+ "large-v3-turbo": {
+  "model": "large-v3-turbo",
+  "device": "cuda",
+  "load_s": 3.4,
+  "per_lang": {
+   "hi": {
+    "n": 14,
+    "wer": 0.2403,
+    "cer": 0.1884,
+    "lid_acc_whisper": 1.0,
+    "lid_acc_final": 1.0,
+    "stt_p50_s": 0.815
+   },
+   "kn": {
+    "n": 14,
+    "wer": 1.0614,
+    "cer": 0.883,
+    "lid_acc_whisper": 0.0,
+    "lid_acc_final": 0.0,
+    "stt_p50_s": 0.828
+   },
+   "en": {
+    "n": 14,
+    "wer": 0.0392,
+    "cer": 0.0128,
+    "lid_acc_whisper": 1.0,
+    "lid_acc_final": 1.0,
+    "stt_p50_s": 0.722
+   }
+  },
+  "rows": [
+   {
+    "id": "en01",
+    "lang": "en",
+    "ref": "When is my Computer Networks exam?",
+    "hyp": "When is my computer networks exam?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.685
+   },
+   {
+    "id": "en02",
+    "lang": "en",
+    "ref": "What time does the Theory of Computation exam start?",
+    "hyp": "What time does the theory of computation exam start?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.7
+   },
+   {
+    "id": "en03",
+    "lang": "en",
+    "ref": "Where is the software engineering exam hall?",
+    "hyp": "Where is the software engineering exam hall?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.677
+   },
+   {
+    "id": "en04",
+    "lang": "en",
+    "ref": "Which day is the web technology lab exam?",
+    "hyp": "Which day is the web technology lab exam?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.744
+   },
+   {
+    "id": "en05",
+    "lang": "en",
+    "ref": "Tell me the date of the TOC exam.",
+    "hyp": "Tell me the date of the TOC exam.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.83
+   },
+   {
+    "id": "en06",
+    "lang": "en",
+    "ref": "Which module of computer networks covers TCP congestion control?",
+    "hyp": "Which module of computer networks covers TCP congestion control?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.733
+   },
+   {
+    "id": "en07",
+    "lang": "en",
+    "ref": "In which module is the pumping lemma taught in Theory of Computation?",
+    "hyp": "In which module is the pumping lemma taught in theory of computation?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.719
+   },
+   {
+    "id": "en08",
+    "lang": "en",
+    "ref": "What is the textbook for Theory of Computation?",
+    "hyp": "What is the textbook for theory of computation?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.693
+   },
+   {
+    "id": "en09",
+    "lang": "en",
+    "ref": "Does the software engineering syllabus include Scrum?",
+    "hyp": "Does the software engineering syllabus include Scrum?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.716
+   },
+   {
+    "id": "en10",
+    "lang": "en",
+    "ref": "Remind me to revise computer networks tomorrow at 6 pm.",
+    "hyp": "Remind me to revise computer networks tomorrow at 6 p.m.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.726
+   },
+   {
+    "id": "en11",
+    "lang": "en",
+    "ref": "Set a reminder to submit the web lab record on October 10 at 9 am.",
+    "hyp": "Set a reminder to submit the web lab record on 10th October at 9 a.m.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.767
+   },
+   {
+    "id": "en12",
+    "lang": "en",
+    "ref": "Calculate my SGPA. I got 92 marks in a 4 credit subject, 85 in another 4 credit subject and 72 in a 3 credit subject.",
+    "hyp": "Calculate my SGPA. I got 92 marks in a 4 credit subject, 85 in another 4 credit subject and 72 in a 3 credit subject.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.811
+   },
+   {
+    "id": "en13",
+    "lang": "en",
+    "ref": "My SGPA was 8 in a 20 credit semester and 9 in another 20 credit semester. What is my CGPA?",
+    "hyp": "My SGPA was 8 in a 20-credit semester and 9 in another 20-credit semester. What is my CGPA?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.813
+   },
+   {
+    "id": "en14",
+    "lang": "en",
+    "ref": "Hi, who are you and what can you do?",
+    "hyp": "Hi, who are you and what can you do?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.707
+   },
+   {
+    "id": "hi01",
+    "lang": "hi",
+    "ref": "मेरा Computer Networks का एग्जाम कब है?",
+    "hyp": "मेरा Computer Networks का एक्जाम कब है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.753
+   },
+   {
+    "id": "hi02",
+    "lang": "hi",
+    "ref": "थ्योरी ऑफ कंप्यूटेशन की परीक्षा किस समय शुरू होगी?",
+    "hyp": "Theory of Computation की परीक्षा किस समय शुरू होगी?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.777
+   },
+   {
+    "id": "hi03",
+    "lang": "hi",
+    "ref": "सॉफ्टवेयर इंजीनियरिंग की परीक्षा किस कमरे में है?",
+    "hyp": "Software Engineering की परीक्षा किस कमरे में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.733
+   },
+   {
+    "id": "hi04",
+    "lang": "hi",
+    "ref": "वेब टेक्नोलॉजी लैब की परीक्षा किस दिन है?",
+    "hyp": "वेब टेकनोलोजी लाब की परीक्षा किस दिन है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.823
+   },
+   {
+    "id": "hi05",
+    "lang": "hi",
+    "ref": "TOC की परीक्षा की तारीख बताओ।",
+    "hyp": "TOC की परीक्षा की तारीख बताओ.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.76
+   },
+   {
+    "id": "hi06",
+    "lang": "hi",
+    "ref": "कंप्यूटर नेटवर्क्स में TCP congestion control कौन से मॉड्यूल में है?",
+    "hyp": "Computer Networks में TCP Congestion Control कौन से मॉड्यूल में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.775
+   },
+   {
+    "id": "hi07",
+    "lang": "hi",
+    "ref": "थ्योरी ऑफ कंप्यूटेशन में ट्यूरिंग मशीन कौन से मॉड्यूल में पढ़ाई जाती है?",
+    "hyp": "ख्योरी ओफ कम्प्यूटेशन में ट्यूरिंग मशीन कौन से मॉड्यूल में पढ़ाई जाती है",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.011
+   },
+   {
+    "id": "hi08",
+    "lang": "hi",
+    "ref": "सॉफ्टवेयर इंजीनियरिंग में COCOMO मॉडल किस मॉड्यूल में है?",
+    "hyp": "सौफ्ट्वेर इंजिनेरिंग में कोकमो मॉडल किस मॉड्यूल में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.915
+   },
+   {
+    "id": "hi09",
+    "lang": "hi",
+    "ref": "कंप्यूटर नेटवर्क्स के सिलेबस में DNS कहाँ आता है?",
+    "hyp": "Computer Networks के syllabus में DNS कहां आता है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.751
+   },
+   {
+    "id": "hi10",
+    "lang": "hi",
+    "ref": "मुझे कल शाम 7 बजे TOC रिवाइज करने की याद दिलाना।",
+    "hyp": "मुझे कल शाम 7 बजेटी OC रिवायच करने की याद दिलाना",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.885
+   },
+   {
+    "id": "hi11",
+    "lang": "hi",
+    "ref": "8 अक्टूबर सुबह 10 बजे assignment जमा करने का reminder लगा दो।",
+    "hyp": "आठ अक्टूबर सुभा दस बजे असाइमेंट जमा करने का रिमाइंडर लगा दो.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.955
+   },
+   {
+    "id": "hi12",
+    "lang": "hi",
+    "ref": "मेरा SGPA निकालो: 4 क्रेडिट के विषय में 92 नंबर, दूसरे 4 क्रेडिट विषय में 85 और 3 क्रेडिट विषय में 72 नंबर।",
+    "hyp": "मेरा Ace GPA निकालो चार क्रेडिट के विशय में 92 नमबर, दूसरे चार क्रेडिट विशय में 85 और 3 क्रेडिट विशय में 72 नमबर.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.15
+   },
+   {
+    "id": "hi13",
+    "lang": "hi",
+    "ref": "पहले सेमेस्टर में SGPA 8 था और दूसरे में 9, दोनों 20 क्रेडिट के थे। मेरा CGPA क्या है?",
+    "hyp": "पहले सेमेस्टर में SGPA 8 था और दूसरे में 9, दोनों 20 क्रेडिट के थे। मेरा CGPA क्या है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.018
+   },
+   {
+    "id": "hi14",
+    "lang": "hi",
+    "ref": "नमस्ते, तुम कौन हो और क्या कर सकते हो?",
+    "hyp": "नमस्ते तुम कौन हो और क्या कर सकते हो?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.807
+   },
+   {
+    "id": "kn01",
+    "lang": "kn",
+    "ref": "ನನ್ನ ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಪರೀಕ್ಷೆ ಯಾವಾಗ?",
+    "hyp": "नन्न computer networks परिचे आवागा?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.741
+   },
+   {
+    "id": "kn02",
+    "lang": "kn",
+    "ref": "ಥಿಯರಿ ಆಫ್ ಕಂಪ್ಯೂಟೇಶನ್ ಪರೀಕ್ಷೆ ಎಷ್ಟು ಗಂಟೆಗೆ ಶುರು?",
+    "hyp": "Theory of Computation Pariksha is 2 minutes to go.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.686
+   },
+   {
+    "id": "kn03",
+    "lang": "kn",
+    "ref": "ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಪರೀಕ್ಷೆ ಯಾವ ಕೊಠಡಿಯಲ್ಲಿ ಇದೆ?",
+    "hyp": "Software Engineering परिच्छे यावग कोटड़ी यल्ली इदे",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.803
+   },
+   {
+    "id": "kn04",
+    "lang": "kn",
+    "ref": "ವೆಬ್ ಟೆಕ್ನಾಲಜಿ ಲ್ಯಾಬ್ ಪರೀಕ್ಷೆ ಯಾವ ದಿನ?",
+    "hyp": "वेब टेक्नालोजी लाब परीक्ष यावदिना",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.853
+   },
+   {
+    "id": "kn05",
+    "lang": "kn",
+    "ref": "TOC ಪರೀಕ್ಷೆಯ ದಿನಾಂಕ ಹೇಳಿ.",
+    "hyp": "Thakh Parikshya Dinankhele",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.696
+   },
+   {
+    "id": "kn06",
+    "lang": "kn",
+    "ref": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್‌ನಲ್ಲಿ TCP congestion control ಯಾವ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಇದೆ?",
+    "hyp": "Computer networks na li tachat congestion control yao module na li de.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.693
+   },
+   {
+    "id": "kn07",
+    "lang": "kn",
+    "ref": "ಥಿಯರಿ ಆಫ್ ಕಂಪ್ಯೂಟೇಶನ್‌ನಲ್ಲಿ ಟ್ಯೂರಿಂಗ್ ಮಷೀನ್ ಯಾವ ಮಾಡ್ಯೂಲ್?",
+    "hyp": "Theory of Computationally Curing Machine Yava Module",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.684
+   },
+   {
+    "id": "kn08",
+    "lang": "kn",
+    "ref": "ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ COCOMO ಮಾದರಿ ಯಾವ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಇದೆ?",
+    "hyp": "साफ्ट्वेर एंजिनेरिंग न ली खावकम व मादरी याव माडूल न ली दे",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.921
+   },
+   {
+    "id": "kn09",
+    "lang": "kn",
+    "ref": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಸಿಲಬಸ್‌ನಲ್ಲಿ DNS ಎಲ್ಲಿ ಬರುತ್ತದೆ?",
+    "hyp": "Computer, Networks, Syllabus नल्ली, DINs, एल्ली बरुत्त दे",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.789
+   },
+   {
+    "id": "kn10",
+    "lang": "kn",
+    "ref": "ನಾಳೆ ಸಂಜೆ 6 ಗಂಟೆಗೆ ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಓದಲು ನೆನಪಿಸು.",
+    "hyp": "4 संजे 6 गंटगे Computer Networks ओदलू निनपिसू.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.972
+   },
+   {
+    "id": "kn11",
+    "lang": "kn",
+    "ref": "ಅಕ್ಟೋಬರ್ 9 ಬೆಳಿಗ್ಗೆ 8 ಗಂಟೆಗೆ ಲ್ಯಾಬ್ ರೆಕಾರ್ಡ್ ಸಲ್ಲಿಸಲು ರಿಮೈಂಡರ್ ಇಡು.",
+    "hyp": "अप्तोबर 19 गळेगे 8 गंटेगे ल्याप रेकार्ड सल्ली सलू रिमाइन्दर वीडो",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.031
+   },
+   {
+    "id": "kn12",
+    "lang": "kn",
+    "ref": "ನನ್ನ SGPA ಲೆಕ್ಕ ಹಾಕಿ: 4 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 92 ಅಂಕ, ಇನ್ನೊಂದು 4 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 85 ಮತ್ತು 3 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 72 ಅಂಕ.",
+    "hyp": "नन्न सिग्पाल एक हाकी, 4 क्रेडिट विशेदल्ली 93 अंक, इन्नोंदु 4 क्रेडिट विशेदल्ली 85 मत्तु 3 क्रेडिट विशेदल्ली 83 अंक.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.24
+   },
+   {
+    "id": "kn13",
+    "lang": "kn",
+    "ref": "ಮೊದಲ ಸೆಮಿಸ್ಟರ್ SGPA 8, ಎರಡನೇ ಸೆಮಿಸ್ಟರ್ SGPA 9, ಎರಡೂ 20 ಕ್ರೆಡಿಟ್. ನನ್ನ CGPA ಎಷ್ಟು?",
+    "hyp": "मोदल सेमिस्टर सगपा एंटू, एरडने समिस्टर सगपा वंबतू, एरडू इप्पतु क्रेडिट, नन्न चगपा एश्टू.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.173
+   },
+   {
+    "id": "kn14",
+    "lang": "kn",
+    "ref": "ನಮಸ್ಕಾರ, ನೀವು ಯಾರು ಮತ್ತು ಏನು ಮಾಡಬಹುದು?",
+    "hyp": "नमस्कार, नीवु यारू मत्तु एनु माडबोवुदु।",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.867
+   }
+  ]
+ },
+ "large-v3": {
+  "model": "large-v3",
+  "device": "cuda",
+  "load_s": 17.1,
+  "per_lang": {
+   "hi": {
+    "n": 14,
+    "wer": 0.2403,
+    "cer": 0.1884,
+    "lid_acc_whisper": 1.0,
+    "lid_acc_final": 1.0,
+    "stt_p50_s": 2.114
+   },
+   "kn": {
+    "n": 14,
+    "wer": 0.8333,
+    "cer": 0.4669,
+    "lid_acc_whisper": 0.6429,
+    "lid_acc_final": 0.6429,
+    "stt_p50_s": 2.635
+   },
+   "en": {
+    "n": 14,
+    "wer": 0.0261,
+    "cer": 0.0115,
+    "lid_acc_whisper": 1.0,
+    "lid_acc_final": 1.0,
+    "stt_p50_s": 1.165
+   }
+  },
+  "rows": [
+   {
+    "id": "en01",
+    "lang": "en",
+    "ref": "When is my Computer Networks exam?",
+    "hyp": "When is my computer networks exam?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.394
+   },
+   {
+    "id": "en02",
+    "lang": "en",
+    "ref": "What time does the Theory of Computation exam start?",
+    "hyp": "What time does the theory of computation exam start?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.252
+   },
+   {
+    "id": "en03",
+    "lang": "en",
+    "ref": "Where is the software engineering exam hall?",
+    "hyp": "Where is the software engineering exam hall?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.017
+   },
+   {
+    "id": "en04",
+    "lang": "en",
+    "ref": "Which day is the web technology lab exam?",
+    "hyp": "Which day is the Web Technology Lab exam?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.158
+   },
+   {
+    "id": "en05",
+    "lang": "en",
+    "ref": "Tell me the date of the TOC exam.",
+    "hyp": "Tell me the date of the TOC exam.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.058
+   },
+   {
+    "id": "en06",
+    "lang": "en",
+    "ref": "Which module of computer networks covers TCP congestion control?",
+    "hyp": "Which module of computer networks covers TCP congestion control?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.098
+   },
+   {
+    "id": "en07",
+    "lang": "en",
+    "ref": "In which module is the pumping lemma taught in Theory of Computation?",
+    "hyp": "In which module is the pumping lemma taught in theory of computation?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.416
+   },
+   {
+    "id": "en08",
+    "lang": "en",
+    "ref": "What is the textbook for Theory of Computation?",
+    "hyp": "What is the textbook for theory of computation?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.117
+   },
+   {
+    "id": "en09",
+    "lang": "en",
+    "ref": "Does the software engineering syllabus include Scrum?",
+    "hyp": "Does the software engineering syllabus include Scrum?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.987
+   },
+   {
+    "id": "en10",
+    "lang": "en",
+    "ref": "Remind me to revise computer networks tomorrow at 6 pm.",
+    "hyp": "Remind me to revise computer networks tomorrow at 6 p.m.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.173
+   },
+   {
+    "id": "en11",
+    "lang": "en",
+    "ref": "Set a reminder to submit the web lab record on October 10 at 9 am.",
+    "hyp": "Set a reminder to submit the web lab record on 10th October at 9 am.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.212
+   },
+   {
+    "id": "en12",
+    "lang": "en",
+    "ref": "Calculate my SGPA. I got 92 marks in a 4 credit subject, 85 in another 4 credit subject and 72 in a 3 credit subject.",
+    "hyp": "Calculate my SGPA. I got 92 marks in a 4 credit subject, 85 in another 4 credit subject and 72 in a 3 credit subject.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.851
+   },
+   {
+    "id": "en13",
+    "lang": "en",
+    "ref": "My SGPA was 8 in a 20 credit semester and 9 in another 20 credit semester. What is my CGPA?",
+    "hyp": "My SGPA was 8 in a 20-credit semester and 9 in another 20-credit semester. What is my CGPA?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.772
+   },
+   {
+    "id": "en14",
+    "lang": "en",
+    "ref": "Hi, who are you and what can you do?",
+    "hyp": "Hi, who are you and what can you do?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.063
+   },
+   {
+    "id": "hi01",
+    "lang": "hi",
+    "ref": "मेरा Computer Networks का एग्जाम कब है?",
+    "hyp": "मेरा Computer Networks का एक्जाम कब है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.394
+   },
+   {
+    "id": "hi02",
+    "lang": "hi",
+    "ref": "थ्योरी ऑफ कंप्यूटेशन की परीक्षा किस समय शुरू होगी?",
+    "hyp": "Theory of Computation की परीक्षा किस समय शुरू होगी?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.617
+   },
+   {
+    "id": "hi03",
+    "lang": "hi",
+    "ref": "सॉफ्टवेयर इंजीनियरिंग की परीक्षा किस कमरे में है?",
+    "hyp": "सौफ्टवेर इंजिनियरिंग की परीक्षा किस कमरे में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 2.299
+   },
+   {
+    "id": "hi04",
+    "lang": "hi",
+    "ref": "वेब टेक्नोलॉजी लैब की परीक्षा किस दिन है?",
+    "hyp": "वेब टेक्नोलोजी लाब की परीक्षा किस दिन है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.835
+   },
+   {
+    "id": "hi05",
+    "lang": "hi",
+    "ref": "TOC की परीक्षा की तारीख बताओ।",
+    "hyp": "TOC की परीक्षा की तारीख बताओ",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.451
+   },
+   {
+    "id": "hi06",
+    "lang": "hi",
+    "ref": "कंप्यूटर नेटवर्क्स में TCP congestion control कौन से मॉड्यूल में है?",
+    "hyp": "कंप्यूटर नेटवर्क्स में TCP कंजेशन कंट्रोल कौन से मॉड्यूल में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 2.492
+   },
+   {
+    "id": "hi07",
+    "lang": "hi",
+    "ref": "थ्योरी ऑफ कंप्यूटेशन में ट्यूरिंग मशीन कौन से मॉड्यूल में पढ़ाई जाती है?",
+    "hyp": "theory of computation में Turing machine कौन से module में पढ़ाई जाती है",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.708
+   },
+   {
+    "id": "hi08",
+    "lang": "hi",
+    "ref": "सॉफ्टवेयर इंजीनियरिंग में COCOMO मॉडल किस मॉड्यूल में है?",
+    "hyp": "सौफ्टवेर इंजिनेरिंग में कोकमो मॉडल किस मॉडूल में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 2.379
+   },
+   {
+    "id": "hi09",
+    "lang": "hi",
+    "ref": "कंप्यूटर नेटवर्क्स के सिलेबस में DNS कहाँ आता है?",
+    "hyp": "कम्प्यूटर नेटवर्क्स के सिलेबस में DNS कहां आता है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.952
+   },
+   {
+    "id": "hi10",
+    "lang": "hi",
+    "ref": "मुझे कल शाम 7 बजे TOC रिवाइज करने की याद दिलाना।",
+    "hyp": "मुझे कल शाम 7 बजे टी ओसी रिवाइट करने की याद दिलाना",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 2.275
+   },
+   {
+    "id": "hi11",
+    "lang": "hi",
+    "ref": "8 अक्टूबर सुबह 10 बजे assignment जमा करने का reminder लगा दो।",
+    "hyp": "8 अक्टूबर सुभा 10 बजे असाइमिन जमा करने का रिमाइंडर लगा दो",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 2.54
+   },
+   {
+    "id": "hi12",
+    "lang": "hi",
+    "ref": "मेरा SGPA निकालो: 4 क्रेडिट के विषय में 92 नंबर, दूसरे 4 क्रेडिट विषय में 85 और 3 क्रेडिट विषय में 72 नंबर।",
+    "hyp": "मेरा एस जीपी ए निकालो, चार क्रेडिट के विशय में 92 नंबर, दूसरे चार क्रेडिट विशय में 85 और तीन क्रेडिट विशय में 72 नंबर.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 3.608
+   },
+   {
+    "id": "hi13",
+    "lang": "hi",
+    "ref": "पहले सेमेस्टर में SGPA 8 था और दूसरे में 9, दोनों 20 क्रेडिट के थे। मेरा CGPA क्या है?",
+    "hyp": "पहले सेमेस्टर में SGPA 8 था और दूसरे में 9, दोनों 20 क्रेडिट के थे. मेरा CGPA क्या है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 2.577
+   },
+   {
+    "id": "hi14",
+    "lang": "hi",
+    "ref": "नमस्ते, तुम कौन हो और क्या कर सकते हो?",
+    "hyp": "नमस्ते तुम कौन हो और क्या कर सकते हो?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.622
+   },
+   {
+    "id": "kn01",
+    "lang": "kn",
+    "ref": "ನನ್ನ ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಪರೀಕ್ಷೆ ಯಾವಾಗ?",
+    "hyp": "ನನ್ನ ಕಮ್ಪಿಯೂಟರ್ ನೇಟ್ವರ್ಕ್ಸ್ ಪರಿಚ್ಚೆ ಯಾವಾಗ?",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 2.418
+   },
+   {
+    "id": "kn02",
+    "lang": "kn",
+    "ref": "ಥಿಯರಿ ಆಫ್ ಕಂಪ್ಯೂಟೇಶನ್ ಪರೀಕ್ಷೆ ಎಷ್ಟು ಗಂಟೆಗೆ ಶುರು?",
+    "hyp": "Theory of Computation परीक्षे एश्टु गंते के शुरू",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.628
+   },
+   {
+    "id": "kn03",
+    "lang": "kn",
+    "ref": "ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಪರೀಕ್ಷೆ ಯಾವ ಕೊಠಡಿಯಲ್ಲಿ ಇದೆ?",
+    "hyp": "ಸಾಫ್ಟ್ರೆಯರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಪರಿಚ್ಚೆ ಯಾವ ಕೊರ್ತಿಡಿಯಲ್ಲಿ ಇದೆ.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 3.014
+   },
+   {
+    "id": "kn04",
+    "lang": "kn",
+    "ref": "ವೆಬ್ ಟೆಕ್ನಾಲಜಿ ಲ್ಯಾಬ್ ಪರೀಕ್ಷೆ ಯಾವ ದಿನ?",
+    "hyp": "Web Technology Lab Pariksha Yava Dina",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.002
+   },
+   {
+    "id": "kn05",
+    "lang": "kn",
+    "ref": "TOC ಪರೀಕ್ಷೆಯ ದಿನಾಂಕ ಹೇಳಿ.",
+    "hyp": "ठक्ष परिक्षे दिनांग हेली",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.377
+   },
+   {
+    "id": "kn06",
+    "lang": "kn",
+    "ref": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್‌ನಲ್ಲಿ TCP congestion control ಯಾವ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಇದೆ?",
+    "hyp": "Computer networks need to have congestion control, or modules need to have it.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.434
+   },
+   {
+    "id": "kn07",
+    "lang": "kn",
+    "ref": "ಥಿಯರಿ ಆಫ್ ಕಂಪ್ಯೂಟೇಶನ್‌ನಲ್ಲಿ ಟ್ಯೂರಿಂಗ್ ಮಷೀನ್ ಯಾವ ಮಾಡ್ಯೂಲ್?",
+    "hyp": "ತಿಯರಿ ಆಫ್ ಕಮ್ಪ್ಯೂಟಿಶನ್ನಲ್ಲಿ ಕೂರಿಂಗ್ ಮಶಿನ್ ಯಾವ ಮಾಡಿಯೂಲ್",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 2.852
+   },
+   {
+    "id": "kn08",
+    "lang": "kn",
+    "ref": "ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ COCOMO ಮಾದರಿ ಯಾವ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಇದೆ?",
+    "hyp": "There is a module in software engineering called Kaukamo.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.022
+   },
+   {
+    "id": "kn09",
+    "lang": "kn",
+    "ref": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಸಿಲಬಸ್‌ನಲ್ಲಿ DNS ಎಲ್ಲಿ ಬರುತ್ತದೆ?",
+    "hyp": "ಕಮ್ಪೀಟರ್ ನೇಡ್ವರ್ಕ್ಸ್ ಸಿಲಬಸ್ನ ಲಿಡಿಂಸ್ ಎಲ್ಲಿ ಬರುತ್ತದೆ?",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 3.133
+   },
+   {
+    "id": "kn10",
+    "lang": "kn",
+    "ref": "ನಾಳೆ ಸಂಜೆ 6 ಗಂಟೆಗೆ ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಓದಲು ನೆನಪಿಸು.",
+    "hyp": "ನಾನೆ ಸಂಜೆ ಆರು ಗಂಟಿಗೆ ಕಮ್ಪೀಟರ್ ನೇಟ್ವರ್ಕ್ಸ್ ಓದಲು ನಿನಪಿಸು.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 3.296
+   },
+   {
+    "id": "kn11",
+    "lang": "kn",
+    "ref": "ಅಕ್ಟೋಬರ್ 9 ಬೆಳಿಗ್ಗೆ 8 ಗಂಟೆಗೆ ಲ್ಯಾಬ್ ರೆಕಾರ್ಡ್ ಸಲ್ಲಿಸಲು ರಿಮೈಂಡರ್ ಇಡು.",
+    "hyp": "ಅಪ್ಟೋಬರ್ ಒಂಬತ್ತು ಗಳಿಗ್ಗೆ ಎಂಟು ಗಂಟಗೆ ಲಾಬ್ ರೆಕಾಡ್ಸಲ್ಲಿಸಲು ರಿಮಾಇಂದರ್ ಇದು.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 4.145
+   },
+   {
+    "id": "kn12",
+    "lang": "kn",
+    "ref": "ನನ್ನ SGPA ಲೆಕ್ಕ ಹಾಕಿ: 4 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 92 ಅಂಕ, ಇನ್ನೊಂದು 4 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 85 ಮತ್ತು 3 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 72 ಅಂಕ.",
+    "hyp": "ನನ್ನ ಸಿಗ್ಪಾಯಲೆಕ್ಕ ಹಾಕಿ, ನಾಲ್ಕು ಕೃಡಿಟ್ ವಿಷೇದಲ್ಲಿ 92 ಅಂಕ ಇನ್ನುಂದು ನಾಲ್ಕು ಕೃಡಿಟ್ ವಿಷೇದಲ್ಲಿ 85 ಮತ್ತು ಮೂರು ಕೃಡಿಟ್ ವಿಷೇದಲ್ಲಿ 72 ಅಂಕ.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 30.159
+   },
+   {
+    "id": "kn13",
+    "lang": "kn",
+    "ref": "ಮೊದಲ ಸೆಮಿಸ್ಟರ್ SGPA 8, ಎರಡನೇ ಸೆಮಿಸ್ಟರ್ SGPA 9, ಎರಡೂ 20 ಕ್ರೆಡಿಟ್. ನನ್ನ CGPA ಎಷ್ಟು?",
+    "hyp": "ಮುದಲ ಸಿಮಿಸ್ಟರ್ಸಗಪಾ ಎಂಟು ಎರಡನೆ ಸಿಮಿಸ್ಟರ್ಸಗಪಾ ಒಂಬತ್ತು ಎರಡು ಇಪ್ಪತ್ತು ಕ್ರೇಡಿಟ್. ನನ್ನ ಚೆಗಿಪಾ ಎಷ್ಟು.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 4.612
+   },
+   {
+    "id": "kn14",
+    "lang": "kn",
+    "ref": "ನಮಸ್ಕಾರ, ನೀವು ಯಾರು ಮತ್ತು ಏನು ಮಾಡಬಹುದು?",
+    "hyp": "ನಮಸ್ಕಾರ ನಿವು ಯಾರು ಮತ್ತು ಏನು ಮಾಡಬೋದು.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 2.151
+   }
+  ]
+ },
+ "large-v3+forced_lang": {
+  "model": "large-v3+forced_lang",
+  "forced_language": true,
+  "device": "cuda",
+  "load_s": 14.9,
+  "per_lang": {
+   "hi": {
+    "n": 14,
+    "wer": 0.2403,
+    "cer": 0.1884,
+    "lid_acc_whisper": 1.0,
+    "lid_acc_final": 1.0,
+    "stt_p50_s": 1.732
+   },
+   "kn": {
+    "n": 14,
+    "wer": 0.693,
+    "cer": 0.2761,
+    "lid_acc_whisper": 1.0,
+    "lid_acc_final": 1.0,
+    "stt_p50_s": 2.551
+   },
+   "en": {
+    "n": 14,
+    "wer": 0.0261,
+    "cer": 0.0115,
+    "lid_acc_whisper": 1.0,
+    "lid_acc_final": 1.0,
+    "stt_p50_s": 0.798
+   }
+  },
+  "rows": [
+   {
+    "id": "en01",
+    "lang": "en",
+    "ref": "When is my Computer Networks exam?",
+    "hyp": "When is my computer networks exam?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.954
+   },
+   {
+    "id": "en02",
+    "lang": "en",
+    "ref": "What time does the Theory of Computation exam start?",
+    "hyp": "What time does the theory of computation exam start?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.737
+   },
+   {
+    "id": "en03",
+    "lang": "en",
+    "ref": "Where is the software engineering exam hall?",
+    "hyp": "Where is the software engineering exam hall?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.663
+   },
+   {
+    "id": "en04",
+    "lang": "en",
+    "ref": "Which day is the web technology lab exam?",
+    "hyp": "Which day is the Web Technology Lab exam?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.677
+   },
+   {
+    "id": "en05",
+    "lang": "en",
+    "ref": "Tell me the date of the TOC exam.",
+    "hyp": "Tell me the date of the TOC exam.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.702
+   },
+   {
+    "id": "en06",
+    "lang": "en",
+    "ref": "Which module of computer networks covers TCP congestion control?",
+    "hyp": "Which module of computer networks covers TCP congestion control?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.817
+   },
+   {
+    "id": "en07",
+    "lang": "en",
+    "ref": "In which module is the pumping lemma taught in Theory of Computation?",
+    "hyp": "In which module is the pumping lemma taught in theory of computation?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.239
+   },
+   {
+    "id": "en08",
+    "lang": "en",
+    "ref": "What is the textbook for Theory of Computation?",
+    "hyp": "What is the textbook for theory of computation?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.765
+   },
+   {
+    "id": "en09",
+    "lang": "en",
+    "ref": "Does the software engineering syllabus include Scrum?",
+    "hyp": "Does the software engineering syllabus include Scrum?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.674
+   },
+   {
+    "id": "en10",
+    "lang": "en",
+    "ref": "Remind me to revise computer networks tomorrow at 6 pm.",
+    "hyp": "Remind me to revise computer networks tomorrow at 6 p.m.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.795
+   },
+   {
+    "id": "en11",
+    "lang": "en",
+    "ref": "Set a reminder to submit the web lab record on October 10 at 9 am.",
+    "hyp": "Set a reminder to submit the web lab record on 10th October at 9 am.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.855
+   },
+   {
+    "id": "en12",
+    "lang": "en",
+    "ref": "Calculate my SGPA. I got 92 marks in a 4 credit subject, 85 in another 4 credit subject and 72 in a 3 credit subject.",
+    "hyp": "Calculate my SGPA. I got 92 marks in a 4 credit subject, 85 in another 4 credit subject and 72 in a 3 credit subject.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.921
+   },
+   {
+    "id": "en13",
+    "lang": "en",
+    "ref": "My SGPA was 8 in a 20 credit semester and 9 in another 20 credit semester. What is my CGPA?",
+    "hyp": "My SGPA was 8 in a 20-credit semester and 9 in another 20-credit semester. What is my CGPA?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 1.281
+   },
+   {
+    "id": "en14",
+    "lang": "en",
+    "ref": "Hi, who are you and what can you do?",
+    "hyp": "Hi, who are you and what can you do?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.802
+   },
+   {
+    "id": "hi01",
+    "lang": "hi",
+    "ref": "मेरा Computer Networks का एग्जाम कब है?",
+    "hyp": "मेरा Computer Networks का एक्जाम कब है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.076
+   },
+   {
+    "id": "hi02",
+    "lang": "hi",
+    "ref": "थ्योरी ऑफ कंप्यूटेशन की परीक्षा किस समय शुरू होगी?",
+    "hyp": "Theory of Computation की परीक्षा किस समय शुरू होगी?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.367
+   },
+   {
+    "id": "hi03",
+    "lang": "hi",
+    "ref": "सॉफ्टवेयर इंजीनियरिंग की परीक्षा किस कमरे में है?",
+    "hyp": "सौफ्टवेर इंजिनियरिंग की परीक्षा किस कमरे में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.675
+   },
+   {
+    "id": "hi04",
+    "lang": "hi",
+    "ref": "वेब टेक्नोलॉजी लैब की परीक्षा किस दिन है?",
+    "hyp": "वेब टेक्नोलोजी लाब की परीक्षा किस दिन है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.57
+   },
+   {
+    "id": "hi05",
+    "lang": "hi",
+    "ref": "TOC की परीक्षा की तारीख बताओ।",
+    "hyp": "TOC की परीक्षा की तारीख बताओ",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.124
+   },
+   {
+    "id": "hi06",
+    "lang": "hi",
+    "ref": "कंप्यूटर नेटवर्क्स में TCP congestion control कौन से मॉड्यूल में है?",
+    "hyp": "कंप्यूटर नेटवर्क्स में TCP कंजेशन कंट्रोल कौन से मॉड्यूल में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.988
+   },
+   {
+    "id": "hi07",
+    "lang": "hi",
+    "ref": "थ्योरी ऑफ कंप्यूटेशन में ट्यूरिंग मशीन कौन से मॉड्यूल में पढ़ाई जाती है?",
+    "hyp": "theory of computation में Turing machine कौन से module में पढ़ाई जाती है",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.334
+   },
+   {
+    "id": "hi08",
+    "lang": "hi",
+    "ref": "सॉफ्टवेयर इंजीनियरिंग में COCOMO मॉडल किस मॉड्यूल में है?",
+    "hyp": "सौफ्टवेर इंजिनेरिंग में कोकमो मॉडल किस मॉडूल में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.926
+   },
+   {
+    "id": "hi09",
+    "lang": "hi",
+    "ref": "कंप्यूटर नेटवर्क्स के सिलेबस में DNS कहाँ आता है?",
+    "hyp": "कम्प्यूटर नेटवर्क्स के सिलेबस में DNS कहां आता है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.819
+   },
+   {
+    "id": "hi10",
+    "lang": "hi",
+    "ref": "मुझे कल शाम 7 बजे TOC रिवाइज करने की याद दिलाना।",
+    "hyp": "मुझे कल शाम 7 बजे टी ओसी रिवाइट करने की याद दिलाना",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.788
+   },
+   {
+    "id": "hi11",
+    "lang": "hi",
+    "ref": "8 अक्टूबर सुबह 10 बजे assignment जमा करने का reminder लगा दो।",
+    "hyp": "8 अक्टूबर सुभा 10 बजे असाइमिन जमा करने का रिमाइंडर लगा दो",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 2.07
+   },
+   {
+    "id": "hi12",
+    "lang": "hi",
+    "ref": "मेरा SGPA निकालो: 4 क्रेडिट के विषय में 92 नंबर, दूसरे 4 क्रेडिट विषय में 85 और 3 क्रेडिट विषय में 72 नंबर।",
+    "hyp": "मेरा एस जीपी ए निकालो, चार क्रेडिट के विशय में 92 नंबर, दूसरे चार क्रेडिट विशय में 85 और तीन क्रेडिट विशय में 72 नंबर.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 3.309
+   },
+   {
+    "id": "hi13",
+    "lang": "hi",
+    "ref": "पहले सेमेस्टर में SGPA 8 था और दूसरे में 9, दोनों 20 क्रेडिट के थे। मेरा CGPA क्या है?",
+    "hyp": "पहले सेमेस्टर में SGPA 8 था और दूसरे में 9, दोनों 20 क्रेडिट के थे. मेरा CGPA क्या है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 2.293
+   },
+   {
+    "id": "hi14",
+    "lang": "hi",
+    "ref": "नमस्ते, तुम कौन हो और क्या कर सकते हो?",
+    "hyp": "नमस्ते तुम कौन हो और क्या कर सकते हो?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 1.39
+   },
+   {
+    "id": "kn01",
+    "lang": "kn",
+    "ref": "ನನ್ನ ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಪರೀಕ್ಷೆ ಯಾವಾಗ?",
+    "hyp": "ನನ್ನ ಕಮ್ಪಿಯೂಟರ್ ನೇಟ್ವರ್ಕ್ಸ್ ಪರಿಚ್ಚೆ ಯಾವಾಗ?",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 2.195
+   },
+   {
+    "id": "kn02",
+    "lang": "kn",
+    "ref": "ಥಿಯರಿ ಆಫ್ ಕಂಪ್ಯೂಟೇಶನ್ ಪರೀಕ್ಷೆ ಎಷ್ಟು ಗಂಟೆಗೆ ಶುರು?",
+    "hyp": "ತಿರಿ ಆಫ್ ಕಮ್ಪುಟೇಶನ್ ಪರಿಕ್ಷೆ ಎಸ್ಟು ಗಂಟಗೆ ಶುರು?",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 2.225
+   },
+   {
+    "id": "kn03",
+    "lang": "kn",
+    "ref": "ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಪರೀಕ್ಷೆ ಯಾವ ಕೊಠಡಿಯಲ್ಲಿ ಇದೆ?",
+    "hyp": "ಸಾಫ್ಟ್ರೆಯರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಪರಿಚ್ಚೆ ಯಾವ ಕೊರ್ತಿಡಿಯಲ್ಲಿ ಇದೆ.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 2.565
+   },
+   {
+    "id": "kn04",
+    "lang": "kn",
+    "ref": "ವೆಬ್ ಟೆಕ್ನಾಲಜಿ ಲ್ಯಾಬ್ ಪರೀಕ್ಷೆ ಯಾವ ದಿನ?",
+    "hyp": "ವೇಬ್ ಟೆಕ್ನಾಲಜಿ ಲಾಬ್ ಪರಿಕ್ಷೆ ಯಾವದಿನ.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 1.857
+   },
+   {
+    "id": "kn05",
+    "lang": "kn",
+    "ref": "TOC ಪರೀಕ್ಷೆಯ ದಿನಾಂಕ ಹೇಳಿ.",
+    "hyp": "ಟಾಕ್ ಪರಿಕ್ಷೆ ದಿನಾಂಕ್ ಹೇಳಿ.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 1.541
+   },
+   {
+    "id": "kn06",
+    "lang": "kn",
+    "ref": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್‌ನಲ್ಲಿ TCP congestion control ಯಾವ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಇದೆ?",
+    "hyp": "ಕಮ್ಪುಟರ್ ನೇಟ್ವರ್ಕ್ಸ್ ನಲಿ ತಚಪ್ ಕಂಜೆಸ್ಚಿಂ ಕಂಟ್ರೋಲ್ ಯಾವ ಮಾಡುಲ್ ನಲಿದೆ.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 3.431
+   },
+   {
+    "id": "kn07",
+    "lang": "kn",
+    "ref": "ಥಿಯರಿ ಆಫ್ ಕಂಪ್ಯೂಟೇಶನ್‌ನಲ್ಲಿ ಟ್ಯೂರಿಂಗ್ ಮಷೀನ್ ಯಾವ ಮಾಡ್ಯೂಲ್?",
+    "hyp": "ತಿಯರಿ ಆಫ್ ಕಮ್ಪ್ಯೂಟಿಶನ್ನಲ್ಲಿ ಕೂರಿಂಗ್ ಮಶಿನ್ ಯಾವ ಮಾಡಿಯೂಲ್",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 2.482
+   },
+   {
+    "id": "kn08",
+    "lang": "kn",
+    "ref": "ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ COCOMO ಮಾದರಿ ಯಾವ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಇದೆ?",
+    "hyp": "ಸಾಫ್ಟ್ರೇರ್ ಎಂಜಿನೇರಿಂಗ್ಗನಲ್ಲಿ ಕಾಉಕಮ ಮಾದರಿ ಯಾವ ಮಾಡುಲ್ಲಿದೆ.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 2.688
+   },
+   {
+    "id": "kn09",
+    "lang": "kn",
+    "ref": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಸಿಲಬಸ್‌ನಲ್ಲಿ DNS ಎಲ್ಲಿ ಬರುತ್ತದೆ?",
+    "hyp": "ಕಮ್ಪೀಟರ್ ನೇಡ್ವರ್ಕ್ಸ್ ಸಿಲಬಸ್ನ ಲಿಡಿಂಸ್ ಎಲ್ಲಿ ಬರುತ್ತದೆ?",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 2.968
+   },
+   {
+    "id": "kn10",
+    "lang": "kn",
+    "ref": "ನಾಳೆ ಸಂಜೆ 6 ಗಂಟೆಗೆ ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಓದಲು ನೆನಪಿಸು.",
+    "hyp": "ನಾನೆ ಸಂಜೆ ಆರು ಗಂಟಿಗೆ ಕಮ್ಪೀಟರ್ ನೇಟ್ವರ್ಕ್ಸ್ ಓದಲು ನಿನಪಿಸು.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 2.537
+   },
+   {
+    "id": "kn11",
+    "lang": "kn",
+    "ref": "ಅಕ್ಟೋಬರ್ 9 ಬೆಳಿಗ್ಗೆ 8 ಗಂಟೆಗೆ ಲ್ಯಾಬ್ ರೆಕಾರ್ಡ್ ಸಲ್ಲಿಸಲು ರಿಮೈಂಡರ್ ಇಡು.",
+    "hyp": "ಅಪ್ಟೋಬರ್ ಒಂಬತ್ತು ಗಳಿಗ್ಗೆ ಎಂಟು ಗಂಟಗೆ ಲಾಬ್ ರೆಕಾಡ್ಸಲ್ಲಿಸಲು ರಿಮಾಇಂದರ್ ಇದು.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 3.196
+   },
+   {
+    "id": "kn12",
+    "lang": "kn",
+    "ref": "ನನ್ನ SGPA ಲೆಕ್ಕ ಹಾಕಿ: 4 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 92 ಅಂಕ, ಇನ್ನೊಂದು 4 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 85 ಮತ್ತು 3 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 72 ಅಂಕ.",
+    "hyp": "ನನ್ನ ಸಿಗ್ಪಾಲೆಕ್ಕ ಹಾಕಿ ನಾಲ್ಕು ಕ್ರೆಡಿಟ್ ವಿಷೇದಲ್ಲಿ 92 ಅಂಕ ಇನ್ನು ನಾಲ್ಕು ಕ್ರೆಡಿಟ್ ವಿಷೇದಲ್ಲಿ 85 ಮತ್ತು 3 ಕ್ರೆಡಿಟ್ ವಿಷೇದಲ್ಲಿ 72 ಅಂಕ.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 13.798
+   },
+   {
+    "id": "kn13",
+    "lang": "kn",
+    "ref": "ಮೊದಲ ಸೆಮಿಸ್ಟರ್ SGPA 8, ಎರಡನೇ ಸೆಮಿಸ್ಟರ್ SGPA 9, ಎರಡೂ 20 ಕ್ರೆಡಿಟ್. ನನ್ನ CGPA ಎಷ್ಟು?",
+    "hyp": "ಮುದಲ ಸಿಮಿಸ್ಟರ್ಸಗಪಾ ಎಂಟು ಎರಡನೆ ಸಿಮಿಸ್ಟರ್ಸಗಪಾ ಒಂಬತ್ತು ಎರಡು ಇಪ್ಪತ್ತು ಕ್ರೇಡಿಟ್. ನನ್ನ ಚೆಗಿಪಾ ಎಷ್ಟು.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 4.506
+   },
+   {
+    "id": "kn14",
+    "lang": "kn",
+    "ref": "ನಮಸ್ಕಾರ, ನೀವು ಯಾರು ಮತ್ತು ಏನು ಮಾಡಬಹುದು?",
+    "hyp": "ನಮಸ್ಕಾರ ನಿವು ಯಾರು ಮತ್ತು ಏನು ಮಾಡಬೋದು.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 1.989
+   }
+  ]
+ },
+ "large-v3-turbo+forced_lang": {
+  "model": "large-v3-turbo+forced_lang",
+  "forced_language": true,
+  "device": "cuda",
+  "load_s": 3.9,
+  "per_lang": {
+   "hi": {
+    "n": 14,
+    "wer": 0.2403,
+    "cer": 0.1884,
+    "lid_acc_whisper": 1.0,
+    "lid_acc_final": 1.0,
+    "stt_p50_s": 0.627
+   },
+   "kn": {
+    "n": 14,
+    "wer": 0.8947,
+    "cer": 0.5394,
+    "lid_acc_whisper": 1.0,
+    "lid_acc_final": 1.0,
+    "stt_p50_s": 0.731
+   },
+   "en": {
+    "n": 14,
+    "wer": 0.0392,
+    "cer": 0.0128,
+    "lid_acc_whisper": 1.0,
+    "lid_acc_final": 1.0,
+    "stt_p50_s": 0.503
+   }
+  },
+  "rows": [
+   {
+    "id": "en01",
+    "lang": "en",
+    "ref": "When is my Computer Networks exam?",
+    "hyp": "When is my computer networks exam?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.484
+   },
+   {
+    "id": "en02",
+    "lang": "en",
+    "ref": "What time does the Theory of Computation exam start?",
+    "hyp": "What time does the theory of computation exam start?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.478
+   },
+   {
+    "id": "en03",
+    "lang": "en",
+    "ref": "Where is the software engineering exam hall?",
+    "hyp": "Where is the software engineering exam hall?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.456
+   },
+   {
+    "id": "en04",
+    "lang": "en",
+    "ref": "Which day is the web technology lab exam?",
+    "hyp": "Which day is the web technology lab exam?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.447
+   },
+   {
+    "id": "en05",
+    "lang": "en",
+    "ref": "Tell me the date of the TOC exam.",
+    "hyp": "Tell me the date of the TOC exam.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.452
+   },
+   {
+    "id": "en06",
+    "lang": "en",
+    "ref": "Which module of computer networks covers TCP congestion control?",
+    "hyp": "Which module of computer networks covers TCP congestion control?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.493
+   },
+   {
+    "id": "en07",
+    "lang": "en",
+    "ref": "In which module is the pumping lemma taught in Theory of Computation?",
+    "hyp": "In which module is the pumping lemma taught in theory of computation?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.521
+   },
+   {
+    "id": "en08",
+    "lang": "en",
+    "ref": "What is the textbook for Theory of Computation?",
+    "hyp": "What is the textbook for theory of computation?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.551
+   },
+   {
+    "id": "en09",
+    "lang": "en",
+    "ref": "Does the software engineering syllabus include Scrum?",
+    "hyp": "Does the software engineering syllabus include Scrum?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.635
+   },
+   {
+    "id": "en10",
+    "lang": "en",
+    "ref": "Remind me to revise computer networks tomorrow at 6 pm.",
+    "hyp": "Remind me to revise computer networks tomorrow at 6 p.m.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.574
+   },
+   {
+    "id": "en11",
+    "lang": "en",
+    "ref": "Set a reminder to submit the web lab record on October 10 at 9 am.",
+    "hyp": "Set a reminder to submit the web lab record on 10th October at 9 a.m.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.513
+   },
+   {
+    "id": "en12",
+    "lang": "en",
+    "ref": "Calculate my SGPA. I got 92 marks in a 4 credit subject, 85 in another 4 credit subject and 72 in a 3 credit subject.",
+    "hyp": "Calculate my SGPA. I got 92 marks in a 4 credit subject, 85 in another 4 credit subject and 72 in a 3 credit subject.",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.607
+   },
+   {
+    "id": "en13",
+    "lang": "en",
+    "ref": "My SGPA was 8 in a 20 credit semester and 9 in another 20 credit semester. What is my CGPA?",
+    "hyp": "My SGPA was 8 in a 20-credit semester and 9 in another 20-credit semester. What is my CGPA?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.602
+   },
+   {
+    "id": "en14",
+    "lang": "en",
+    "ref": "Hi, who are you and what can you do?",
+    "hyp": "Hi, who are you and what can you do?",
+    "whisper_lang": "en",
+    "final_lang": "en",
+    "seconds": 0.456
+   },
+   {
+    "id": "hi01",
+    "lang": "hi",
+    "ref": "मेरा Computer Networks का एग्जाम कब है?",
+    "hyp": "मेरा Computer Networks का एक्जाम कब है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.523
+   },
+   {
+    "id": "hi02",
+    "lang": "hi",
+    "ref": "थ्योरी ऑफ कंप्यूटेशन की परीक्षा किस समय शुरू होगी?",
+    "hyp": "Theory of Computation की परीक्षा किस समय शुरू होगी?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.56
+   },
+   {
+    "id": "hi03",
+    "lang": "hi",
+    "ref": "सॉफ्टवेयर इंजीनियरिंग की परीक्षा किस कमरे में है?",
+    "hyp": "Software Engineering की परीक्षा किस कमरे में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.629
+   },
+   {
+    "id": "hi04",
+    "lang": "hi",
+    "ref": "वेब टेक्नोलॉजी लैब की परीक्षा किस दिन है?",
+    "hyp": "वेब टेकनोलोजी लाब की परीक्षा किस दिन है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.625
+   },
+   {
+    "id": "hi05",
+    "lang": "hi",
+    "ref": "TOC की परीक्षा की तारीख बताओ।",
+    "hyp": "TOC की परीक्षा की तारीख बताओ.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.553
+   },
+   {
+    "id": "hi06",
+    "lang": "hi",
+    "ref": "कंप्यूटर नेटवर्क्स में TCP congestion control कौन से मॉड्यूल में है?",
+    "hyp": "Computer Networks में TCP Congestion Control कौन से मॉड्यूल में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.564
+   },
+   {
+    "id": "hi07",
+    "lang": "hi",
+    "ref": "थ्योरी ऑफ कंप्यूटेशन में ट्यूरिंग मशीन कौन से मॉड्यूल में पढ़ाई जाती है?",
+    "hyp": "ख्योरी ओफ कम्प्यूटेशन में ट्यूरिंग मशीन कौन से मॉड्यूल में पढ़ाई जाती है",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.794
+   },
+   {
+    "id": "hi08",
+    "lang": "hi",
+    "ref": "सॉफ्टवेयर इंजीनियरिंग में COCOMO मॉडल किस मॉड्यूल में है?",
+    "hyp": "सौफ्ट्वेर इंजिनेरिंग में कोकमो मॉडल किस मॉड्यूल में है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.686
+   },
+   {
+    "id": "hi09",
+    "lang": "hi",
+    "ref": "कंप्यूटर नेटवर्क्स के सिलेबस में DNS कहाँ आता है?",
+    "hyp": "Computer Networks के syllabus में DNS कहां आता है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.492
+   },
+   {
+    "id": "hi10",
+    "lang": "hi",
+    "ref": "मुझे कल शाम 7 बजे TOC रिवाइज करने की याद दिलाना।",
+    "hyp": "मुझे कल शाम 7 बजेटी OC रिवायच करने की याद दिलाना",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.633
+   },
+   {
+    "id": "hi11",
+    "lang": "hi",
+    "ref": "8 अक्टूबर सुबह 10 बजे assignment जमा करने का reminder लगा दो।",
+    "hyp": "आठ अक्टूबर सुभा दस बजे असाइमेंट जमा करने का रिमाइंडर लगा दो.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.732
+   },
+   {
+    "id": "hi12",
+    "lang": "hi",
+    "ref": "मेरा SGPA निकालो: 4 क्रेडिट के विषय में 92 नंबर, दूसरे 4 क्रेडिट विषय में 85 और 3 क्रेडिट विषय में 72 नंबर।",
+    "hyp": "मेरा Ace GPA निकालो चार क्रेडिट के विशय में 92 नमबर, दूसरे चार क्रेडिट विशय में 85 और 3 क्रेडिट विशय में 72 नमबर.",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.949
+   },
+   {
+    "id": "hi13",
+    "lang": "hi",
+    "ref": "पहले सेमेस्टर में SGPA 8 था और दूसरे में 9, दोनों 20 क्रेडिट के थे। मेरा CGPA क्या है?",
+    "hyp": "पहले सेमेस्टर में SGPA 8 था और दूसरे में 9, दोनों 20 क्रेडिट के थे। मेरा CGPA क्या है?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.876
+   },
+   {
+    "id": "hi14",
+    "lang": "hi",
+    "ref": "नमस्ते, तुम कौन हो और क्या कर सकते हो?",
+    "hyp": "नमस्ते तुम कौन हो और क्या कर सकते हो?",
+    "whisper_lang": "hi",
+    "final_lang": "hi",
+    "seconds": 0.59
+   },
+   {
+    "id": "kn01",
+    "lang": "kn",
+    "ref": "ನನ್ನ ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಪರೀಕ್ಷೆ ಯಾವಾಗ?",
+    "hyp": "ನನ್ನ ಕಂಪ್ಯೂಟರ್ ನೇಟ್ವರ್ಕ್ ಪರಿಚೆಯಾವಾಗಾ.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.682
+   },
+   {
+    "id": "kn02",
+    "lang": "kn",
+    "ref": "ಥಿಯರಿ ಆಫ್ ಕಂಪ್ಯೂಟೇಶನ್ ಪರೀಕ್ಷೆ ಎಷ್ಟು ಗಂಟೆಗೆ ಶುರು?",
+    "hyp": "Theory of Computation Pariksha is 2 gantage shuru.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.477
+   },
+   {
+    "id": "kn03",
+    "lang": "kn",
+    "ref": "ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಪರೀಕ್ಷೆ ಯಾವ ಕೊಠಡಿಯಲ್ಲಿ ಇದೆ?",
+    "hyp": "ಸಾಫ್ಟ್ರೇರ ಎಂಜಿನಿಯರಿಂಗ್ ಪರಿಚೆ ಯಾವಾ ಕೊಟ್ಟಿಯಲ್ಲಿ ಇದೆ.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.808
+   },
+   {
+    "id": "kn04",
+    "lang": "kn",
+    "ref": "ವೆಬ್ ಟೆಕ್ನಾಲಜಿ ಲ್ಯಾಬ್ ಪರೀಕ್ಷೆ ಯಾವ ದಿನ?",
+    "hyp": "वेब टेक्नालोजी लाब परीक्ष यावदिना",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.595
+   },
+   {
+    "id": "kn05",
+    "lang": "kn",
+    "ref": "TOC ಪರೀಕ್ಷೆಯ ದಿನಾಂಕ ಹೇಳಿ.",
+    "hyp": "ಠಕ್ ಪರಿಚೆ ದಿನಂಗ್ ಹೇಳಿ.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.554
+   },
+   {
+    "id": "kn06",
+    "lang": "kn",
+    "ref": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್‌ನಲ್ಲಿ TCP congestion control ಯಾವ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಇದೆ?",
+    "hyp": "Computer Networks na lhe tachat congestion control yaw a module na lhe de.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.485
+   },
+   {
+    "id": "kn07",
+    "lang": "kn",
+    "ref": "ಥಿಯರಿ ಆಫ್ ಕಂಪ್ಯೂಟೇಶನ್‌ನಲ್ಲಿ ಟ್ಯೂರಿಂಗ್ ಮಷೀನ್ ಯಾವ ಮಾಡ್ಯೂಲ್?",
+    "hyp": "Theory of Computationally Curing Machine Yava Module",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.449
+   },
+   {
+    "id": "kn08",
+    "lang": "kn",
+    "ref": "ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ COCOMO ಮಾದರಿ ಯಾವ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಇದೆ?",
+    "hyp": "ಸಾಫ್ಟ್ವೇರ ಎಂಜಿನೆರಿ ಕಾವ್ಕಮ ಮಾದರಿ ಯಾವ ಮಾಡೂನಲಿದೆ.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.78
+   },
+   {
+    "id": "kn09",
+    "lang": "kn",
+    "ref": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಸಿಲಬಸ್‌ನಲ್ಲಿ DNS ಎಲ್ಲಿ ಬರುತ್ತದೆ?",
+    "hyp": "Computer, Networks, Syllabus, Nulli, Dins, Elly, Barutthaday.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.514
+   },
+   {
+    "id": "kn10",
+    "lang": "kn",
+    "ref": "ನಾಳೆ ಸಂಜೆ 6 ಗಂಟೆಗೆ ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಓದಲು ನೆನಪಿಸು.",
+    "hyp": "ನಾಣೆ ಸಂಜೆ ಆರು ಗಂಟಗೆ ಕಂಪ್ಯುಟರ ನೇಟ್ವರ್ಕ್ಸ್ ಒದಲು ನನಪಿಸು.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.831
+   },
+   {
+    "id": "kn11",
+    "lang": "kn",
+    "ref": "ಅಕ್ಟೋಬರ್ 9 ಬೆಳಿಗ್ಗೆ 8 ಗಂಟೆಗೆ ಲ್ಯಾಬ್ ರೆಕಾರ್ಡ್ ಸಲ್ಲಿಸಲು ರಿಮೈಂಡರ್ ಇಡು.",
+    "hyp": "ಅಕ್ತೋಬರ ಒಂಬತ್ತು ಗಳಿಗೆ ಎಂಟು ಗಂಟೆಗೆ ಲ್ಯಾಬ್ ರೆಕಾಡ್ ಸಲ್ಲಿಸಲು ರಿಮಾಯಿಂದರ್ರಿಡು.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.974
+   },
+   {
+    "id": "kn12",
+    "lang": "kn",
+    "ref": "ನನ್ನ SGPA ಲೆಕ್ಕ ಹಾಕಿ: 4 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 92 ಅಂಕ, ಇನ್ನೊಂದು 4 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 85 ಮತ್ತು 3 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 72 ಅಂಕ.",
+    "hyp": "ನನ ಸಿಗ್ ಪಾಲೇಕ್ ಕಹಾಗಿ, ನಾಲ್ಕು ಕ್ರೆಡಿಟ್ ವಿಶೇದಲ್ಲಿ ತೊಂಬತ್ತಿಡು ಅಂಕ, ಇನ್ನೋಂದು ನಾಲ್ಕು ಕೇಡಿಟ್ ವಿಶೇದಲ್ಲಿ ಎಂಬತ್ತ ಐದು ಮತ್ತು ಮೂರು ಕ್ರೆಡಿಟ್ ವಿಶೇದಲ್ಲಿ ಎ�",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 5.43
+   },
+   {
+    "id": "kn13",
+    "lang": "kn",
+    "ref": "ಮೊದಲ ಸೆಮಿಸ್ಟರ್ SGPA 8, ಎರಡನೇ ಸೆಮಿಸ್ಟರ್ SGPA 9, ಎರಡೂ 20 ಕ್ರೆಡಿಟ್. ನನ್ನ CGPA ಎಷ್ಟು?",
+    "hyp": "ಮುದಲ ಸಮಿಸ್ಟರ ಸಗಪಾ ಎಂಟು, ಎರಡನೆ ಸಮಿಸ್ಟರ ಸಗಪಾ ಒಂಬತು, ಎರಡು ಇಪ್ಪತು ಕ್ರಡಿಟ. ನನ ಚಗಪಾ ಎಸ್ಟು.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 1.557
+   },
+   {
+    "id": "kn14",
+    "lang": "kn",
+    "ref": "ನಮಸ್ಕಾರ, ನೀವು ಯಾರು ಮತ್ತು ಏನು ಮಾಡಬಹುದು?",
+    "hyp": "ನಮಸ್ಕಾರ ನಿವು ಯಾರು ಮತ್ತು ಎನು ಮಾಡಬುವುದು.",
+    "whisper_lang": "kn",
+    "final_lang": "kn",
+    "seconds": 0.802
+   }
+  ]
+ }
+}
