@@ -66,7 +66,7 @@ const $ = (id) => document.getElementById(id);
 const log = $("log");
 let ws, recorder, chunks = [], recording = false, botEl = null;
 let playQueue = [], playing = null, clipsPlayed = 0, clipsReceived = 0;
-window.__voice = { events: [], clipsReceived: 0, clipsPlayed: 0, turnsDone: 0 };
+window.__voice = { events: [], clipsReceived: 0, clipsPlayed: 0, playErrors: 0, playedSeconds: 0, turnsDone: 0 };
 
 function add(cls, html) { const d = document.createElement("div"); d.className = "msg " + cls; d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; return d; }
 const esc = (s) => String(s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
@@ -105,9 +105,11 @@ function enqueue(b64) { playQueue.push("data:audio/mpeg;base64," + b64); if (!pl
 function playNext() {
   const src = playQueue.shift(); if (!src) { playing = null; return; }
   playing = new Audio(src);
-  playing.onended = () => { clipsPlayed++; window.__voice.clipsPlayed = clipsPlayed; $("audiocount").textContent = clipsPlayed + " clips played"; playNext(); };
-  playing.onerror = playing.onended;
-  playing.play().catch(() => playing.onended());
+  const p = playing;
+  p.onended = () => { clipsPlayed++; window.__voice.clipsPlayed = clipsPlayed; window.__voice.playedSeconds = (window.__voice.playedSeconds || 0) + (p.duration || 0); $("audiocount").textContent = clipsPlayed + " clips played"; playNext(); };
+  const fail = () => { window.__voice.playErrors = (window.__voice.playErrors || 0) + 1; playNext(); };
+  p.onerror = fail;
+  p.play().catch(fail);
 }
 function bargeIn() {  // stop local playback and tell the server to stop generating
   playQueue = []; if (playing) { playing.pause(); playing = null; }

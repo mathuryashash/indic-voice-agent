@@ -37,7 +37,8 @@ def run_turn(p, lang: str, case_id: str) -> dict:
     page.wait_for_function("window.__voice.turnsDone >= 1 || window.__voice.events.some(e => e.type === 'error')",
                            timeout=90000)
     # let queued clips finish playing
-    page.wait_for_function("window.__voice.clipsPlayed >= window.__voice.clipsReceived", timeout=60000)
+    page.wait_for_function("window.__voice.clipsPlayed + window.__voice.playErrors >= window.__voice.clipsReceived",
+                           timeout=60000)
     wall = time.perf_counter() - t0
     state = page.evaluate("window.__voice")
     shot = ROOT / "docs" / "screenshots" / f"e2e_{lang}.png"
@@ -53,7 +54,8 @@ def run_turn(p, lang: str, case_id: str) -> dict:
     return {"lang": lang, "case": case_id, "transcript": stt.get("text"), "detected_language": stt.get("language"),
             "tool_calls": [{"name": t["name"], "arguments": t["arguments"]} for t in tools],
             "reply": done.get("reply"), "audio_clips_received": state["clipsReceived"],
-            "audio_clips_played": state["clipsPlayed"], "audio_b64_chars": sum(a["bytes"] for a in audio),
+            "audio_clips_played": state["clipsPlayed"], "audio_play_errors": state["playErrors"],
+            "audio_played_seconds": round(state["playedSeconds"], 2), "audio_b64_chars": sum(a["bytes"] for a in audio),
             "timings": timings, "errors": [e for e in ev if e["type"] == "error"],
             "wall_s_from_mic_click": round(wall, 2), "screenshot": str(shot.relative_to(ROOT))}
 
@@ -67,7 +69,7 @@ def main() -> int:
             print(json.dumps(r, ensure_ascii=False), flush=True)
     out = ROOT / "eval" / "results" / "e2e_browser.json"
     out.write_text(json.dumps(results, ensure_ascii=False, indent=1), encoding="utf-8")
-    ok = all(r["audio_clips_received"] > 0 and r["tool_calls"] and not r["errors"] and r["detected_language"] == r["lang"]
+    ok = all(r["audio_clips_received"] > 0 and r["audio_clips_played"] == r["audio_clips_received"] and r["tool_calls"] and not r["errors"] and r["detected_language"] == r["lang"]
              for r in results)
     print("E2E", "PASS" if ok else "FAIL")
     return 0 if ok else 1

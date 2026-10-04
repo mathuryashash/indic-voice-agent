@@ -1,0 +1,114 @@
+[
+ {
+  "lang": "hi",
+  "case": "hi01",
+  "transcript": "मेरा कम्प्यूटर नेटवर्क्स का एकजाम कब है?",
+  "detected_language": "hi",
+  "tool_calls": [
+   {
+    "name": "get_exam_schedule",
+    "arguments": {
+     "subject": "Computer Networks"
+    }
+   }
+  ],
+  "reply": "आपका कम्प्यूटर नेटवर्क्स का SEE 14 दिसंबर को है, सुबह 09:30 से 12:30 बजे तक, ब्लॉक A, रूम 105 में।",
+  "audio_clips_received": 2,
+  "audio_clips_played": 2,
+  "audio_play_errors": 0,
+  "audio_played_seconds": 13.13,
+  "audio_b64_chars": 105024,
+  "timings": {
+   "type": "timings",
+   "stt_s": 2.311,
+   "llm_tool_decision_s": 2.755,
+   "llm_ttft_s": 3.916,
+   "tts_first_audio_s": 2.088,
+   "tts_first_clip_s": 3.884,
+   "e2e_first_audio_s": 10.823,
+   "total_s": 13.632,
+   "sentences": 2,
+   "provider": "nvidia",
+   "llm_http_attempts": 3,
+   "llm_retry_wait_s": 0
+  },
+  "errors": [],
+  "wall_s_from_mic_click": 28.86,
+  "screenshot": "docs\\screenshots\\e2e_hi.png"
+ },
+ {
+  "lang": "kn",
+  "case": "kn10",
+  "transcript": "ನಾನೆ ಸಂಜೆ ಆರು ಗಂಟಗೆ ಕಮ್ಪ್ಯೂಟರ್ ನೇಟ್ವರ್ಕ್ಸ್ ಓದಲು ನಿನಪಿಸು.",
+  "detected_language": "kn",
+  "tool_calls": [
+   {
+    "name": "set_reminder",
+    "arguments": {
+     "text": "ಕಂಪ್ಯೂಟರ್ ನೇಟ್ವರ್ಕ್ಸ್ ಓದಲು",
+     "time": "2026-10-05 18:00"
+    }
+   }
+  ],
+  "reply": "ಸರಿ, ನಾಳೆ ಸಂಜೆ 6 ಗಂಟೆಗೆ ಕಂಪ್ಯೂಟರ್ ನೇಟ್ವರ್ಕ್ಸ್ ಓದಲು ನಿಮಗೆ ನೆನಪಿಸಿಕೊಡುತ್ತೇನೆ.",
+  "audio_clips_received": 1,
+  "audio_clips_played": 1,
+  "audio_play_errors": 0,
+  "audio_played_seconds": 5.98,
+  "audio_b64_chars": 47808,
+  "timings": {
+   "type": "timings",
+   "stt_s": 3.576,
+   "llm_tool_decision_s": 4.088,
+   "llm_ttft_s": 5.112,
+   "tts_first_audio_s": 1.591,
+   "tts_first_clip_s": 3.089,
+   "e2e_first_audio_s": 12.436,
+   "total_s": 12.44,
+   "sentences": 1,
+   "provider": "nvidia",
+   "llm_http_attempts": 3,
+   "llm_retry_wait_s": 0
+  },
+  "errors": [],
+  "wall_s_from_mic_click": 23.88,
+  "screenshot": "docs\\screenshots\\e2e_kn.png"
+ },
+ {
+  "lang": "en",
+  "case": "en06",
+  "transcript": "Which module of computer networks covers TCP congestion control?",
+  "detected_language": "en",
+  "tool_calls": [
+   {
+    "name": "search_syllabus",
+    "arguments": {
+     "query": "TCP congestion control module Computer Networks"
+    }
+   }
+  ],
+  "reply": "It’s covered in Module 4: Transport Layer.",
+  "audio_clips_received": 1,
+  "audio_clips_played": 1,
+  "audio_play_errors": 0,
+  "audio_played_seconds": 4.06,
+  "audio_b64_chars": 32448,
+  "timings": {
+   "type": "timings",
+   "stt_s": 1.311,
+   "llm_tool_decision_s": 2.178,
+   "llm_ttft_s": 5.308,
+   "tts_first_audio_s": 3.666,
+   "tts_first_clip_s": 7.399,
+   "e2e_first_audio_s": 14.094,
+   "total_s": 14.099,
+   "sentences": 1,
+   "provider": "nvidia",
+   "llm_http_attempts": 2,
+   "llm_retry_wait_s": 0
+  },
+  "errors": [],
+  "wall_s_from_mic_click": 24.34,
+  "screenshot": "docs\\screenshots\\e2e_en.png"
+ }
+]

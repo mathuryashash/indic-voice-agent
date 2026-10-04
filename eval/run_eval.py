@@ -29,6 +29,8 @@ from eval.cases import CASES  # noqa: E402
 from eval.stt_bench import wer_cer  # noqa: E402
 
 TODAY = datetime(2026, 10, 4, 10, 0)
+SLEEP_S = 1.0
+TAG = ""
 
 
 def check_case(case: dict, out: dict) -> dict:
@@ -134,8 +136,8 @@ async def main(mode: str, pin: bool, only: list[str] | None) -> None:
         print(f"{row['id']} tool={'Y' if row['tool_ok'] else 'N'} ans={'Y' if row['answer_ok'] else 'N'} "
               f"e2e={row['timings'].get('e2e_first_audio_s')} {row.get('reasons') or ''} {row.get('error') or ''}",
               flush=True)
-        await asyncio.sleep(1.0)  # be gentle with the shared Groq free tier
-    name = mode + ("_pinned" if pin else "")
+        await asyncio.sleep(SLEEP_S)  # Groq free tier: 8000 tokens/min; ~2-4k tokens per turn
+    name = mode + ("_pinned" if pin else "") + (f"_{TAG}" if TAG else "")
     summary = summarize(rows, name)
     summary["stt_model"] = getattr(stt, "model_size", None)
     summary["stt_device"] = getattr(stt, "device", None)
@@ -154,5 +156,9 @@ if __name__ == "__main__":
     ap.add_argument("--mode", choices=["audio", "text"], default="audio")
     ap.add_argument("--pin", action="store_true")
     ap.add_argument("--only", nargs="*")
+    ap.add_argument("--sleep", type=float, default=1.0, help="pause between cases (rate limits)")
+    ap.add_argument("--tag", default="", help="suffix for the results file name")
     a = ap.parse_args()
+    SLEEP_S = a.sleep
+    TAG = a.tag
     asyncio.run(main(a.mode, a.pin, a.only))

@@ -1,0 +1,1779 @@
+{
+ "summary": {
+  "mode": "audio_pinned",
+  "n": 42,
+  "per_lang": {
+   "hi": {
+    "n": 14,
+    "tool_acc": 1.0,
+    "answer_acc": 0.8571,
+    "reply_lang_acc": 1.0,
+    "detected_lang_acc": 1.0,
+    "errors": 0,
+    "wer": 0.2403,
+    "cer": 0.1884,
+    "stt_s": {
+     "p50": 1.962,
+     "p95": 3.366
+    },
+    "llm_ttft_s": {
+     "p50": 3.199,
+     "p95": 5.97
+    },
+    "tts_first_audio_s": {
+     "p50": 1.255,
+     "p95": 2.017
+    },
+    "e2e_first_audio_s": {
+     "p50": 7.903,
+     "p95": 11.086
+    },
+    "total_s": {
+     "p50": 8.319,
+     "p95": 11.086
+    }
+   },
+   "kn": {
+    "n": 14,
+    "tool_acc": 0.9286,
+    "answer_acc": 0.6429,
+    "reply_lang_acc": 0.8571,
+    "detected_lang_acc": 1.0,
+    "errors": 0,
+    "wer": 0.7281,
+    "cer": 0.2812,
+    "stt_s": {
+     "p50": 3.051,
+     "p95": 11.547
+    },
+    "llm_ttft_s": {
+     "p50": 3.461,
+     "p95": 4.812
+    },
+    "tts_first_audio_s": {
+     "p50": 1.864,
+     "p95": 2.615
+    },
+    "e2e_first_audio_s": {
+     "p50": 10.311,
+     "p95": 17.256
+    },
+    "total_s": {
+     "p50": 10.577,
+     "p95": 17.871
+    }
+   },
+   "en": {
+    "n": 14,
+    "tool_acc": 0.9286,
+    "answer_acc": 0.9286,
+    "reply_lang_acc": 1.0,
+    "detected_lang_acc": 1.0,
+    "errors": 0,
+    "wer": 0.0261,
+    "cer": 0.0115,
+    "stt_s": {
+     "p50": 1.091,
+     "p95": 1.675
+    },
+    "llm_ttft_s": {
+     "p50": 3.188,
+     "p95": 6.451
+    },
+    "tts_first_audio_s": {
+     "p50": 0.96,
+     "p95": 1.444
+    },
+    "e2e_first_audio_s": {
+     "p50": 6.103,
+     "p95": 14.752
+    },
+    "total_s": {
+     "p50": 6.392,
+     "p95": 14.752
+    }
+   }
+  },
+  "overall": {
+   "n": 42,
+   "tool_acc": 0.9524,
+   "answer_acc": 0.8095,
+   "reply_lang_acc": 0.9524,
+   "detected_lang_acc": 1.0,
+   "errors": 0,
+   "wer": 0.2945,
+   "cer": 0.1603,
+   "stt_s": {
+    "p50": 1.893,
+    "p95": 4.47
+   },
+   "llm_ttft_s": {
+    "p50": 3.253,
+    "p95": 5.904
+   },
+   "tts_first_audio_s": {
+    "p50": 1.17,
+    "p95": 2.402
+   },
+   "e2e_first_audio_s": {
+    "p50": 8.032,
+    "p95": 14.006
+   },
+   "total_s": {
+    "p50": 8.431,
+    "p95": 14.006
+   }
+  },
+  "stt_model": "large-v3",
+  "stt_device": "cuda",
+  "llm_providers_used": [
+   "groq",
+   "nvidia"
+  ],
+  "run_at": "2026-10-04 12:28:01"
+ },
+ "rows": [
+  {
+   "id": "en01",
+   "lang": "en",
+   "ref": "When is my Computer Networks exam?",
+   "expected_tool": "get_exam_schedule",
+   "voice": "en-IN-NeerjaNeural",
+   "noisy": false,
+   "transcript": "When is my computer networks exam?",
+   "detected_lang": "en",
+   "reply": "Your Computer Networks exam is on 14 December, Monday, from 09:30 to 12:30 in Block A, Room 105.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.074,
+    "llm_tool_decision_s": 2.38,
+    "llm_ttft_s": 3.632,
+    "tts_first_audio_s": 0.934,
+    "tts_first_clip_s": 1.232,
+    "e2e_first_audio_s": 6.131,
+    "total_s": 6.492,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 62208,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en02",
+   "lang": "en",
+   "ref": "What time does the Theory of Computation exam start?",
+   "expected_tool": "get_exam_schedule",
+   "voice": "en-IN-PrabhatNeural",
+   "noisy": false,
+   "transcript": "What time does the theory of computation exam start?",
+   "detected_lang": "en",
+   "reply": "The Theory of Computation exam starts at 2 pm on 17 December in Block B, Room 301.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Theory of Computation"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.092,
+    "llm_tool_decision_s": 2.236,
+    "llm_ttft_s": 3.255,
+    "tts_first_audio_s": 0.953,
+    "tts_first_clip_s": 1.274,
+    "e2e_first_audio_s": 6.074,
+    "total_s": 6.178,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 54432,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en03",
+   "lang": "en",
+   "ref": "Where is the software engineering exam hall?",
+   "expected_tool": "get_exam_schedule",
+   "voice": "en-IN-NeerjaNeural",
+   "noisy": true,
+   "transcript": "Where is the software engineering exam hall?",
+   "detected_lang": "en",
+   "reply": "The Software Engineering exam will be held on 10 December in Block A, Room 204.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Software Engineering"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.052,
+    "llm_tool_decision_s": 1.407,
+    "llm_ttft_s": 2.499,
+    "tts_first_audio_s": 1.39,
+    "tts_first_clip_s": 1.814,
+    "e2e_first_audio_s": 5.525,
+    "total_s": 5.525,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 48672,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en04",
+   "lang": "en",
+   "ref": "Which day is the web technology lab exam?",
+   "expected_tool": "get_exam_schedule",
+   "voice": "en-IN-PrabhatNeural",
+   "noisy": false,
+   "transcript": "Which day is the Web Technology Lab exam?",
+   "detected_lang": "en",
+   "reply": "The Web Technology Lab exam is on Thursday, 3 December, from 9 am to 12 pm in ISE Lab 2.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Web Technology Lab"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.157,
+    "llm_tool_decision_s": 1.289,
+    "llm_ttft_s": 2.237,
+    "tts_first_audio_s": 1.094,
+    "tts_first_clip_s": 1.477,
+    "e2e_first_audio_s": 4.948,
+    "total_s": 5.277,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 58464,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en05",
+   "lang": "en",
+   "ref": "Tell me the date of the TOC exam.",
+   "expected_tool": "get_exam_schedule",
+   "voice": "en-IN-NeerjaNeural",
+   "noisy": false,
+   "transcript": "Tell me the date of the TOC exam.",
+   "detected_lang": "en",
+   "reply": "The Theory of Computation exam is on 17 December, from 2 pm to 5 pm in Block B, Room 301.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "TOC"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.011,
+    "llm_tool_decision_s": 1.917,
+    "llm_ttft_s": 3.622,
+    "tts_first_audio_s": 0.867,
+    "tts_first_clip_s": 11.057,
+    "e2e_first_audio_s": 16.1,
+    "total_s": 16.1,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 58608,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en06",
+   "lang": "en",
+   "ref": "Which module of computer networks covers TCP congestion control?",
+   "expected_tool": "search_syllabus",
+   "voice": "en-IN-PrabhatNeural",
+   "noisy": true,
+   "transcript": "Which module of computer networks covers TCP congestion control?",
+   "detected_lang": "en",
+   "reply": "It’s covered in Module 4: Transport Layer.",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "TCP congestion control module Computer Networks VTU syllabus"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.12,
+    "llm_tool_decision_s": 1.774,
+    "llm_ttft_s": 2.764,
+    "tts_first_audio_s": 1.124,
+    "tts_first_clip_s": 1.518,
+    "e2e_first_audio_s": 5.546,
+    "total_s": 5.546,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 24336,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en07",
+   "lang": "en",
+   "ref": "In which module is the pumping lemma taught in Theory of Computation?",
+   "expected_tool": "search_syllabus",
+   "voice": "en-IN-NeerjaNeural",
+   "noisy": false,
+   "transcript": "In which module is the pumping lemma taught in theory of computation?",
+   "detected_lang": "en",
+   "reply": "The pumping lemma for regular languages is covered in Module 2: Regular Expressions and Languages, while the pumping lemma for context‑free languages appears in Module 4: Pushdown Automata.",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "pumping lemma module theory of computation VTU syllabus"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.063,
+    "llm_tool_decision_s": 1.998,
+    "llm_ttft_s": 3.124,
+    "tts_first_audio_s": 0.875,
+    "tts_first_clip_s": 1.181,
+    "e2e_first_audio_s": 5.459,
+    "total_s": 6.55,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 86400,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en08",
+   "lang": "en",
+   "ref": "What is the textbook for Theory of Computation?",
+   "expected_tool": "search_syllabus",
+   "voice": "en-IN-PrabhatNeural",
+   "noisy": false,
+   "transcript": "What is the textbook for theory of computation?",
+   "detected_lang": "en",
+   "reply": "The textbook for Theory of Computation is *Introduction to Automata Theory, Languages and Computation* by Hopcroft, Motwani, and Ullman.",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Theory of Computation textbook"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.044,
+    "llm_tool_decision_s": 2.528,
+    "llm_ttft_s": 3.79,
+    "tts_first_audio_s": 0.967,
+    "tts_first_clip_s": 1.284,
+    "e2e_first_audio_s": 6.576,
+    "total_s": 7.679,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 67680,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en09",
+   "lang": "en",
+   "ref": "Does the software engineering syllabus include Scrum?",
+   "expected_tool": "search_syllabus",
+   "voice": "en-IN-NeerjaNeural",
+   "noisy": true,
+   "transcript": "Does the software engineering syllabus include Scrum?",
+   "detected_lang": "en",
+   "reply": "Yes, the Software Engineering syllabus covers Scrum under the Agile Development module.",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Software Engineering Scrum"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.091,
+    "llm_tool_decision_s": 2.678,
+    "llm_ttft_s": 4.114,
+    "tts_first_audio_s": 1.0,
+    "tts_first_clip_s": 1.442,
+    "e2e_first_audio_s": 6.65,
+    "total_s": 6.65,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 40320,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en10",
+   "lang": "en",
+   "ref": "Remind me to revise computer networks tomorrow at 6 pm.",
+   "expected_tool": "set_reminder",
+   "voice": "en-IN-PrabhatNeural",
+   "noisy": false,
+   "transcript": "Remind me to revise computer networks tomorrow at 6 p.m.",
+   "detected_lang": "en",
+   "reply": "Got it! I'll remind you to revise Computer Networks tomorrow at 6 p.m.",
+   "tools": [
+    {
+     "name": "set_reminder",
+     "arguments": {
+      "text": "revise computer networks",
+      "time": "2026-10-05 18:00"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.137,
+    "llm_tool_decision_s": 1.242,
+    "llm_ttft_s": 3.102,
+    "tts_first_audio_s": 0.895,
+    "tts_first_clip_s": 1.513,
+    "e2e_first_audio_s": 6.292,
+    "total_s": 6.292,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 41328,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en11",
+   "lang": "en",
+   "ref": "Set a reminder to submit the web lab record on October 10 at 9 am.",
+   "expected_tool": "set_reminder",
+   "voice": "en-IN-NeerjaNeural",
+   "noisy": false,
+   "transcript": "Set a reminder to submit the web lab record on 10th October at 9 am.",
+   "detected_lang": "en",
+   "reply": "Reminder set for 10 October at 9 am to submit the web lab record.",
+   "tools": [
+    {
+     "name": "set_reminder",
+     "arguments": {
+      "text": "submit the web lab record",
+      "time": "2026-10-10 09:00"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.584,
+    "llm_tool_decision_s": 1.464,
+    "llm_ttft_s": 2.526,
+    "tts_first_audio_s": 0.895,
+    "tts_first_clip_s": 1.227,
+    "e2e_first_audio_s": 5.473,
+    "total_s": 5.473,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 36720,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en12",
+   "lang": "en",
+   "ref": "Calculate my SGPA. I got 92 marks in a 4 credit subject, 85 in another 4 credit subject and 72 in a 3 credit subject.",
+   "expected_tool": "calculate_sgpa",
+   "voice": "en-IN-PrabhatNeural",
+   "noisy": true,
+   "transcript": "Calculate my SGPA. I got 92 marks in a 4 credit subject, 85 in another 4 credit subject and 72 in a 3 credit subject.",
+   "detected_lang": "en",
+   "reply": "Your SGPA is 9.09.",
+   "tools": [
+    {
+     "name": "calculate_sgpa",
+     "arguments": {
+      "courses": [
+       {
+        "credits": 4,
+        "grade_point": 10
+       },
+       {
+        "credits": 4,
+        "grade_point": 9
+       },
+       {
+        "credits": 3,
+        "grade_point": 8
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.843,
+    "llm_tool_decision_s": 9.494,
+    "llm_ttft_s": 10.792,
+    "tts_first_audio_s": 0.949,
+    "tts_first_clip_s": 1.333,
+    "e2e_first_audio_s": 14.026,
+    "total_s": 14.026,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 22464,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en13",
+   "lang": "en",
+   "ref": "My SGPA was 8 in a 20 credit semester and 9 in another 20 credit semester. What is my CGPA?",
+   "expected_tool": "calculate_cgpa",
+   "voice": "en-IN-NeerjaNeural",
+   "noisy": false,
+   "transcript": "My SGPA was 8 in a 20-credit semester and 9 in another 20-credit semester. What is my CGPA?",
+   "detected_lang": "en",
+   "reply": "Your CGPA would be 8.5.",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.536,
+    "llm_ttft_s": 3.252,
+    "tts_first_audio_s": 1.121,
+    "tts_first_clip_s": 1.523,
+    "e2e_first_audio_s": 6.644,
+    "total_s": 6.644,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 20880,
+   "tool_ok": false,
+   "answer_ok": false,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "en14",
+   "lang": "en",
+   "ref": "Hi, who are you and what can you do?",
+   "expected_tool": null,
+   "voice": "en-IN-PrabhatNeural",
+   "noisy": false,
+   "transcript": "Hi, who are you and what can you do?",
+   "detected_lang": "en",
+   "reply": "I’m VTU Saathi, your voice study assistant for VTU ISE. I can tell you exam dates and halls, fetch syllabus details, set study reminders, and calculate SGPA or CGPA. Just ask me anything about your 5th‑semester subjects.",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.008,
+    "llm_ttft_s": 1.104,
+    "tts_first_audio_s": 1.543,
+    "tts_first_clip_s": 1.949,
+    "e2e_first_audio_s": 4.116,
+    "total_s": 5.527,
+    "sentences": 3,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 117648,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "hi01",
+   "lang": "hi",
+   "ref": "मेरा Computer Networks का एग्जाम कब है?",
+   "expected_tool": "get_exam_schedule",
+   "voice": "hi-IN-SwaraNeural",
+   "noisy": true,
+   "transcript": "मेरा Computer Networks का एक्जाम कब है?",
+   "detected_lang": "hi",
+   "reply": "आपका Computer Networks का एक्जाम 14 दिसंबर, सोमवार को है, समय 09:30‑12:30 बजे, हॉल Block A, Room 105.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.598,
+    "llm_tool_decision_s": 2.273,
+    "llm_ttft_s": 3.199,
+    "tts_first_audio_s": 1.089,
+    "tts_first_clip_s": 1.407,
+    "e2e_first_audio_s": 6.532,
+    "total_s": 7.717,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 85536,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "hi02",
+   "lang": "hi",
+   "ref": "थ्योरी ऑफ कंप्यूटेशन की परीक्षा किस समय शुरू होगी?",
+   "expected_tool": "get_exam_schedule",
+   "voice": "hi-IN-MadhurNeural",
+   "noisy": false,
+   "transcript": "Theory of Computation की परीक्षा किस समय शुरू होगी?",
+   "detected_lang": "hi",
+   "reply": "परीक्षा 17 दिसम्बर, गुरुवार को 14:00 से 17:00 तक ब्लॉक B, रूम 301 में होगी।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Theory of Computation"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.68,
+    "llm_tool_decision_s": 2.9,
+    "llm_ttft_s": 3.98,
+    "tts_first_audio_s": 1.762,
+    "tts_first_clip_s": 2.334,
+    "e2e_first_audio_s": 9.72,
+    "total_s": 9.72,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 49104,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "hi03",
+   "lang": "hi",
+   "ref": "सॉफ्टवेयर इंजीनियरिंग की परीक्षा किस कमरे में है?",
+   "expected_tool": "get_exam_schedule",
+   "voice": "hi-IN-SwaraNeural",
+   "noisy": false,
+   "transcript": "सौफ्टवेर इंजिनियरिंग की परीक्षा किस कमरे में है?",
+   "detected_lang": "hi",
+   "reply": "परीक्षा 10 दिसम्बर को, गुरुवार, सुबह 09:30 से 12:30 तक, ब्लॉक A, रूम 204 में है।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Software Engineering"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.942,
+    "llm_tool_decision_s": 1.154,
+    "llm_ttft_s": 1.879,
+    "tts_first_audio_s": 1.932,
+    "tts_first_clip_s": 2.676,
+    "e2e_first_audio_s": 7.196,
+    "total_s": 7.196,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 64224,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "hi04",
+   "lang": "hi",
+   "ref": "वेब टेक्नोलॉजी लैब की परीक्षा किस दिन है?",
+   "expected_tool": "get_exam_schedule",
+   "voice": "hi-IN-MadhurNeural",
+   "noisy": true,
+   "transcript": "वेब टेक्नोलोजी लाब की परीक्षा किस दिन है?",
+   "detected_lang": "hi",
+   "reply": "वेब टेक्नोलोजी लाब की परीक्षा 3 दिसंबर को है, गुरुवार को, 09:00 से 12:00 बजे तक ISE Lab 2 में।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Web Technologies Lab"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.748,
+    "llm_tool_decision_s": 3.433,
+    "llm_ttft_s": 5.037,
+    "tts_first_audio_s": 0.824,
+    "tts_first_clip_s": 1.108,
+    "e2e_first_audio_s": 8.282,
+    "total_s": 9.542,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 58176,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "hi05",
+   "lang": "hi",
+   "ref": "TOC की परीक्षा की तारीख बताओ।",
+   "expected_tool": "get_exam_schedule",
+   "voice": "hi-IN-SwaraNeural",
+   "noisy": false,
+   "transcript": "TOC की परीक्षा की तारीख बताओ",
+   "detected_lang": "hi",
+   "reply": "TOC की परीक्षा 17 दिसंबर को है, दोपहर 2 बजे से 5 बजे तक, ब्लॉक B, रूम 301 में।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "TOC"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.435,
+    "llm_tool_decision_s": 1.963,
+    "llm_ttft_s": 3.053,
+    "tts_first_audio_s": 1.632,
+    "tts_first_clip_s": 2.043,
+    "e2e_first_audio_s": 7.147,
+    "total_s": 8.376,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 61200,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "hi06",
+   "lang": "hi",
+   "ref": "कंप्यूटर नेटवर्क्स में TCP congestion control कौन से मॉड्यूल में है?",
+   "expected_tool": "search_syllabus",
+   "voice": "hi-IN-MadhurNeural",
+   "noisy": false,
+   "transcript": "कंप्यूटर नेटवर्क्स में TCP कंजेशन कंट्रोल कौन से मॉड्यूल में है?",
+   "detected_lang": "hi",
+   "reply": "TCP कंजेशन कंट्रोल मॉड्यूल “Module 4: Transport Layer” में आता है।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "TCP congestion control module Computer Networks VTU ISE syllabus"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.306,
+    "llm_tool_decision_s": 1.349,
+    "llm_ttft_s": 2.33,
+    "tts_first_audio_s": 1.025,
+    "tts_first_clip_s": 1.35,
+    "e2e_first_audio_s": 6.253,
+    "total_s": 6.253,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 46368,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "hi07",
+   "lang": "hi",
+   "ref": "थ्योरी ऑफ कंप्यूटेशन में ट्यूरिंग मशीन कौन से मॉड्यूल में पढ़ाई जाती है?",
+   "expected_tool": "search_syllabus",
+   "voice": "hi-IN-SwaraNeural",
+   "noisy": true,
+   "transcript": "theory of computation में Turing machine कौन से module में पढ़ाई जाती है",
+   "detected_lang": "hi",
+   "reply": "Turing machine “Module 5: Turing Machines and Undecidability” में पढ़ाई जाती है।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Turing machine module Theory of Computation"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.783,
+    "llm_tool_decision_s": 2.18,
+    "llm_ttft_s": 3.199,
+    "tts_first_audio_s": 1.663,
+    "tts_first_clip_s": 2.083,
+    "e2e_first_audio_s": 7.876,
+    "total_s": 7.876,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 41184,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "hi08",
+   "lang": "hi",
+   "ref": "सॉफ्टवेयर इंजीनियरिंग में COCOMO मॉडल किस मॉड्यूल में है?",
+   "expected_tool": "search_syllabus",
+   "voice": "hi-IN-MadhurNeural",
+   "noisy": false,
+   "transcript": "सौफ्टवेर इंजिनेरिंग में कोकमो मॉडल किस मॉडूल में है?",
+   "detected_lang": "hi",
+   "reply": "कोकमो मॉडल सॉफ्टवेयर इंजीनियरिंग के **Module 1** में आता है।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Software Engineering module KCOMO"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.186,
+    "llm_tool_decision_s": 2.886,
+    "llm_ttft_s": 3.879,
+    "tts_first_audio_s": 1.294,
+    "tts_first_clip_s": 1.719,
+    "e2e_first_audio_s": 7.93,
+    "total_s": 7.93,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 29520,
+   "tool_ok": true,
+   "answer_ok": false,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": [
+    "missing fact ['4', 'चार']"
+   ]
+  },
+  {
+   "id": "hi09",
+   "lang": "hi",
+   "ref": "कंप्यूटर नेटवर्क्स के सिलेबस में DNS कहाँ आता है?",
+   "expected_tool": "search_syllabus",
+   "voice": "hi-IN-SwaraNeural",
+   "noisy": false,
+   "transcript": "कम्प्यूटर नेटवर्क्स के सिलेबस में DNS कहां आता है?",
+   "detected_lang": "hi",
+   "reply": "DNS “Module 5: Application Layer” में आता है।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "DNS Computer Networks syllabus"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.982,
+    "llm_tool_decision_s": 1.667,
+    "llm_ttft_s": 2.869,
+    "tts_first_audio_s": 1.689,
+    "tts_first_clip_s": 2.163,
+    "e2e_first_audio_s": 7.223,
+    "total_s": 7.223,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 30384,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "hi10",
+   "lang": "hi",
+   "ref": "मुझे कल शाम 7 बजे TOC रिवाइज करने की याद दिलाना।",
+   "expected_tool": "set_reminder",
+   "voice": "hi-IN-MadhurNeural",
+   "noisy": true,
+   "transcript": "मुझे कल शाम 7 बजे टी ओसी रिवाइट करने की याद दिलाना",
+   "detected_lang": "hi",
+   "reply": "ठीक है, कल शाम 7 बजे टी ओसी रिवाइट की याद दिला दूँगा।",
+   "tools": [
+    {
+     "name": "set_reminder",
+     "arguments": {
+      "text": "टी ओसी रिवाइट",
+      "time": "2026-10-05 19:00"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.176,
+    "llm_tool_decision_s": 3.183,
+    "llm_ttft_s": 4.18,
+    "tts_first_audio_s": 1.216,
+    "tts_first_clip_s": 1.552,
+    "e2e_first_audio_s": 8.487,
+    "total_s": 8.487,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 34704,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "hi11",
+   "lang": "hi",
+   "ref": "8 अक्टूबर सुबह 10 बजे assignment जमा करने का reminder लगा दो।",
+   "expected_tool": "set_reminder",
+   "voice": "hi-IN-SwaraNeural",
+   "noisy": false,
+   "transcript": "8 अक्टूबर सुभा 10 बजे असाइमिन जमा करने का रिमाइंडर लगा दो",
+   "detected_lang": "hi",
+   "reply": "रिमाइंडर सेट कर दिया गया है।",
+   "tools": [
+    {
+     "name": "set_reminder",
+     "arguments": {
+      "text": "8 अक्टूबर सुभा 10 बजे असाइनमेंट जमा करना",
+      "time": "2026-10-08 10:00"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.389,
+    "llm_tool_decision_s": 5.245,
+    "llm_ttft_s": 7.702,
+    "tts_first_audio_s": 2.174,
+    "tts_first_clip_s": 2.639,
+    "e2e_first_audio_s": 13.624,
+    "total_s": 13.624,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 17856,
+   "tool_ok": true,
+   "answer_ok": false,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": [
+    "missing fact ['8', 'आठ']"
+   ]
+  },
+  {
+   "id": "hi12",
+   "lang": "hi",
+   "ref": "मेरा SGPA निकालो: 4 क्रेडिट के विषय में 92 नंबर, दूसरे 4 क्रेडिट विषय में 85 और 3 क्रेडिट विषय में 72 नंबर।",
+   "expected_tool": "calculate_sgpa",
+   "voice": "hi-IN-MadhurNeural",
+   "noisy": false,
+   "transcript": "मेरा एस जीपी ए निकालो, चार क्रेडिट के विशय में 92 नंबर, दूसरे चार क्रेडिट विशय में 85 और तीन क्रेडिट विशय में 72 नंबर.",
+   "detected_lang": "hi",
+   "reply": "आपका SGPA 9.09 है।",
+   "tools": [
+    {
+     "name": "calculate_sgpa",
+     "arguments": {
+      "courses": [
+       {
+        "credits": 4,
+        "marks": 92
+       },
+       {
+        "credits": 4,
+        "marks": 85
+       },
+       {
+        "credits": 3,
+        "marks": 72
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 4.5,
+    "llm_tool_decision_s": 2.045,
+    "llm_ttft_s": 3.031,
+    "tts_first_audio_s": 1.06,
+    "tts_first_clip_s": 1.44,
+    "e2e_first_audio_s": 9.212,
+    "total_s": 9.212,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 25488,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "hi13",
+   "lang": "hi",
+   "ref": "पहले सेमेस्टर में SGPA 8 था और दूसरे में 9, दोनों 20 क्रेडिट के थे। मेरा CGPA क्या है?",
+   "expected_tool": "calculate_cgpa",
+   "voice": "hi-IN-SwaraNeural",
+   "noisy": true,
+   "transcript": "पहले सेमेस्टर में SGPA 8 था और दूसरे में 9, दोनों 20 क्रेडिट के थे. मेरा CGPA क्या है?",
+   "detected_lang": "hi",
+   "reply": "आपका CGPA 8.5 है।",
+   "tools": [
+    {
+     "name": "calculate_cgpa",
+     "arguments": {
+      "semesters": [
+       {
+        "sgpa": 8,
+        "credits": 20
+       },
+       {
+        "sgpa": 9,
+        "credits": 20
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.755,
+    "llm_tool_decision_s": 2.954,
+    "llm_ttft_s": 3.908,
+    "tts_first_audio_s": 0.941,
+    "tts_first_clip_s": 1.284,
+    "e2e_first_audio_s": 8.263,
+    "total_s": 8.263,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 24048,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "hi14",
+   "lang": "hi",
+   "ref": "नमस्ते, तुम कौन हो और क्या कर सकते हो?",
+   "expected_tool": null,
+   "voice": "hi-IN-MadhurNeural",
+   "noisy": false,
+   "transcript": "नमस्ते तुम कौन हो और क्या कर सकते हो?",
+   "detected_lang": "hi",
+   "reply": "नमस्ते, मैं VTU Saathi हूँ, आपका VTU 5वीं सेमेस्टर का अध्ययन सहायक। मैं आपको परीक्षा तिथियाँ, पाठ्यक्रम की जानकारी, रिमाइंडर सेट करना और SGPA/CGPA कैलकुलेशन में मदद कर सकता हूँ।",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.707,
+    "llm_ttft_s": 1.985,
+    "tts_first_audio_s": 0.936,
+    "tts_first_clip_s": 1.249,
+    "e2e_first_audio_s": 6.31,
+    "total_s": 8.671,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 110736,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "hi",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "kn01",
+   "lang": "kn",
+   "ref": "ನನ್ನ ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಪರೀಕ್ಷೆ ಯಾವಾಗ?",
+   "expected_tool": "get_exam_schedule",
+   "voice": "kn-IN-SapnaNeural",
+   "noisy": false,
+   "transcript": "ನನ್ನ ಕಮ್ಪಿಯೂಟರ್ ನೇಟ್ವರ್ಕ್ಸ್ ಪರಿಚ್ಚೆ ಯಾವಾಗ?",
+   "detected_lang": "kn",
+   "reply": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್ವರ್ಕ್ಸ್ ಪರೀಕ್ಷೆ 14 ಡಿಸೆಂಬರ್, ಸೋಮವಾರ, ಬೆಳಿಗ್ಗೆ 09:30-12:30, ಹಾಲ್: ಬ್ಲಾಕ್ A, ರೂಮ್ 105.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.764,
+    "llm_tool_decision_s": 2.56,
+    "llm_ttft_s": 4.2,
+    "tts_first_audio_s": 0.95,
+    "tts_first_clip_s": 1.253,
+    "e2e_first_audio_s": 9.227,
+    "total_s": 12.426,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 66960,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "kn",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "kn02",
+   "lang": "kn",
+   "ref": "ಥಿಯರಿ ಆಫ್ ಕಂಪ್ಯೂಟೇಶನ್ ಪರೀಕ್ಷೆ ಎಷ್ಟು ಗಂಟೆಗೆ ಶುರು?",
+   "expected_tool": "get_exam_schedule",
+   "voice": "kn-IN-GaganNeural",
+   "noisy": true,
+   "transcript": "ತಿರಿ ಆಫ್ ಕಮ್ಪುಟೇಶನ್ ಪರಿಕ್ಷೆ ಎಸ್ಟು ಗಂಟಗೆ ಶುರು?",
+   "detected_lang": "kn",
+   "reply": "14 ಡಿಸೆಂಬರ್ 14:00 ರಿಂದ 17:00 ವರೆಗೆ Block B, Room 301 ನಲ್ಲಿ Theory of Computation ಪರೀಕ್ಷೆ.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Theory of Computation"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.669,
+    "llm_tool_decision_s": 1.695,
+    "llm_ttft_s": 2.594,
+    "tts_first_audio_s": 2.012,
+    "tts_first_clip_s": 2.551,
+    "e2e_first_audio_s": 8.135,
+    "total_s": 8.588,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 58464,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "kn",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "kn03",
+   "lang": "kn",
+   "ref": "ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಪರೀಕ್ಷೆ ಯಾವ ಕೊಠಡಿಯಲ್ಲಿ ಇದೆ?",
+   "expected_tool": "get_exam_schedule",
+   "voice": "kn-IN-SapnaNeural",
+   "noisy": false,
+   "transcript": "ಸಾಫ್ಟ್ರೆಯರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಪರಿಚ್ಚೆ ಯಾವ ಕೊರ್ತಿಡಿಯಲ್ಲಿ ಇದೆ.",
+   "detected_lang": "kn",
+   "reply": "ಸಾಫ್ಟ್ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನ ಪರಿಚ್ಛೇದವು “Module 1: Software and Process Models” ನಲ್ಲಿ ಇದೆ.",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Software Engineering introduction module VTU syllabus"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 3.073,
+    "llm_tool_decision_s": 3.152,
+    "llm_ttft_s": 5.95,
+    "tts_first_audio_s": 1.112,
+    "tts_first_clip_s": 1.765,
+    "e2e_first_audio_s": 11.138,
+    "total_s": 11.758,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 45792,
+   "tool_ok": false,
+   "answer_ok": false,
+   "reply_lang": "kn",
+   "reply_lang_ok": true,
+   "reasons": [
+    "exam_code []",
+    "missing fact ['204']"
+   ]
+  },
+  {
+   "id": "kn04",
+   "lang": "kn",
+   "ref": "ವೆಬ್ ಟೆಕ್ನಾಲಜಿ ಲ್ಯಾಬ್ ಪರೀಕ್ಷೆ ಯಾವ ದಿನ?",
+   "expected_tool": "get_exam_schedule",
+   "voice": "kn-IN-GaganNeural",
+   "noisy": false,
+   "transcript": "ವೇಬ್ ಟೆಕ್ನಾಲಜಿ ಲಾಬ್ ಪರಿಕ್ಷೆ ಯಾವದಿನ.",
+   "detected_lang": "kn",
+   "reply": "12 ಡಿಸೆಂಬರ್ ಬುಧವಾರ 09:00‑12:00 ISE Lab 2 ನಲ್ಲಿ.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Web Technology Lab"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.247,
+    "llm_tool_decision_s": 3.112,
+    "llm_ttft_s": 4.104,
+    "tts_first_audio_s": 1.934,
+    "tts_first_clip_s": 3.371,
+    "e2e_first_audio_s": 10.576,
+    "total_s": 10.576,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 37584,
+   "tool_ok": true,
+   "answer_ok": false,
+   "reply_lang": "kn",
+   "reply_lang_ok": true,
+   "reasons": [
+    "missing fact ['ಗುರುವಾರ', 'Thursday', '3']"
+   ]
+  },
+  {
+   "id": "kn05",
+   "lang": "kn",
+   "ref": "TOC ಪರೀಕ್ಷೆಯ ದಿನಾಂಕ ಹೇಳಿ.",
+   "expected_tool": "get_exam_schedule",
+   "voice": "kn-IN-SapnaNeural",
+   "noisy": true,
+   "transcript": "ಟಾಕ್ ಪರಿಕ್ಷೆ ದಿನಾಂಕ್ ಹೇಳಿ.",
+   "detected_lang": "kn",
+   "reply": "ಟಾಕ್ ಪರಿಕ್ಷೆ 17 ಡಿಸೆಂಬರ್, 2 ಪಿಎಂ ರಿಂದ 5 ಪಿಎಂ, Block B, Room 301.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "TOC"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.778,
+    "llm_tool_decision_s": 2.756,
+    "llm_ttft_s": 3.827,
+    "tts_first_audio_s": 1.794,
+    "tts_first_clip_s": 2.248,
+    "e2e_first_audio_s": 9.04,
+    "total_s": 9.04,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 39456,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "kn",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "kn06",
+   "lang": "kn",
+   "ref": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್‌ನಲ್ಲಿ TCP congestion control ಯಾವ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಇದೆ?",
+   "expected_tool": "search_syllabus",
+   "voice": "kn-IN-GaganNeural",
+   "noisy": false,
+   "transcript": "ಕಮ್ಪುಟರ್ ನೇಟ್ವರ್ಕ್ಸ್ ನಲಿ ತಚಪ್ ಕಂಜೆಸ್ಚಿಂ ಕಂಟ್ರೋಲ್ ಯಾವ ಮಾಡುಲ್ ನಲಿದೆ.",
+   "detected_lang": "kn",
+   "reply": "TCP congestion control “slow start, congestion avoidance, fast retransmit, fast recovery” ಮಾಡುಲ್ Module 4: Transport Layer ಅಡಿಯಲ್ಲಿ ಬರುತ್ತದೆ.",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "TCP congestion control module"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 3.436,
+    "llm_tool_decision_s": 1.795,
+    "llm_ttft_s": 3.045,
+    "tts_first_audio_s": 1.321,
+    "tts_first_clip_s": 1.698,
+    "e2e_first_audio_s": 8.446,
+    "total_s": 10.25,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 72288,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": false,
+   "reasons": []
+  },
+  {
+   "id": "kn07",
+   "lang": "kn",
+   "ref": "ಥಿಯರಿ ಆಫ್ ಕಂಪ್ಯೂಟೇಶನ್‌ನಲ್ಲಿ ಟ್ಯೂರಿಂಗ್ ಮಷೀನ್ ಯಾವ ಮಾಡ್ಯೂಲ್?",
+   "expected_tool": "search_syllabus",
+   "voice": "kn-IN-SapnaNeural",
+   "noisy": false,
+   "transcript": "ತಿಯರಿ ಆಫ್ ಕಮ್ಪ್ಯೂಟಿಶನ್ನಲ್ಲಿ ಕೂರಿಂಗ್ ಮಶಿನ್ ಯಾವ ಮಾಡಿಯೂಲ್",
+   "detected_lang": "kn",
+   "reply": "ಟಿಯರಿ ಆಫ್ ಕಮ್ಪ್ಯೂಟೇಶನ್‌ನಲ್ಲಿ ಟ್ಯೂರಿಂಗ್ ಮಶೀನ್‌ಗಳ ಬಗ್ಗೆ ಇರುವ ಮಾಡ್ಯೂಲ್ “Module 5: Turing Machines and Undecidability” ಆಗಿದೆ.",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Theory of Computation Turing machine module"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 3.029,
+    "llm_tool_decision_s": 2.438,
+    "llm_ttft_s": 3.564,
+    "tts_first_audio_s": 2.62,
+    "tts_first_clip_s": 3.959,
+    "e2e_first_audio_s": 11.03,
+    "total_s": 11.03,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 58896,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "kn",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "kn08",
+   "lang": "kn",
+   "ref": "ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ COCOMO ಮಾದರಿ ಯಾವ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಇದೆ?",
+   "expected_tool": "search_syllabus",
+   "voice": "kn-IN-GaganNeural",
+   "noisy": true,
+   "transcript": "ಸಾಫ್ಟ್ರೇರ್ ಎಂಜಿನೇರಿಂಗ್ಗನಲ್ಲಿ ಕಾಉಕಮ ಮಾದರಿ ಯಾವ ಮಾಡುಲ್ಲಿದೆ.",
+   "detected_lang": "kn",
+   "reply": "ಸಾಫ್ಟ್ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ ಕೌಕಮ ಮಾದರಿ (Coupling Model) ಬಗ್ಗೆ ವಿವರಗಳಿಗಾಗಿ ಸಿಲೇಬಸ್‌ನಲ್ಲಿ “Module 5: Software Quality and Testing” ನಲ್ಲಿ McCall’s quality model, ISO 9126, CMM ಮುಂತಾದವುಗಳೊಂದಿಗೆ ಉಲ್ಲೇಖಿಸಲಾಗಿದೆ.",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Software Engineering coupling model"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 3.189,
+    "llm_tool_decision_s": 2.02,
+    "llm_ttft_s": 3.358,
+    "tts_first_audio_s": 2.404,
+    "tts_first_clip_s": 3.334,
+    "e2e_first_audio_s": 10.411,
+    "total_s": 10.906,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 107280,
+   "tool_ok": true,
+   "answer_ok": false,
+   "reply_lang": "kn",
+   "reply_lang_ok": true,
+   "reasons": [
+    "missing fact ['4', 'ನಾಲ್ಕು']"
+   ]
+  },
+  {
+   "id": "kn09",
+   "lang": "kn",
+   "ref": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಸಿಲಬಸ್‌ನಲ್ಲಿ DNS ಎಲ್ಲಿ ಬರುತ್ತದೆ?",
+   "expected_tool": "search_syllabus",
+   "voice": "kn-IN-SapnaNeural",
+   "noisy": false,
+   "transcript": "ಕಮ್ಪೀಟರ್ ನೇಡ್ವರ್ಕ್ಸ್ ಸಿಲಬಸ್ನ ಲಿಡಿಂಸ್ ಎಲ್ಲಿ ಬರುತ್ತದೆ?",
+   "detected_lang": "kn",
+   "reply": "ಕಂಪ್ಯೂಟರ್ ನೆಟ್ವರ್ಕ್ಸ್ ಸಿಲಬಸ್‌ನಲ್ಲಿ ಲಿಂಕ್ಸ್‌ಗಳು ಮುಖ್ಯವಾಗಿ “Module 5: Application Layer” ನಲ್ಲಿ ಉಲ್ಲೇಖವಾಗಿವೆ. ಅಲ್ಲಿ HTTP, FTP, SMTP, POP3, IMAP, TELNET, SSH, DNS, SNMP ಮುಂತಾದ ಪ್ರೋಟೋಕಾಲ್‌ಗಳ ಲಿಂಕ್ಸ್‌ಗಳ ಬಗ್ಗೆ ವಿವರಿಸಲಾಗಿದೆ.",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Computer Networks links"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.915,
+    "llm_tool_decision_s": 1.632,
+    "llm_ttft_s": 2.912,
+    "tts_first_audio_s": 2.612,
+    "tts_first_clip_s": 3.251,
+    "e2e_first_audio_s": 9.44,
+    "total_s": 10.557,
+    "sentences": 3,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 103680,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "kn",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "kn10",
+   "lang": "kn",
+   "ref": "ನಾಳೆ ಸಂಜೆ 6 ಗಂಟೆಗೆ ಕಂಪ್ಯೂಟರ್ ನೆಟ್‌ವರ್ಕ್ಸ್ ಓದಲು ನೆನಪಿಸು.",
+   "expected_tool": "set_reminder",
+   "voice": "kn-IN-GaganNeural",
+   "noisy": false,
+   "transcript": "ನಾನೆ ಸಂಜೆ ಆರು ಗಂಟಿಗೆ ಕಮ್ಪೀಟರ್ ನೇಟ್ವರ್ಕ್ಸ್ ಓದಲು ನಿನಪಿಸು.",
+   "detected_lang": "kn",
+   "reply": "ಸರಿ, 18:00ಕ್ಕೆ Computer Networks ಓದಲು ನಿಮಗೆ ನೆನಪಿಸಿಕೊಡುತ್ತೇನೆ.",
+   "tools": [
+    {
+     "name": "set_reminder",
+     "arguments": {
+      "text": "Computer Networks ಓದಲು",
+      "time": "2026-10-04 18:00"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 3.077,
+    "llm_tool_decision_s": 2.354,
+    "llm_ttft_s": 3.626,
+    "tts_first_audio_s": 2.374,
+    "tts_first_clip_s": 2.84,
+    "e2e_first_audio_s": 10.578,
+    "total_s": 10.578,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 32256,
+   "tool_ok": true,
+   "answer_ok": false,
+   "reply_lang": "kn",
+   "reply_lang_ok": true,
+   "reasons": [
+    "reminder_time ['2026-10-04 18:00']"
+   ]
+  },
+  {
+   "id": "kn11",
+   "lang": "kn",
+   "ref": "ಅಕ್ಟೋಬರ್ 9 ಬೆಳಿಗ್ಗೆ 8 ಗಂಟೆಗೆ ಲ್ಯಾಬ್ ರೆಕಾರ್ಡ್ ಸಲ್ಲಿಸಲು ರಿಮೈಂಡರ್ ಇಡು.",
+   "expected_tool": "set_reminder",
+   "voice": "kn-IN-SapnaNeural",
+   "noisy": true,
+   "transcript": "ಅಪ್ಟೋಬರ್ ಒಂಬತ್ತು ಗಳಿಗ್ಗೆ ಎಂಟು ಗಂಟಗೆ ಲಾಬ್ ರೆಕಾಡ್ಸಲ್ಲಿಸಲು ರಿಮಾಇಂದರ್ ಇದು.",
+   "detected_lang": "kn",
+   "reply": "ಸರಿ, 9 ಅಕ್ಟೋಬರ್ 8 ಗಂಟೆಗೆ ಲ್ಯಾಬ್ ರೆಕಾರ್ಡ್‌ಗಳ ರಿಮೈಂಡರ್ ಸೆಟ್ ಮಾಡಲಾಗಿದೆ.",
+   "tools": [
+    {
+     "name": "set_reminder",
+     "arguments": {
+      "text": "lab records",
+      "time": "2026-10-09 08:00"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 3.896,
+    "llm_tool_decision_s": 1.807,
+    "llm_ttft_s": 3.259,
+    "tts_first_audio_s": 1.382,
+    "tts_first_clip_s": 1.716,
+    "e2e_first_audio_s": 10.21,
+    "total_s": 10.21,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 33120,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "kn",
+   "reply_lang_ok": true,
+   "reasons": []
+  },
+  {
+   "id": "kn12",
+   "lang": "kn",
+   "ref": "ನನ್ನ SGPA ಲೆಕ್ಕ ಹಾಕಿ: 4 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 92 ಅಂಕ, ಇನ್ನೊಂದು 4 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 85 ಮತ್ತು 3 ಕ್ರೆಡಿಟ್ ವಿಷಯದಲ್ಲಿ 72 ಅಂಕ.",
+   "expected_tool": "calculate_sgpa",
+   "voice": "kn-IN-GaganNeural",
+   "noisy": false,
+   "transcript": "ನನ್ನ ಸಿಗ್ಪೆಲೆಕ್ಕಹಾಕಿ ನಾಲ್ಕು ಕ್ರೇಡಿಟ್ ವಿಷೇದಲ್ಲಿ 92 ಅಂಕ, ಇನ್ನುದು ನಾಲ್ಕು ಕ್ರೇಡಿಟ್ ವಿಷೇದಲ್ಲಿ 85 ಮತ್ತು 3 ಕ್ರೇಡಿಟ್ ವಿಷೇದಲ್ಲಿ 72 ಅಂಕ.",
+   "detected_lang": "kn",
+   "reply": "SGPA 9.09.",
+   "tools": [
+    {
+     "name": "calculate_sgpa",
+     "arguments": {
+      "courses": [
+       {
+        "credits": 4,
+        "marks": 92
+       },
+       {
+        "credits": 4,
+        "marks": 85
+       },
+       {
+        "credits": 3,
+        "marks": 72
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 23.763,
+    "llm_tool_decision_s": 1.926,
+    "llm_ttft_s": 2.862,
+    "tts_first_audio_s": 0.922,
+    "tts_first_clip_s": 1.232,
+    "e2e_first_audio_s": 27.982,
+    "total_s": 27.982,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 19584,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "en",
+   "reply_lang_ok": false,
+   "reasons": []
+  },
+  {
+   "id": "kn13",
+   "lang": "kn",
+   "ref": "ಮೊದಲ ಸೆಮಿಸ್ಟರ್ SGPA 8, ಎರಡನೇ ಸೆಮಿಸ್ಟರ್ SGPA 9, ಎರಡೂ 20 ಕ್ರೆಡಿಟ್. ನನ್ನ CGPA ಎಷ್ಟು?",
+   "expected_tool": "calculate_cgpa",
+   "voice": "kn-IN-SapnaNeural",
+   "noisy": false,
+   "transcript": "ಮುದಲ ಸಿಮಿಸ್ಟರ್ಸಗಪಾ ಎಂಟು ಎರಡನೆ ಸಿಮಿಸ್ಟರ್ಸಗಪಾ ಒಂಬತ್ತು ಎರಡು ಇಪ್ಪತ್ತು ಕ್ರೇಡಿಟ್. ನನ್ನ ಚೆಗಿಪಾ ಎಷ್ಟು.",
+   "detected_lang": "kn",
+   "reply": "ನಿಮ್ಮ CGPA 9.2 ಆಗಿದೆ.",
+   "tools": [
+    {
+     "name": "calculate_cgpa",
+     "arguments": {
+      "semesters": [
+       {
+        "sgpa": 8,
+        "credits": 0
+       },
+       {
+        "sgpa": 9.2,
+        "credits": 20
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 4.969,
+    "llm_tool_decision_s": 2.637,
+    "llm_ttft_s": 3.79,
+    "tts_first_audio_s": 1.968,
+    "tts_first_clip_s": 2.581,
+    "e2e_first_audio_s": 11.48,
+    "total_s": 11.48,
+    "sentences": 1,
+    "provider": "nvidia",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 20736,
+   "tool_ok": true,
+   "answer_ok": false,
+   "reply_lang": "kn",
+   "reply_lang_ok": true,
+   "reasons": [
+    "missing fact ['8.5']"
+   ]
+  },
+  {
+   "id": "kn14",
+   "lang": "kn",
+   "ref": "ನಮಸ್ಕಾರ, ನೀವು ಯಾರು ಮತ್ತು ಏನು ಮಾಡಬಹುದು?",
+   "expected_tool": null,
+   "voice": "kn-IN-GaganNeural",
+   "noisy": true,
+   "transcript": "ನಮಸ್ಕಾರ ನಿವು ಯಾರು ಮತ್ತು ಏನು ಮಾಡಬೋದು.",
+   "detected_lang": "kn",
+   "reply": "ನಮಸ್ಕಾರ! ನಾನು VTU Saathi, ನಿಮ್ಮ VTU 5ನೇ ಸೆಮಿಸ್ಟರ್ ISE ಅಧ್ಯಯನ ಸಹಾಯಕ. ಪರೀಕ್ಷಾ ವೇಳಾಪಟ್ಟಿ, ಸಿಲೆಬಸ್, ಅಧ್ಯಯನ ಸ್ಮರಣೆಗಳು ಮತ್ತು SGPA/CGPA ಲೆಕ್ಕಾಚಾರಗಳಲ್ಲಿ ಸಹಾಯ ಮಾಡುತ್ತೇನೆ.",
+   "tools": [],
+   "timings": {
+    "stt_s": 2.286,
+    "llm_ttft_s": 1.847,
+    "tts_first_audio_s": 1.341,
+    "tts_first_clip_s": 2.579,
+    "e2e_first_audio_s": 7.271,
+    "total_s": 8.271,
+    "sentences": 2,
+    "provider": "nvidia",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "audio_bytes": 84960,
+   "tool_ok": true,
+   "answer_ok": true,
+   "reply_lang": "kn",
+   "reply_lang_ok": true,
+   "reasons": []
+  }
+ ]
+}
