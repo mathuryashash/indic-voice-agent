@@ -185,7 +185,7 @@ Headline numbers (42 utterances, measured 2026-10-04 on an RTX 4060 laptop):
   edge-tts needs internet. End-to-end time to first audio is several seconds, not sub-second, mostly because of the
   two LLM round trips (tool decision, then answer) and large-v3 STT time.
 - **Which LLM served the eval runs.** During the eval runs, Groq gpt-oss-120b had used up its free
-  **200k tokens/day** quota (HTTP 429 TPD), so every case went to the NVIDIA NIM `gpt-oss-20b` fallback for 125 of 126 eval turns (each table
+  **200k tokens/day** quota (HTTP 429 TPD), so 125 of the 126 eval turns went to the NVIDIA NIM `gpt-oss-20b` fallback (each table
   lists the providers used). Accuracy with gpt-oss-120b on every turn was not measured.
 - **"E2E to first audio" waits for a full clip.** It is the time until the first sentence or clause has been fully
   synthesized and is ready to send. Clips are mp3 per sentence, not byte-streamed, so the true time to first sound is
