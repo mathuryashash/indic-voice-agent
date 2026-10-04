@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VTU Saathi — multilingual voice study assistant</title>
+<style>
+  :root { --bg:#0f1220; --card:#181c2f; --muted:#8a91b4; --acc:#5b8cff; --ok:#3ecf8e; --warn:#f5a524; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, "Noto Sans", "Noto Sans Devanagari", "Noto Sans Kannada", sans-serif;
+         background:var(--bg); color:#e8eaf6; }
+  header { padding:16px 24px; border-bottom:1px solid #262b45; display:flex; gap:16px; align-items:center; }
+  header h1 { font-size:18px; margin:0; } header span { color:var(--muted); font-size:13px; }
+  main { display:grid; grid-template-columns: 1fr 360px; gap:16px; padding:16px 24px; }
+  .card { background:var(--card); border-radius:12px; padding:16px; }
+  #log { min-height:360px; max-height:62vh; overflow:auto; display:flex; flex-direction:column; gap:10px; }
+  .msg { padding:10px 12px; border-radius:10px; max-width:85%; line-height:1.45; }
+  .user { align-self:flex-end; background:#26305a; } .bot { align-self:flex-start; background:#1f2a24; }
+  .tool { align-self:flex-start; font-family: ui-monospace, monospace; font-size:12px; background:#2a2440; color:#cfc6ff; max-width:100%; white-space:pre-wrap; }
+  .meta { font-size:11px; color:var(--muted); margin-top:4px; }
+  .controls { display:flex; gap:10px; align-items:center; margin-top:12px; flex-wrap:wrap; }
+  button { background:var(--acc); color:white; border:0; border-radius:999px; padding:12px 20px; font-size:15px; cursor:pointer; }
+  button.rec { background:#e5484d; } button.secondary { background:#30365a; }
+  input[type=text] { flex:1; min-width:200px; padding:11px; border-radius:8px; border:1px solid #30365a; background:#11152a; color:#fff; }
+  select { padding:10px; border-radius:8px; background:#11152a; color:#fff; border:1px solid #30365a; }
+  table { width:100%; border-collapse:collapse; font-size:13px; } td { padding:5px 4px; border-bottom:1px solid #262b45; }
+  td:last-child { text-align:right; font-variant-numeric: tabular-nums; }
+  #status { font-size:13px; color:var(--muted); }
+  .pill { display:inline-block; padding:2px 8px; border-radius:999px; background:#30365a; font-size:12px; margin-right:4px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header><h1>🎓 VTU Saathi</h1><span>Hindi · ಕನ್ನಡ · English voice study assistant — exams, syllabus, reminders, SGPA/CGPA</span></header>
+<main>
+  <section class="card">
+    <div id="log"></div>
+    <div class="controls">
+      <button id="mic">🎤 Start talking</button>
+      <select id="lang" title="Language (auto-detect by default)">
+        <option value="">Auto-detect</option><option value="hi">हिन्दी</option>
+        <option value="kn">ಕನ್ನಡ</option><option value="en">English</option>
+      </select>
+      <input id="text" type="text" placeholder="…or type a question and press Enter">
+      <button id="stop" class="secondary" title="Barge-in: stop the current reply">⏹ Stop</button>
+    </div>
+    <div id="status">Connecting…</div>
+  </section>
+  <aside class="card">
+    <h3 style="margin-top:0">Per-stage timings (last turn)</h3>
+    <table id="timings"><tbody>
+      <tr><td>STT (faster-whisper)</td><td id="t_stt">–</td></tr>
+      <tr><td>LLM tool decision</td><td id="t_tool">–</td></tr>
+      <tr><td>LLM time-to-first-token</td><td id="t_ttft">–</td></tr>
+      <tr><td>TTS first audio (edge-tts)</td><td id="t_tts">–</td></tr>
+      <tr><td><b>End-to-end → first audio</b></td><td id="t_e2e">–</td></tr>
+      <tr><td>Total turn</td><td id="t_total">–</td></tr>
+      <tr><td>LLM provider</td><td id="t_prov">–</td></tr>
+    </tbody></table>
+    <h3>Detected language</h3><div id="langinfo">–</div>
+    <h3>Audio replies</h3><div id="audiocount">0 clips played</div>
+  </aside>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const log = $("log");
+let ws, recorder, chunks = [], recording = false, botEl = null;
+let playQueue = [], playing = null, clipsPlayed = 0, clipsReceived = 0;
+window.__voice = { events: [], clipsReceived: 0, clipsPlayed: 0, turnsDone: 0 };
+
+function add(cls, html) { const d = document.createElement("div"); d.className = "msg " + cls; d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; return d; }
+const esc = (s) => String(s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const fmt = (v) => (v === undefined || v === null) ? "–" : (v * 1000).toFixed(0) + " ms";
+
+function connect() {
+  ws = new WebSocket((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/ws");
+  ws.onopen = () => $("status").textContent = "Ready. Press the mic and ask in Hindi, Kannada or English.";
+  ws.onclose = () => { $("status").textContent = "Disconnected — retrying…"; setTimeout(connect, 1500); };
+  ws.onmessage = (e) => handle(JSON.parse(e.data));
+}
+
+function handle(ev) {
+  window.__voice.events.push(ev.type === "audio" ? {type: "audio", seq: ev.seq, sentence: ev.sentence, bytes: ev.mp3.length} : ev);
+  switch (ev.type) {
+    case "stt":
+      add("user", esc(ev.text || "(silence)") + `<div class="meta">${ev.language}${ev.whisper_language ? " · whisper LID " + ev.whisper_language + " p=" + ev.language_prob : ""}</div>`);
+      $("langinfo").innerHTML = `<span class="pill">${ev.language}</span>` + Object.entries(ev.lid_probs || {}).map(([k, v]) => `<span class="pill">${k}: ${v}</span>`).join("");
+      botEl = null; $("status").textContent = "Thinking…"; break;
+    case "tool_call": add("tool", "🔧 " + esc(ev.name) + "(" + esc(JSON.stringify(ev.arguments)) + ")"); break;
+    case "tool_result": add("tool", "↳ " + esc(JSON.stringify(ev.result).slice(0, 300))); break;
+    case "token": if (!botEl) botEl = add("bot", ""); botEl.textContent += ev.text; break;
+    case "audio": clipsReceived++; window.__voice.clipsReceived = clipsReceived; enqueue(ev.mp3); break;
+    case "timings":
+      $("t_stt").textContent = fmt(ev.stt_s); $("t_tool").textContent = fmt(ev.llm_tool_decision_s);
+      $("t_ttft").textContent = fmt(ev.llm_ttft_s); $("t_tts").textContent = fmt(ev.tts_first_audio_s);
+      $("t_e2e").textContent = fmt(ev.e2e_first_audio_s); $("t_total").textContent = fmt(ev.total_s);
+      $("t_prov").textContent = ev.provider || "–"; break;
+    case "done": window.__voice.turnsDone++; $("status").textContent = "Done. Speak again any time (talking interrupts the reply)."; break;
+    case "cancelled": $("status").textContent = "Reply interrupted."; break;
+    case "error": add("tool", "⚠️ " + esc(ev.message)); $("status").textContent = "Error"; break;
+  }
+}
+
+function enqueue(b64) { playQueue.push("data:audio/mpeg;base64," + b64); if (!playing) playNext(); }
+function playNext() {
+  const src = playQueue.shift(); if (!src) { playing = null; return; }
+  playing = new Audio(src);
+  playing.onended = () => { clipsPlayed++; window.__voice.clipsPlayed = clipsPlayed; $("audiocount").textContent = clipsPlayed + " clips played"; playNext(); };
+  playing.onerror = playing.onended;
+  playing.play().catch(() => playing.onended());
+}
+function bargeIn() {  // stop local playback and tell the server to stop generating
+  playQueue = []; if (playing) { playing.pause(); playing = null; }
+  if (ws && ws.readyState === 1) ws.send(JSON.stringify({type: "cancel"}));
+}
+
+async function startRec() {
+  bargeIn();
+  const stream = await navigator.mediaDevices.getUserMedia({audio: {echoCancellation: true, noiseSuppression: true}});
+  recorder = new MediaRecorder(stream, {mimeType: "audio/webm"}); chunks = [];
+  recorder.ondataavailable = (e) => e.data.size && chunks.push(e.data);
+  recorder.onstop = async () => {
+    stream.getTracks().forEach(t => t.stop());
+    const blob = new Blob(chunks, {type: "audio/webm"});
+    const b64 = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result.split(",")[1]); fr.readAsDataURL(blob); });
+    ws.send(JSON.stringify({type: "audio", data: b64, language: $("lang").value || null}));
+    $("status").textContent = "Transcribing…";
+  };
+  recorder.start(); recording = true; $("mic").textContent = "■ Stop & send"; $("mic").classList.add("rec");
+  $("status").textContent = "Listening…";
+}
+function stopRec() { recording = false; recorder && recorder.state !== "inactive" && recorder.stop(); $("mic").textContent = "🎤 Start talking"; $("mic").classList.remove("rec"); }
+
+$("mic").onclick = () => recording ? stopRec() : startRec().catch(e => { $("status").textContent = "Mic error: " + e.message; });
+$("stop").onclick = bargeIn;
+$("text").addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && e.target.value.trim()) { bargeIn(); ws.send(JSON.stringify({type: "text", text: e.target.value.trim(), language: $("lang").value || null})); e.target.value = ""; }
+});
+connect();
+</script>
+</body>
+</html>

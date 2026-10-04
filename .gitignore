@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+scratch/
+*.sqlite
+*.db
+eval/audio/
+eval/cache/
+.llm_cache/
+tmp/
