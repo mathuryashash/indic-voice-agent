@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: vidya-saathi
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: official-vtu-data
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: STT_BACKEND
+        value: groq
+      - key: SHARED_TURNS_PER_IP
+        value: "5"
+      - key: SHARED_TURNS_PER_DAY
+        value: "150"
+      # Optional: your Groq key for the free demo turns. Leave empty to make every
+      # visitor bring their own key. Set it later in Render > Environment.
+      - key: GROQ_API_KEY
+        sync: false
