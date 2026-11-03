@@ -1,0 +1,22 @@
+name: keep-render-awake
+# Render's free plan sleeps a service after 15 min with no traffic (about 1 min cold start).
+# Ping /health every 10 minutes during Indian daytime so recruiters don't hit a cold start.
+# Free plan = 750 instance-hours per WORKSPACE per month (shared by all free services; 24/7 for one service is 744 h).
+# Awake ~05:30-00:30 IST is ~590 h/month, leaving ~160 h for other free services (e.g. ThreatLens) that sleep when idle.
+# Scheduled workflows only run from the default branch (main) and GitHub may delay them a few minutes.
+on:
+  schedule:
+    - cron: "*/10 0-18 * * *"     # UTC 00:00-18:59 = 05:30-00:29 IST
+  workflow_dispatch: {}
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ping health endpoint
+        run: |
+          for i in 1 2 3; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 90 https://vidya-saathi-94bp.onrender.com/health) && [ "$code" = "200" ] && { echo "ok $code"; exit 0; }
+            echo "attempt $i got $code"; sleep 20
+          done
+          exit 1

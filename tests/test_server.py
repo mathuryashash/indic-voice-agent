@@ -21,7 +21,8 @@ def test_ws_text_turn(monkeypatch):
     with TestClient(server.app) as client:
         server.STATE["llm"] = ScriptedLLM()
         assert client.get("/health").json()["ok"]
-        assert "VTU Saathi" in client.get("/").text
+        page = client.get("/").text
+        assert "Vidya Saathi" in page and 'id="voice"' in page and "New to VTU?" in page
         with client.websocket_connect("/ws") as ws:
             hello = ws.receive_json()
             assert hello["type"] == "hello" and hello["needs_key"] is False
@@ -124,3 +125,35 @@ def test_tts_failure_falls_back_to_browser_voice():
     asyncio.run(pipeline.run_turn(emit=emit, llm=L2(), text="When is the CN exam?", tts_fn=broken_tts))
     kinds = [e["type"] for e in events]
     assert "speak" in kinds and "audio" not in kinds and kinds[-1] == "done"
+
+
+def test_voice_gender_selects_voice(monkeypatch):
+    monkeypatch.setenv("VOICE_NO_STT", "1")
+    monkeypatch.setenv("GROQ_API_KEY", "test-dummy")
+    seen = {}
+
+    async def run_turn(**kw):
+        seen["voice_index"] = kw.get("voice_index")
+        await kw["emit"]({"type": "done", "reply": "ok"})
+    monkeypatch.setattr(server, "run_turn", run_turn)
+    with TestClient(server.app) as client:
+        server.STATE["llm"] = ScriptedLLM()
+        with client.websocket_connect("/ws") as ws:
+            ws.receive_json()
+            ws.send_json({"type": "text", "text": "hi", "voice": "male"})
+            while ws.receive_json()["type"] != "done":
+                pass
+            assert seen["voice_index"] == 1
+            ws.send_json({"type": "text", "text": "hi", "voice": "female"})
+            while ws.receive_json()["type"] != "done":
+                pass
+            assert seen["voice_index"] == 0
+    server._usage.clear()
+
+
+def test_voice_table_has_both_genders():
+    from app.lang import VOICES
+    for lang in ("hi", "kn", "en"):
+        female, male = VOICES[lang][:2]
+        assert female in {"hi-IN-SwaraNeural", "kn-IN-SapnaNeural", "en-IN-NeerjaNeural"}
+        assert male in {"hi-IN-MadhurNeural", "kn-IN-GaganNeural", "en-IN-PrabhatNeural"}

@@ -2,6 +2,11 @@
 
 (Formerly "VTU Saathi".)
 
+**Try it live: https://vidya-saathi-94bp.onrender.com** (free Render instance; if it has been idle, the first load takes
+about a minute). Paste your own free Groq key when asked (console.groq.com/keys, no card). The key stays in your
+browser tab and in server memory for that connection only. Not from Karnataka? The "New to VTU? Try these" panel
+explains the terms and lists questions to tap.
+
 A local voice agent for VTU engineering students. You speak a question in Hindi, Kannada or English
 (code-mixed is fine). The agent transcribes it, works out the language, calls real local tools
 (exam timetable, syllabus search, reminders, SGPA/CGPA calculator) and speaks the answer back in
@@ -51,6 +56,16 @@ Why this stack (checked on this machine, Windows 11 + RTX 4060 8 GB):
   The fallback is NVIDIA NIM `openai/gpt-oss-20b`.
 - **TTS: edge-tts** with `hi-IN-SwaraNeural`, `kn-IN-SapnaNeural` and `en-IN-NeerjaNeural` (the Madhur, Gagan and Prabhat voices are used in the eval).
 - **No Pipecat.** A plain FastAPI + WebSocket pipeline is easier to read and to time per stage on Windows. The brief allowed this.
+
+## Cloud mode (what the live demo runs)
+
+The hosted copy has no GPU, so `STT_BACKEND=groq` sends audio to Groq's hosted whisper-large-v3 instead of loading
+faster-whisper. `Dockerfile` + `render.yaml` deploy it on Render's free plan (512 MB, Singapore). Each visitor gets
+`SHARED_TURNS_PER_IP` free turns on the server key if one is set, then a bring-your-own-key dialog. A voice switch picks
+a female or male edge-tts voice in each language (Swara/Madhur, Sapna/Gagan, Neerja/Prabhat). If edge-tts fails, the
+browser's own speech voice reads the reply. `.github/workflows/keep-awake.yml` pings `/health` every 10 minutes from
+05:30 to 00:30 IST, so daytime visitors don't hit the free plan's 15-minute sleep while staying inside Render's 750
+free instance-hours a month.
 
 ## Setup
 
@@ -202,4 +217,6 @@ Headline numbers (42 utterances, measured 2026-10-04 on an RTX 4060 laptop):
   42-case eval and the unit tests use the frozen demo set in `eval/fixtures/demo_data` (`VOICE_AGENT_DATA_DIR`), so the
   reported eval numbers are for that set.
 - **Reminders are only stored in SQLite.** No notification is fired when a reminder comes due.
-- **Not deployed and no Docker image.** The project runs locally only.
+- **The live demo is a free instance.** It may restart at any time, reminders live in `/tmp` and vanish on restart, and
+  outside the keep-awake window the first request takes about a minute. Live numbers (Groq STT, Render Singapore):
+  about 0.3-0.6 s STT and 4-5 s to first audio per voice turn, measured with `scratch/cloud_smoke.py`.

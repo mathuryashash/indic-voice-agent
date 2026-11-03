@@ -257,6 +257,12 @@ body[data-key="ask"] .keybox { display: flex; }
 .keycard .err { color: #b3261e; font-size: .9rem; min-height: 1.2em; }
 .keycard small { color: #5b5649; }
 .keychip { font-size: .8rem; padding: 4px 10px; border-radius: 999px; border: 1px solid #d8d0bd; background: #fffaf0; cursor: pointer; margin-right: 8px; }
+
+.tryq { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.tryq li { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.tryq .chip { text-align: left; }
+.tryq span { font-size: 12px; color: var(--muted, #6b7a78); padding-left: 4px; }
+#voice { margin-left: 0; }
 </style>
 </head>
 <body data-state="connecting" data-conn="wait">
@@ -315,6 +321,10 @@ body[data-key="ask"] .keybox { display: flex; }
           <option value="">Auto-detect</option><option value="hi" lang="hi">हिन्दी</option>
           <option value="kn" lang="kn">ಕನ್ನಡ</option><option value="en">English</option>
         </select>
+        <label for="voice" class="sr-only">Voice</label>
+        <select id="voice" title="Reply voice">
+          <option value="female">♀ Female voice</option><option value="male">♂ Male voice</option>
+        </select>
         <button id="stop" type="button" title="Barge-in: stop the current reply" aria-label="Stop the current reply"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="2" width="10" height="10" rx="2.5" fill="currentColor"/></svg><span class="lbl">Stop</span></button>
       </div>
       <div class="statusbar">
@@ -343,6 +353,22 @@ body[data-key="ask"] .keybox { display: flex; }
         <tr><td>LLM provider</td><td id="t_prov">–</td></tr>
       </tbody></table>
       <div class="meta" style="margin-top:10px">🔊 <span id="audiocount">0 clips played</span></div>
+    </section>
+    <section class="card panel" aria-labelledby="h-try">
+      <h3 id="h-try">New to VTU? Try these</h3>
+      <p class="meta" style="margin:0 0 10px">VTU (Visvesvaraya Technological University) is Karnataka's state technical university: most engineering colleges in the state follow its syllabus, exam timetable and credit rules. Vidya Saathi answers from VTU's official PDFs for 7th-semester Information Science (ISE, 2022 scheme). Tap a question to try it.</p>
+      <ul class="tryq">
+        <li><button class="chip" type="button" data-q="When is the Big Data Analytics exam?">When is the Big Data Analytics exam?</button><span>exam timetable</span></li>
+        <li><button class="chip" type="button" data-q="Is there a holiday this month?">Is there a holiday this month?</button><span>holiday list</span></li>
+        <li><button class="chip" type="button" data-q="When is the last working day of 7th semester?">When is the last working day of 7th sem?</button><span>academic calendar</span></li>
+        <li><button class="chip" type="button" data-q="Does Big Data Analytics have an external lab exam?">Does BDA have an external lab exam?</button><span>course rules</span></li>
+        <li><button class="chip" type="button" data-q="What is MapReduce in the Big Data Analytics syllabus?">MapReduce in the BDA syllabus?</button><span>syllabus search</span></li>
+        <li><button class="chip" type="button" data-q="My grades are A in a 4 credit subject, B in a 3 credit subject and O in a 2 credit subject. What is my SGPA?">Work out my SGPA (A, B, O grades)</button><span>calculator</span></li>
+        <li><button class="chip" type="button" data-q="Remind me to revise parallel computing tomorrow at 7 pm">Remind me to revise tomorrow 7 pm</button><span>reminder</span></li>
+        <li><button class="chip" type="button" data-q="कंप्यूटर नेटवर्क्स का परीक्षा कब है?" lang="hi">कंप्यूटर नेटवर्क्स का परीक्षा कब है?</button><span>Hindi · it should say it doesn't have this</span></li>
+        <li><button class="chip" type="button" data-q="ಬಿಗ್ ಡೇಟಾ ಅನಾಲಿಟಿಕ್ಸ್ ಎಷ್ಟು ಕ್ರೆಡಿಟ್?" lang="kn">ಬಿಗ್ ಡೇಟಾ ಅನಾಲಿಟಿಕ್ಸ್ ಎಷ್ಟು ಕ್ರೆಡಿಟ್?</button><span>Kannada</span></li>
+      </ul>
+      <p class="meta" style="margin:10px 0 0">Glossary: <b>SEE</b> end-semester exam · <b>CIE</b> internal marks · <b>IPCC</b> theory course with an integrated lab · <b>SGPA</b> semester grade point average (out of 10).</p>
     </section>
     <section class="card panel" aria-labelledby="h-can">
       <h3 id="h-can">What I can do</h3>
@@ -513,7 +539,7 @@ async function startRec() {
     stream.getTracks().forEach(t => t.stop());
     const blob = new Blob(chunks, {type: "audio/webm"});
     const b64 = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result.split(",")[1]); fr.readAsDataURL(blob); });
-    ws.send(JSON.stringify({type: "audio", data: b64, language: $("lang").value || null}));
+    ws.send(JSON.stringify({type: "audio", data: b64, language: $("lang").value || null, voice: $("voice").value}));
     $("status").textContent = "Transcribing…"; setState("thinking");
   };
   recorder.start(); recording = true; setMic(true);
@@ -521,9 +547,12 @@ async function startRec() {
 }
 function stopRec() { recording = false; recorder && recorder.state !== "inactive" && recorder.stop(); setMic(false); }
 
+(() => { const v = localStorage.getItem("vs_voice"); if (v) $("voice").value = v;
+  $("voice").onchange = () => localStorage.setItem("vs_voice", $("voice").value); })();
+
 function sendText(q) {
   q = (q || "").trim(); if (!q || !ws || ws.readyState !== 1) return false;
-  bargeIn(); ws.send(JSON.stringify({type: "text", text: q, language: $("lang").value || null}));
+  bargeIn(); ws.send(JSON.stringify({type: "text", text: q, language: $("lang").value || null, voice: $("voice").value}));
   $("status").textContent = "Thinking…"; setState("thinking"); return true;
 }
 
@@ -555,7 +584,10 @@ const BCP = {hi: "hi-IN", kn: "kn-IN", en: "en-IN"};
 function speakFallback(text, lang) {
   if (!("speechSynthesis" in window)) return;
   const u = new SpeechSynthesisUtterance(text); u.lang = BCP[lang] || "en-IN";
-  const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.toLowerCase().startsWith((BCP[lang] || "en-IN").slice(0, 2)));
+  const pre = (BCP[lang] || "en-IN").slice(0, 2), male = $("voice").value === "male";
+  const cands = speechSynthesis.getVoices().filter(v => v.lang && v.lang.toLowerCase().startsWith(pre));
+  const MALE = /male|madhur|prabhat|gagan|ravi|hemant|david|mark|rishi/i, FEMALE = /female|swara|neerja|sapna|heera|kalpana|zira|veena|lekha/i;
+  const v = cands.find(v => (male ? MALE : FEMALE).test(v.name) && !(male && /female/i.test(v.name))) || cands[0];
   if (v) u.voice = v;
   window.__voice.fallbackSpoken = (window.__voice.fallbackSpoken || 0) + 1;
   speechSynthesis.speak(u);

@@ -4,6 +4,7 @@ Protocol on /ws (one connection = one conversation):
   client -> {"type":"audio","data":<base64 webm/wav>, "language": optional}
   client -> {"type":"text","text":"..."}         (typed fallback)
   client -> {"type":"cancel"}                     (barge-in: stop the running turn)
+  audio/text messages may carry "voice": "female" | "male" (TTS voice gender, default female)
   client -> {"type":"auth","key":"gsk_..."}       (bring-your-own Groq key, kept in memory for this socket only)
   server -> {"type":"hello", needs_key, free_turns_left, stt}   on connect
   server -> {"type":"auth_ok"} | {"type":"auth_error", message} | {"type":"need_key", message}
@@ -144,6 +145,7 @@ async def ws_endpoint(ws: WebSocket):
 
     async def turn(msg: dict) -> None:
         tmp = None
+        vidx = 1 if str(msg.get("voice", "")).lower() == "male" else 0
         llm, stt = clients()
         if llm is None:
             await emit({"type": "need_key", "message": "Free demo turns used up. Paste your own free Groq key "
@@ -159,10 +161,10 @@ async def ws_endpoint(ws: WebSocket):
                 with os.fdopen(fd, "wb") as f:
                     f.write(raw)
                 await run_turn(emit=emit, llm=llm, stt=stt, audio=tmp,
-                               language=msg.get("language"), history=history)
+                               language=msg.get("language"), history=history, voice_index=vidx)
             else:
                 await run_turn(emit=emit, llm=llm, text=msg["text"][:2000],
-                               language=msg.get("language"), history=history)
+                               language=msg.get("language"), history=history, voice_index=vidx)
         except asyncio.CancelledError:
             await emit({"type": "cancelled"})
             raise
