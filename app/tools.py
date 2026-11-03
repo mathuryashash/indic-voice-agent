@@ -60,8 +60,13 @@ def get_exam_schedule(subject: str = "") -> dict:
             if score > best_score:
                 best, best_score = e, score
     if best is None or best_score < 0.6:
-        return {"error": f"No exam found for '{subject}'.",
-                "known_subjects": [e["subject"] for e in exams], **meta}
+        out = {"error": f"No exam found for '{subject}'.",
+               "known_subjects": [e["subject"] for e in exams], **meta}
+        other = _mentioned_course(subject)
+        if other:
+            out["error"] = (f"{other['title']} ({other['code']}) is a semester {other['semester']} course. "
+                            f"Its exam date is NOT in the loaded timetable, so say you don't have it.")
+        return out
     return {"exam": best, **meta}
 
 
@@ -76,6 +81,19 @@ def _match_score(q: str, names: list[str]) -> float:
             best = max(best, 0.9 if len(n) > 3 else 0.75)
         else:
             best = max(best, SequenceMatcher(None, q, n).ratio())
+    return best
+
+def _mentioned_course(text: str) -> dict | None:
+    """Return the scheme course whose code/title/alias appears in `text` (word match), if any."""
+    path = DATA_DIR / "courses.json"
+    if not path.exists() or not text:
+        return None
+    q = " " + _norm(text) + " "
+    best, best_len = None, 0
+    for c in json.loads(path.read_text(encoding="utf-8"))["courses"]:
+        for n in [c["code"].lower(), _norm(c["title"]), *[_norm(a) for a in c["aliases"]]]:
+            if n and (len(n) > 3 or n == c["code"].lower()) and f" {n} " in q and len(n) > best_len:
+                best, best_len = c, len(n)
     return best
 
 # ---------------------------------------------------------------- course scheme (credits, type, lab)
@@ -200,7 +218,15 @@ def search_syllabus(query: str) -> dict:
     global _INDEX
     if _INDEX is None:
         _INDEX = SyllabusIndex()
+    named = _mentioned_course(query or "")
+    loaded = {c.code for c in _INDEX.chunks}
+    if named and named["code"] not in loaded:
+        return {"error": f"The syllabus for {named['title']} ({named['code']}, semester {named['semester']}) "
+                         f"is not loaded. Say you don't have its syllabus; do not guess modules.",
+                "loaded_subjects": sorted({f"{c.code} {c.subject}" for c in _INDEX.chunks})}
     hits = _INDEX.search(query or "")
+    if named:
+        hits = [h for h in hits if h["code"] == named["code"]] or hits
     if not hits:
         return {"error": f"Nothing in the syllabus matched '{query}'."}
     return {"results": hits}

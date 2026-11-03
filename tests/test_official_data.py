@@ -56,3 +56,14 @@ def test_syllabus_lab_and_textbook():
     assert hits[0]["code"] == "BIS701"
     assert ask("t.search_syllabus('CUDA threads blocks grids')")["results"][0]["code"] == "BIS702"
     assert ask("t.search_syllabus('HMAC birthday problem hash')")["results"][0]["code"] == "BIS703"
+
+
+def test_syllabus_search_refuses_course_not_loaded():
+    r = ask("t.search_syllabus('computer networks TCP congestion control')")
+    assert "not loaded" in r["error"] and "BCS502" in r["error"]
+    assert ask("t.search_syllabus('MapReduce in big data analytics')")["results"][0]["code"] == "BIS701"
+
+
+def test_exam_lookup_flags_other_semester_course():
+    r = ask("t.get_exam_schedule('computer networks')")
+    assert "semester V" in r["error"] and "NOT in the loaded timetable" in r["error"]
