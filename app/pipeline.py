@@ -110,10 +110,20 @@ async def run_turn(*, emit: Emit, llm, stt=None, audio=None, text: str | None = 
         t_start = time.perf_counter()
         first = None
         buf = bytearray()
-        async for b in tts_fn(sentence, voice):
-            if first is None:
-                first = time.perf_counter() - t_start
-            buf.extend(b)
+        for attempt in range(2):  # edge-tts sometimes 403s (token rotation); one quick retry, then give up
+            try:
+                async for b in tts_fn(sentence, voice):
+                    if first is None:
+                        first = time.perf_counter() - t_start
+                    buf.extend(b)
+                break
+            except asyncio.CancelledError:
+                raise
+            except Exception:  # noqa: BLE001 - TTS failure must not lose the text reply
+                buf.clear()
+                first = None
+                if attempt == 0:
+                    await asyncio.sleep(0.3)
         return seq, sentence, bytes(buf), (first or 0.0), time.perf_counter() - t_start
 
     async def emitter() -> None:
@@ -131,6 +141,9 @@ async def run_turn(*, emit: Emit, llm, stt=None, audio=None, text: str | None = 
             idx += 1
             if mp3:
                 await emit({"type": "audio", "seq": seq, "sentence": sentence, "mp3": mp3})
+            else:  # server TTS failed: the browser speaks it with speechSynthesis
+                timings["tts_fallback"] = True
+                await emit({"type": "speak", "seq": seq, "sentence": sentence, "language": lang})
 
     emitter_task = asyncio.create_task(emitter())
 

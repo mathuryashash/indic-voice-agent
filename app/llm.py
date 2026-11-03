@@ -22,10 +22,16 @@ class Provider:
     base_url: str
     model: str
     key_env: str
+    api_key: str | None = None  # per-user key (bring-your-own-key); overrides the env var
 
     @property
     def key(self) -> str | None:
-        return os.environ.get(self.key_env)
+        return self.api_key or os.environ.get(self.key_env)
+
+
+def groq_provider(api_key: str) -> Provider:
+    return Provider("groq", "https://api.groq.com/openai/v1",
+                    os.environ.get("GROQ_MODEL_VOICE", "openai/gpt-oss-120b"), "GROQ_API_KEY", api_key)
 
 
 def default_providers() -> list[Provider]:

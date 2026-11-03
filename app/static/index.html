@@ -243,9 +243,35 @@ tr.key .bar i { background: var(--marigold); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001s !important; animation-iteration-count: 1 !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* ---- bring-your-own-key dialog */
+.keybox { position: fixed; inset: 0; background: rgba(20,32,30,.45); display: none; align-items: center; justify-content: center; z-index: 50; padding: 16px; }
+body[data-key="ask"] .keybox { display: flex; }
+.keycard { background: var(--paper, #fffdf7); border-radius: 18px; max-width: 440px; width: 100%; padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,.25); }
+.keycard h2 { margin: 0 0 6px; font-size: 1.25rem; }
+.keycard p { margin: 6px 0 12px; line-height: 1.45; font-size: .95rem; }
+.keycard input { width: 100%; box-sizing: border-box; padding: 12px 14px; border-radius: 12px; border: 1.5px solid #c9c2b2; font: inherit; }
+.keycard .row { display: flex; gap: 8px; margin-top: 12px; align-items: center; flex-wrap: wrap; }
+.keycard button { padding: 10px 16px; border-radius: 12px; border: 0; background: #0f5c55; color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+.keycard .ghost { background: transparent; color: #0f5c55; border: 1.5px solid #0f5c55; }
+.keycard .err { color: #b3261e; font-size: .9rem; min-height: 1.2em; }
+.keycard small { color: #5b5649; }
+.keychip { font-size: .8rem; padding: 4px 10px; border-radius: 999px; border: 1px solid #d8d0bd; background: #fffaf0; cursor: pointer; margin-right: 8px; }
 </style>
 </head>
 <body data-state="connecting" data-conn="wait">
+<div class="keybox" role="dialog" aria-modal="true" aria-labelledby="keyh">
+  <div class="keycard">
+    <h2 id="keyh">Use your own free Groq key</h2>
+    <p id="keymsg">The free demo turns are used up. Vidya Saathi runs on Groq, which gives every developer a free API key (no card).</p>
+    <p><small>1. Open <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a> and sign in with Google or GitHub. 2. Create API key. 3. Paste it here.</small></p>
+    <input id="keyin" type="password" autocomplete="off" spellcheck="false" placeholder="gsk_..." aria-label="Groq API key">
+    <div class="err" id="keyerr" role="alert"></div>
+    <label><input type="checkbox" id="keyremember"> <small>Remember on this device</small></label>
+    <div class="row"><button id="keysave" type="button">Use this key</button><button class="ghost" id="keyclose" type="button">Not now</button></div>
+    <p><small>Your key is sent only to this server over an encrypted connection, kept in memory for this session and never stored or logged.</small></p>
+  </div>
+</div>
 <header class="top">
   <div class="brand">
     <div class="brand-mark" aria-hidden="true">
@@ -257,6 +283,7 @@ tr.key .bar i { background: var(--marigold); }
     </div>
   </div>
   <div class="top-right">
+    <button class="keychip" id="keybtn" type="button" hidden>🔑 <span id="keylabel">Use my Groq key</span></button>
     <div class="conn" role="status"><i></i><span id="connlabel">Connecting</span></div>
   </div>
 </header>
@@ -411,7 +438,7 @@ function maybeIdle() { if (!turnActive && !playing && !playQueue.length && !reco
 
 function connect() {
   ws = new WebSocket((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/ws");
-  ws.onopen = () => { $("status").textContent = "Ready. Press the mic and ask in Hindi, Kannada or English."; document.body.dataset.conn = "on"; $("connlabel").textContent = "Connected"; setState("idle"); };
+  ws.onopen = () => { const k = getKey(); if (k) ws.send(JSON.stringify({type: "auth", key: k})); $("status").textContent = "Ready. Press the mic and ask in Hindi, Kannada or English."; document.body.dataset.conn = "on"; $("connlabel").textContent = "Connected"; setState("idle"); };
   ws.onclose = () => { $("status").textContent = "Disconnected — retrying…"; document.body.dataset.conn = "off"; $("connlabel").textContent = "Offline"; setState("error"); setTimeout(connect, 1500); };
   ws.onmessage = (e) => handle(JSON.parse(e.data));
 }
@@ -429,6 +456,15 @@ function handle(ev) {
     case "token":
       if (!botEl) botEl = add("bot live", "");
       botEl.textContent += ev.text; log.scrollTop = log.scrollHeight; break;
+    case "hello":
+      $("keybtn").hidden = false;
+      if (ev.needs_key && !getKey()) askKey("This demo has no free turns left right now. Vidya Saathi runs on Groq, which gives every developer a free API key (no card).");
+      else if (!getKey()) $("keylabel").textContent = ev.free_turns_left + " free turns · use my key";
+      break;
+    case "auth_ok": document.body.dataset.key = "ok"; $("keylabel").textContent = "Using your key"; $("keyerr").textContent = ""; break;
+    case "auth_error": clearKey(); askKey(); $("keyerr").textContent = ev.message; break;
+    case "need_key": turnActive = false; askKey(ev.message); $("status").textContent = "Needs a Groq key"; maybeIdle(); break;
+    case "speak": speakFallback(ev.sentence, ev.language); break;
     case "audio": clipsReceived++; window.__voice.clipsReceived = clipsReceived; enqueue(ev.mp3); break;
     case "timings":
       $("t_stt").textContent = fmt(ev.stt_s); $("t_tool").textContent = fmt(ev.llm_tool_decision_s);
@@ -458,6 +494,7 @@ function playNext() {
 }
 function bargeIn() {  // stop local playback and tell the server to stop generating
   playQueue = []; if (playing) { playing.pause(); playing = null; }
+  if ("speechSynthesis" in window) speechSynthesis.cancel();
   if (ws && ws.readyState === 1) ws.send(JSON.stringify({type: "cancel"}));
   if (!recording && document.body.dataset.state === "speaking") setState(turnActive ? "thinking" : "idle");
 }
@@ -497,6 +534,32 @@ $("text").addEventListener("keydown", (e) => {
 });
 $("send").onclick = () => { if (sendText($("text").value)) $("text").value = ""; $("text").focus(); };
 document.querySelectorAll(".chip[data-q]").forEach(c => c.onclick = () => sendText(c.dataset.q));
+
+// ---- bring-your-own-key: sessionStorage by default, localStorage only if the user opts in
+function getKey() { return sessionStorage.getItem("groq_key") || localStorage.getItem("groq_key") || ""; }
+function clearKey() { sessionStorage.removeItem("groq_key"); localStorage.removeItem("groq_key"); }
+function askKey(msg) { if (msg) $("keymsg").textContent = msg; document.body.dataset.key = "ask"; setTimeout(() => $("keyin").focus(), 50); }
+$("keybtn").onclick = () => askKey("Paste your own free Groq key to use your own quota.");
+$("keyclose").onclick = () => { document.body.dataset.key = ""; };
+$("keysave").onclick = () => {
+  const k = $("keyin").value.trim();
+  if (!/^gsk_[A-Za-z0-9]{8,}$/.test(k)) { $("keyerr").textContent = "Groq keys start with gsk_"; return; }
+  clearKey(); ($("keyremember").checked ? localStorage : sessionStorage).setItem("groq_key", k);
+  $("keyin").value = ""; document.body.dataset.key = "";
+  if (ws && ws.readyState === 1) ws.send(JSON.stringify({type: "auth", key: k}));
+};
+$("keyin").addEventListener("keydown", (e) => { if (e.key === "Enter") $("keysave").click(); });
+
+// ---- if server TTS fails, speak with the browser's own voice (Kannada voices are not on every device)
+const BCP = {hi: "hi-IN", kn: "kn-IN", en: "en-IN"};
+function speakFallback(text, lang) {
+  if (!("speechSynthesis" in window)) return;
+  const u = new SpeechSynthesisUtterance(text); u.lang = BCP[lang] || "en-IN";
+  const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.toLowerCase().startsWith((BCP[lang] || "en-IN").slice(0, 2)));
+  if (v) u.voice = v;
+  window.__voice.fallbackSpoken = (window.__voice.fallbackSpoken || 0) + 1;
+  speechSynthesis.speak(u);
+}
 connect();
 </script>
 </body>

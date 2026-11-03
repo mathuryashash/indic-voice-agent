@@ -1,0 +1,9 @@
+.venv
+.env
+*.sqlite
+eval
+docs
+scratch
+tests
+__pycache__
+.git
