@@ -140,7 +140,7 @@ async def run_turn(*, emit: Emit, llm, stt=None, audio=None, text: str | None = 
                 timings["tts_first_clip_s"] = round(clip_s, 3)   # whole sentence-1 clip synthesized
             idx += 1
             if mp3:
-                await emit({"type": "audio", "seq": seq, "sentence": sentence, "mp3": mp3})
+                await emit({"type": "audio", "seq": seq, "sentence": sentence, "mp3": mp3, "voice": voice})
             else:  # server TTS failed: the browser speaks it with speechSynthesis
                 timings["tts_fallback"] = True
                 await emit({"type": "speak", "seq": seq, "sentence": sentence, "language": lang})
