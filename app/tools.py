@@ -20,7 +20,7 @@ from rank_bm25 import BM25Okapi
 # Official VTU data lives in app/data. Tests and the eval use the frozen demo set
 # (eval/fixtures/demo_data) by setting VOICE_AGENT_DATA_DIR.
 DATA_DIR = Path(os.environ.get("VOICE_AGENT_DATA_DIR") or Path(__file__).parent / "data")
-DEFAULT_DB = Path(__file__).resolve().parent.parent / "reminders.sqlite"
+DEFAULT_DB = Path(os.environ.get("REMINDERS_DB") or Path(__file__).resolve().parent.parent / "reminders.sqlite")
 
 # ---------------------------------------------------------------- exam schedule
 
