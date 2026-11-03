@@ -1,18 +1,73 @@
 {
-  "_note": "DEMO DATA written for this project. Dates are illustrative, NOT an official VTU timetable.",
-  "semester": "5th semester ISE (VTU 2022 scheme), Dec 2026 SEE",
-  "exams": [
-    {"code": "BCS501", "subject": "Software Engineering and Project Management",
-     "aliases": ["software engineering", "se", "sepm", "project management"],
-     "date": "2026-12-10", "day": "Thursday", "time": "09:30-12:30", "hall": "Block A, Room 204"},
-    {"code": "BCS502", "subject": "Computer Networks",
-     "aliases": ["computer networks", "cn", "networks", "networking"],
-     "date": "2026-12-14", "day": "Monday", "time": "09:30-12:30", "hall": "Block A, Room 105"},
-    {"code": "BCS503", "subject": "Theory of Computation",
-     "aliases": ["theory of computation", "toc", "automata", "automata theory"],
-     "date": "2026-12-17", "day": "Thursday", "time": "14:00-17:00", "hall": "Block B, Room 301"},
-    {"code": "BCSL504", "subject": "Web Technology Lab",
-     "aliases": ["web technology lab", "web lab", "web technology"],
-     "date": "2026-12-03", "day": "Thursday", "time": "09:00-12:00", "hall": "ISE Lab 2"}
-  ]
+ "_source": "VTU circular VTU/Exam/QPDS/CW(1)/2026-2027/1191 dated 22 Oct 2026 (final UG SEE timetable Dec 2026/Jan 2027): https://vtu.ac.in/wp-content/uploads/2026/10/TT_UG_D26J27-1.pdf",
+ "semester": "VII semester B.E. (2022 scheme), Dec 2026 SEE",
+ "status_warning": "VTU's revised VII sem academic calendar (Ref 4297, 31 Oct 2026) moves VII sem theory exams to 02-21 Dec 2026, which conflicts with these dates. As of 3 Nov 2026 no revised timetable is published, so these dates are likely to change. Exam halls are allotted by the college, not VTU.",
+ "exams": [
+  {
+   "code": "BIS714x",
+   "subject": "Professional Elective (Deep Learning / Software Quality Assurance / Embedded Systems / Distributed File Systems)",
+   "aliases": [
+    "professional elective",
+    "pe",
+    "deep learning",
+    "software quality assurance",
+    "sqa",
+    "embedded systems",
+    "distributed file systems",
+    "elective"
+   ],
+   "date": "2026-11-17",
+   "day": "Tuesday",
+   "time": "14:00-17:00"
+  },
+  {
+   "code": "BIS755x",
+   "subject": "Open Elective",
+   "aliases": [
+    "open elective",
+    "oe"
+   ],
+   "date": "2026-11-19",
+   "day": "Thursday",
+   "time": "14:00-17:00"
+  },
+  {
+   "code": "BIS701",
+   "subject": "Big Data Analytics",
+   "aliases": [
+    "big data analytics",
+    "bda",
+    "big data"
+   ],
+   "date": "2026-11-24",
+   "day": "Tuesday",
+   "time": "14:00-17:00"
+  },
+  {
+   "code": "BIS702",
+   "subject": "Parallel Computing",
+   "aliases": [
+    "parallel computing",
+    "pc",
+    "parallel"
+   ],
+   "date": "2026-11-26",
+   "day": "Thursday",
+   "time": "14:00-17:00"
+  },
+  {
+   "code": "BIS703",
+   "subject": "Information and Network Security",
+   "aliases": [
+    "information and network security",
+    "ins",
+    "network security",
+    "information security",
+    "cryptography"
+   ],
+   "date": "2026-11-30",
+   "day": "Monday",
+   "time": "14:00-17:00"
+  }
+ ]
 }

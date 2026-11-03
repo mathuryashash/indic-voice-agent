@@ -1,4 +1,6 @@
-# VTU Saathi: a Hindi / Kannada / English voice study assistant
+# Vidya Saathi: a Hindi / Kannada / English voice study assistant
+
+(Formerly "VTU Saathi".)
 
 A local voice agent for VTU engineering students. You speak a question in Hindi, Kannada or English
 (code-mixed is fine). The agent transcribes it, works out the language, calls real local tools
@@ -30,7 +32,7 @@ flowchart LR
     TURN --> STT[faster-whisper large-v3<br/>CUDA fp16, CPU int8 fallback]
     STT --> LID[hi/kn/en LID + script check]
     LID --> LLM[Streaming chat client<br/>Groq gpt-oss-120b → NVIDIA NIM]
-    LLM -->|tool_calls| TOOLS[(Tools: exams.json, BM25 syllabus,<br/>SQLite reminders, SGPA/CGPA)]
+    LLM -->|tool_calls| TOOLS[(Tools: VTU timetable + calendar, course scheme,<br/>BM25 syllabus, SQLite reminders, SGPA/CGPA)]
     TOOLS -->|results| LLM
     LLM -->|token stream| SPLIT[Sentence / first-clause splitter]
     SPLIT -->|parallel per sentence| TTS[edge-tts neural voices]
@@ -192,7 +194,12 @@ Headline numbers (42 utterances, measured 2026-10-04 on an RTX 4060 laptop):
 - **Barge-in is button- or utterance-based, not VAD-based.** Pressing Stop or starting a new recording cancels the server
   task and stops local playback. The server-side cancel is covered by a test. The server does not listen to the mic while
   it is speaking (no full-duplex VAD).
-- **The demo data is made up.** `app/data/exams.json` and the syllabus notes were written for this demo. They are not an
-  official VTU timetable or the full syllabus.
+- **Official data, narrow coverage.** `app/data` holds data copied from official VTU PDFs (checked 3 Nov 2026): the
+  ISE 2022-scheme course table for semesters 5-8 (credits, type, marks), the VII sem syllabus for BIS701/702/703, the VII sem
+  Dec 2026 SEE timetable, and the V/VI/VII sem academic calendars. Each file records its source URL. Holidays are the
+  Karnataka 2026 state list via a secondary source. IA test dates and exam halls are set by the college and are not
+  included. VTU's revised VII sem calendar conflicts with the 22 Oct timetable, so the exam tool returns a warning. The
+  42-case eval and the unit tests use the frozen demo set in `eval/fixtures/demo_data` (`VOICE_AGENT_DATA_DIR`), so the
+  reported eval numbers are for that set.
 - **Reminders are only stored in SQLite.** No notification is fired when a reminder comes due.
 - **Not deployed and no Docker image.** The project runs locally only.

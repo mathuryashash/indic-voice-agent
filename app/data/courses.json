@@ -1,0 +1,397 @@
+{
+ "_source": "VTU B.E. ISE Scheme of Teaching and Examinations, 2022 scheme: https://vtu.ac.in/pdf/2022_3to8/58issch.pdf ; VII sem syllabus https://vtu.ac.in/pdf/2022_3to8/7issyll.pdf",
+ "_type_key": {
+  "IPCC": "Integrated professional core course (theory + integrated lab)",
+  "PCC": "Professional core course (theory)",
+  "PCCL": "Professional core lab",
+  "PEC": "Professional elective",
+  "OEC": "Open elective",
+  "PROJ": "Project",
+  "AEC": "Ability enhancement course",
+  "AEC/SDC": "Ability enhancement / skill development course",
+  "HSMS": "Humanities/management",
+  "MC": "Mandatory non-credit course",
+  "INT": "Internship",
+  "IKS": "Indian Knowledge System"
+ },
+ "passing_rule": "CIE at least 40% (20/50), SEE at least 35% (18/50), and at least 40/100 overall (VII sem syllabus, Assessment Details).",
+ "semester_total_credits": {
+  "V": 22,
+  "VI": 18,
+  "VII": 24,
+  "VIII": 16
+ },
+ "courses": [
+  {
+   "code": "BCS501",
+   "title": "Software Engineering & Project Management",
+   "semester": "V",
+   "type": "PCC",
+   "ltp": "4:0:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 4,
+   "aliases": [
+    "software engineering",
+    "sepm"
+   ]
+  },
+  {
+   "code": "BCS502",
+   "title": "Computer Networks",
+   "semester": "V",
+   "type": "IPCC",
+   "ltp": "3:0:2",
+   "cie": 50,
+   "see": 50,
+   "credits": 4,
+   "aliases": [
+    "computer networks",
+    "cn"
+   ],
+   "lab_assessment": "The theory portion of the IPCC is assessed in both CIE and SEE; the practical (lab) portion is CIE only, so there is no separate external lab exam. SEE questions may include the practical component."
+  },
+  {
+   "code": "BCS503",
+   "title": "Theory of Computation",
+   "semester": "V",
+   "type": "PCC",
+   "ltp": "3:2:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 4,
+   "aliases": [
+    "theory of computation",
+    "toc"
+   ]
+  },
+  {
+   "code": "BAIL504",
+   "title": "Data Visualization Lab",
+   "semester": "V",
+   "type": "PCCL",
+   "ltp": "0:0:2",
+   "cie": 50,
+   "see": 50,
+   "credits": 1,
+   "aliases": [
+    "data visualization lab",
+    "dv lab"
+   ]
+  },
+  {
+   "code": "BXX515x",
+   "title": "Professional Elective Course (BAI515A Computer Vision, BCS515B Artificial Intelligence, BCS515C Unix System Programming, BCS515D Distributed Systems)",
+   "semester": "V",
+   "type": "PEC",
+   "ltp": "3:0:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 3,
+   "aliases": []
+  },
+  {
+   "code": "BIS586",
+   "title": "Mini Project",
+   "semester": "V",
+   "type": "PROJ",
+   "ltp": "0:0:4",
+   "cie": 100,
+   "see": 0,
+   "credits": 2,
+   "aliases": [
+    "mini project"
+   ]
+  },
+  {
+   "code": "BRMK557",
+   "title": "Research Methodology and IPR",
+   "semester": "V",
+   "type": "AEC",
+   "ltp": "2:2:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 3,
+   "aliases": [
+    "research methodology",
+    "rm",
+    "ipr"
+   ]
+  },
+  {
+   "code": "BCS508",
+   "title": "Environmental Studies and E-waste Management",
+   "semester": "V",
+   "type": "HSMS",
+   "ltp": "1:0:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 1,
+   "aliases": [
+    "environmental studies",
+    "evs"
+   ]
+  },
+  {
+   "code": "BNSK559/BPEK559/BYOK559",
+   "title": "NSS / Physical Education / Yoga",
+   "semester": "V",
+   "type": "MC",
+   "ltp": "0:0:2",
+   "cie": 100,
+   "see": 0,
+   "credits": 0,
+   "aliases": []
+  },
+  {
+   "code": "BIS601",
+   "title": "Full Stack Development",
+   "semester": "VI",
+   "type": "IPCC",
+   "ltp": "3:0:2",
+   "cie": 50,
+   "see": 50,
+   "credits": 4,
+   "aliases": [
+    "full stack development",
+    "fsd",
+    "full stack"
+   ],
+   "lab_assessment": "The theory portion of the IPCC is assessed in both CIE and SEE; the practical (lab) portion is CIE only, so there is no separate external lab exam. SEE questions may include the practical component."
+  },
+  {
+   "code": "BIS602",
+   "title": "Machine Learning",
+   "semester": "VI",
+   "type": "PCC",
+   "ltp": "4:0:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 4,
+   "aliases": [
+    "machine learning",
+    "ml"
+   ]
+  },
+  {
+   "code": "BIS613x",
+   "title": "Professional Elective (A Blockchain Technology, B Internet of Things, C Compiler Design, D Cloud Computing)",
+   "semester": "VI",
+   "type": "PEC",
+   "ltp": "3:0:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 3,
+   "aliases": []
+  },
+  {
+   "code": "BIS654x",
+   "title": "Open Elective (A Intro to Data Structures, B Fundamentals of Operating Systems, C Mobile Application Development, D Introduction to AI)",
+   "semester": "VI",
+   "type": "OEC",
+   "ltp": "3:0:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 3,
+   "aliases": []
+  },
+  {
+   "code": "BIS685",
+   "title": "Project Phase I",
+   "semester": "VI",
+   "type": "PROJ",
+   "ltp": "0:0:4",
+   "cie": 100,
+   "see": 0,
+   "credits": 2,
+   "aliases": [
+    "project phase 1",
+    "project phase i"
+   ]
+  },
+  {
+   "code": "BISL606",
+   "title": "Machine Learning lab",
+   "semester": "VI",
+   "type": "PCCL",
+   "ltp": "0:0:2",
+   "cie": 50,
+   "see": 50,
+   "credits": 1,
+   "aliases": [
+    "machine learning lab",
+    "ml lab"
+   ]
+  },
+  {
+   "code": "BIS657x",
+   "title": "AEC/SDC V (A Progressive App Development, B Tosca Automated Software Testing, C Cyber Laws, D Devops)",
+   "semester": "VI",
+   "type": "AEC/SDC",
+   "ltp": "1:0:0 or 0:0:2",
+   "cie": 50,
+   "see": 50,
+   "credits": 1,
+   "aliases": []
+  },
+  {
+   "code": "BNSK658/BPEK658/BYOK658",
+   "title": "NSS / PE / Yoga",
+   "semester": "VI",
+   "type": "MC",
+   "ltp": "0:0:2",
+   "cie": 100,
+   "see": 0,
+   "credits": 0,
+   "aliases": []
+  },
+  {
+   "code": "BIKS609",
+   "title": "Indian Knowledge System",
+   "semester": "VI",
+   "type": "IKS",
+   "ltp": "1:0:0",
+   "cie": 100,
+   "see": 0,
+   "credits": 0,
+   "aliases": [
+    "indian knowledge system",
+    "iks"
+   ]
+  },
+  {
+   "code": "BIS701",
+   "title": "Big Data Analytics",
+   "semester": "VII",
+   "type": "IPCC",
+   "ltp": "3:0:2",
+   "cie": 50,
+   "see": 50,
+   "credits": 4,
+   "aliases": [
+    "big data analytics",
+    "bda",
+    "big data"
+   ],
+   "lab_assessment": "The theory portion of the IPCC is assessed in both CIE and SEE; the practical (lab) portion is CIE only, so there is no separate external lab exam. SEE questions may include the practical component."
+  },
+  {
+   "code": "BIS702",
+   "title": "Parallel Computing",
+   "semester": "VII",
+   "type": "IPCC",
+   "ltp": "3:0:2",
+   "cie": 50,
+   "see": 50,
+   "credits": 4,
+   "aliases": [
+    "parallel computing",
+    "pc"
+   ],
+   "lab_assessment": "The theory portion of the IPCC is assessed in both CIE and SEE; the practical (lab) portion is CIE only, so there is no separate external lab exam. SEE questions may include the practical component."
+  },
+  {
+   "code": "BIS703",
+   "title": "Information & Network Security",
+   "semester": "VII",
+   "type": "PCC",
+   "ltp": "4:0:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 4,
+   "aliases": [
+    "information and network security",
+    "information & network security",
+    "ins",
+    "network security",
+    "cryptography"
+   ]
+  },
+  {
+   "code": "BIS714x",
+   "title": "Professional Elective (A Deep Learning, B Software Quality Assurance, C Embedded Systems, D Distributed File Systems)",
+   "semester": "VII",
+   "type": "PEC",
+   "ltp": "3:0:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 3,
+   "aliases": [
+    "professional elective",
+    "pe",
+    "deep learning",
+    "software quality assurance",
+    "embedded systems",
+    "distributed file systems"
+   ]
+  },
+  {
+   "code": "BIS755x",
+   "title": "Open Elective (A Introduction to DBMS, B Introduction to Algorithms, C Software Engineering, D not listed)",
+   "semester": "VII",
+   "type": "OEC",
+   "ltp": "3:0:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 3,
+   "aliases": [
+    "open elective",
+    "oe"
+   ]
+  },
+  {
+   "code": "BIS786",
+   "title": "Major Project Phase-II",
+   "semester": "VII",
+   "type": "PROJ",
+   "ltp": "0:0:12",
+   "cie": 100,
+   "see": 100,
+   "credits": 6,
+   "aliases": [
+    "major project",
+    "project phase 2",
+    "major project phase ii"
+   ]
+  },
+  {
+   "code": "BIS801x",
+   "title": "Professional Elective (Online, NPTEL)",
+   "semester": "VIII",
+   "type": "PEC",
+   "ltp": "3:0:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 3,
+   "aliases": [
+    "nptel professional elective"
+   ]
+  },
+  {
+   "code": "BIS802x",
+   "title": "Open Elective (Online, NPTEL)",
+   "semester": "VIII",
+   "type": "OEC",
+   "ltp": "3:0:0",
+   "cie": 50,
+   "see": 50,
+   "credits": 3,
+   "aliases": [
+    "nptel open elective"
+   ]
+  },
+  {
+   "code": "BIS803",
+   "title": "Internship (Industry/Research) 14-20 weeks",
+   "semester": "VIII",
+   "type": "INT",
+   "ltp": "0:0:12",
+   "cie": 100,
+   "see": 100,
+   "credits": 10,
+   "aliases": [
+    "internship"
+   ]
+  }
+ ]
+}

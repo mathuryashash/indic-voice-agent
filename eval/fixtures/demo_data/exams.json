@@ -1,0 +1,18 @@
+{
+  "_note": "DEMO DATA written for this project. Dates are illustrative, NOT an official VTU timetable.",
+  "semester": "5th semester ISE (VTU 2022 scheme), Dec 2026 SEE",
+  "exams": [
+    {"code": "BCS501", "subject": "Software Engineering and Project Management",
+     "aliases": ["software engineering", "se", "sepm", "project management"],
+     "date": "2026-12-10", "day": "Thursday", "time": "09:30-12:30", "hall": "Block A, Room 204"},
+    {"code": "BCS502", "subject": "Computer Networks",
+     "aliases": ["computer networks", "cn", "networks", "networking"],
+     "date": "2026-12-14", "day": "Monday", "time": "09:30-12:30", "hall": "Block A, Room 105"},
+    {"code": "BCS503", "subject": "Theory of Computation",
+     "aliases": ["theory of computation", "toc", "automata", "automata theory"],
+     "date": "2026-12-17", "day": "Thursday", "time": "14:00-17:00", "hall": "Block B, Room 301"},
+    {"code": "BCSL504", "subject": "Web Technology Lab",
+     "aliases": ["web technology lab", "web lab", "web technology"],
+     "date": "2026-12-03", "day": "Thursday", "time": "09:00-12:00", "hall": "ISE Lab 2"}
+  ]
+}

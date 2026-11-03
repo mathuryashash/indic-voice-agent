@@ -20,6 +20,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+# The 42 scripted cases were written against the frozen demo dataset.
+import os  # noqa: E402
+os.environ.setdefault("VOICE_AGENT_DATA_DIR", str(ROOT / "eval" / "fixtures" / "demo_data"))
 
 from app import lang as L  # noqa: E402
 from app.config import load_keys  # noqa: E402

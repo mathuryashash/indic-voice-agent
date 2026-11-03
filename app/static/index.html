@@ -2,80 +2,417 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VTU Saathi — multilingual voice study assistant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f1e7">
+<!-- Product name lives in ONE place: the BRAND constant at the top of the script below.
+     Previous name: "VTU Saathi" (still the assistant's spoken persona in app/pipeline.py). -->
+<title>Vidya Saathi — voice study assistant</title>
+<meta name="application-name" content="Vidya Saathi (formerly VTU Saathi)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230e5c56'/%3E%3Cpath d='M9 12.5 16 9l7 3.5-7 3.5z' fill='%23f2b84b'/%3E%3Cpath d='M12 15v4.2c0 1.3 1.8 2.3 4 2.3s4-1 4-2.3V15' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
-  :root { --bg:#0f1220; --card:#181c2f; --muted:#8a91b4; --acc:#5b8cff; --ok:#3ecf8e; --warn:#f5a524; }
-  * { box-sizing: border-box; }
-  body { margin:0; font-family: system-ui, "Noto Sans", "Noto Sans Devanagari", "Noto Sans Kannada", sans-serif;
-         background:var(--bg); color:#e8eaf6; }
-  header { padding:16px 24px; border-bottom:1px solid #262b45; display:flex; gap:16px; align-items:center; }
-  header h1 { font-size:18px; margin:0; } header span { color:var(--muted); font-size:13px; }
-  main { display:grid; grid-template-columns: 1fr 360px; gap:16px; padding:16px 24px; }
-  .card { background:var(--card); border-radius:12px; padding:16px; }
-  #log { min-height:360px; max-height:62vh; overflow:auto; display:flex; flex-direction:column; gap:10px; }
-  .msg { padding:10px 12px; border-radius:10px; max-width:85%; line-height:1.45; }
-  .user { align-self:flex-end; background:#26305a; } .bot { align-self:flex-start; background:#1f2a24; }
-  .tool { align-self:flex-start; font-family: ui-monospace, monospace; font-size:12px; background:#2a2440; color:#cfc6ff; max-width:100%; white-space:pre-wrap; }
-  .meta { font-size:11px; color:var(--muted); margin-top:4px; }
-  .controls { display:flex; gap:10px; align-items:center; margin-top:12px; flex-wrap:wrap; }
-  button { background:var(--acc); color:white; border:0; border-radius:999px; padding:12px 20px; font-size:15px; cursor:pointer; }
-  button.rec { background:#e5484d; } button.secondary { background:#30365a; }
-  input[type=text] { flex:1; min-width:200px; padding:11px; border-radius:8px; border:1px solid #30365a; background:#11152a; color:#fff; }
-  select { padding:10px; border-radius:8px; background:#11152a; color:#fff; border:1px solid #30365a; }
-  table { width:100%; border-collapse:collapse; font-size:13px; } td { padding:5px 4px; border-bottom:1px solid #262b45; }
-  td:last-child { text-align:right; font-variant-numeric: tabular-nums; }
-  #status { font-size:13px; color:var(--muted); }
-  .pill { display:inline-block; padding:2px 8px; border-radius:999px; background:#30365a; font-size:12px; margin-right:4px; }
-  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&family=Noto+Sans+Kannada:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  /* warm paper + deep teal ink; marigold accent */
+  --paper: #f6f1e7;
+  --paper-2: #efe7d8;
+  --surface: #fffdf8;
+  --line: #e3d9c6;
+  --line-strong: #d2c5ad;
+  --ink: #1f1a14;
+  --ink-2: #4a4036;
+  --muted: #6b5f52;          /* 5.6:1 on --surface */
+  --teal: #0e5c56;           /* primary, 7.6:1 with white */
+  --teal-2: #0a4743;
+  --teal-tint: #e3efec;
+  --marigold: #f2b84b;
+  --marigold-tint: #fbefd2;
+  --rec: #b4361f;            /* listening / record, 5.9:1 with white */
+  --rec-tint: #f8e1da;
+  --ok: #2f7a4a;
+  --err: #a32a1c;
+  --err-tint: #fbe4df;
+  --radius: 18px;
+  --shadow: 0 1px 0 rgba(60, 40, 10, .04), 0 8px 24px -12px rgba(60, 40, 10, .18);
+  --font: "Noto Sans", "Noto Sans Devanagari", "Noto Sans Kannada", system-ui, -apple-system, "Segoe UI", "Nirmala UI", sans-serif;
+  --display: "Fraunces", Georgia, "Noto Serif", serif;
+  --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0; font-family: var(--font); font-size: 15.5px; line-height: 1.55;
+  color: var(--ink); background: var(--paper);
+  background-image: radial-gradient(1200px 500px at 85% -10%, #fbe9c4 0%, transparent 60%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+:lang(hi), :lang(kn) { line-height: 1.7; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--marigold); outline-offset: 2px; border-radius: 10px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- header ---------- */
+.top {
+  max-width: 1280px; margin: 0 auto; padding: 22px 28px 10px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+.brand-mark {
+  width: 44px; height: 44px; border-radius: 13px; background: var(--teal);
+  display: grid; place-items: center; box-shadow: 0 6px 16px -8px rgba(14, 92, 86, .7);
+}
+.brand h1 { font-family: var(--display); font-weight: 700; font-size: 25px; letter-spacing: -.01em; margin: 0; line-height: 1.1; }
+.brand-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.brand-sub [lang] { color: var(--ink-2); }
+.top-right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+.conn {
+  display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px;
+}
+.conn i { width: 8px; height: 8px; border-radius: 50%; background: #b9ad99; }
+body[data-conn="on"] .conn i { background: var(--ok); box-shadow: 0 0 0 3px rgba(47, 122, 74, .18); }
+body[data-conn="off"] .conn i { background: var(--err); }
+
+/* ---------- layout ---------- */
+main {
+  max-width: 1280px; margin: 0 auto; padding: 8px 28px 28px;
+  display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; align-items: start;
+}
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.chat { display: flex; flex-direction: column; height: calc(100vh - 118px); min-height: 520px; overflow: hidden; }
+
+/* ---------- conversation log ---------- */
+#log {
+  flex: 1; overflow-y: auto; padding: 24px 24px 12px; display: flex; flex-direction: column; gap: 12px;
+  scroll-behavior: smooth;
+}
+.empty { margin: auto; text-align: center; max-width: 520px; padding: 12px 8px 24px; }
+.empty h2 { font-family: var(--display); font-weight: 600; font-size: 26px; line-height: 1.25; margin: 0 0 8px; letter-spacing: -.01em; }
+.empty p { color: var(--muted); margin: 0 0 18px; }
+.suggest { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.chip {
+  border: 1px solid var(--line-strong); background: var(--paper); color: var(--ink-2);
+  border-radius: 999px; padding: 8px 14px; font-size: 14px; cursor: pointer; transition: background .15s, border-color .15s;
+}
+.chip:hover { background: var(--marigold-tint); border-color: var(--marigold); color: var(--ink); }
+.log-has-msgs .empty { display: none; }
+
+.msg { max-width: min(78%, 640px); padding: 11px 15px; border-radius: 16px; line-height: 1.55; overflow-wrap: anywhere; animation: rise .22s ease-out both; }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+.msg.user { align-self: flex-end; background: var(--teal); color: #fff; border-bottom-right-radius: 6px; }
+.msg.user .meta { color: rgba(255, 255, 255, .78); }
+.msg.bot {
+  align-self: flex-start; background: var(--paper); border: 1px solid var(--line); border-bottom-left-radius: 6px;
+  font-size: 16px; color: var(--ink);
+}
+.msg.bot.live::after { content: ""; display: inline-block; width: 7px; height: 1.05em; margin-left: 3px; vertical-align: -2px; background: var(--teal); border-radius: 2px; animation: blink 1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.meta { font-size: 12px; color: var(--muted); margin-top: 4px; letter-spacing: .01em; }
+
+/* tool card */
+.msg.tool {
+  align-self: flex-start; max-width: min(92%, 640px); width: 100%; padding: 0; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line-strong); border-radius: 14px; font-size: 14px;
+}
+.tool-head { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--marigold-tint); border-bottom: 1px solid #f0dcae; }
+.tool-ico { width: 26px; height: 26px; border-radius: 8px; background: var(--marigold); display: grid; place-items: center; flex: none; }
+.tool-name { font-weight: 600; color: var(--ink); }
+.tool-fn { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+.tool-state { margin-left: auto; font-size: 12px; font-weight: 600; color: #7a5410; display: inline-flex; align-items: center; gap: 6px; }
+.tool-state::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; animation: pulse 1s ease-in-out infinite; }
+.tool.done .tool-state { color: var(--ok); } .tool.done .tool-state::before { animation: none; }
+.tool.failed .tool-state { color: var(--err); } .tool.failed .tool-state::before { animation: none; }
+.tool-body { padding: 10px 14px 12px; display: grid; gap: 8px; }
+.kv { display: flex; flex-wrap: wrap; gap: 6px; }
+.kv span { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 3px 9px; font-size: 13px; }
+.kv b { font-weight: 600; color: var(--muted); margin-right: 5px; font-size: 12px; text-transform: capitalize; }
+.res-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+details.raw summary { cursor: pointer; font-size: 12.5px; color: var(--teal); font-weight: 600; width: max-content; list-style: none; }
+details.raw summary::-webkit-details-marker { display: none; }
+details.raw summary::before { content: "▸ "; } details.raw[open] summary::before { content: "▾ "; }
+details.raw pre { margin: 8px 0 0; padding: 10px 12px; background: #2a241d; color: #f4ead8; border-radius: 10px; font: 12px/1.5 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; max-height: 240px; overflow: auto; }
+
+.msg.error { align-self: stretch; max-width: none; background: var(--err-tint); color: var(--err); border: 1px solid #efb9ad; font-size: 14px; display: flex; gap: 8px; align-items: flex-start; }
+
+/* ---------- composer ---------- */
+.composer { border-top: 1px solid var(--line); padding: 14px 18px 12px; background: linear-gradient(var(--surface), #fcf8ef); }
+.controls { display: flex; gap: 10px; align-items: center; }
+.field { flex: 1; min-width: 0; display: flex; align-items: center; background: var(--paper); border: 1px solid var(--line-strong); border-radius: 999px; padding: 4px 4px 4px 16px; transition: border-color .15s, box-shadow .15s; }
+.field:focus-within { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(14, 92, 86, .15); }
+input[type=text] { flex: 1; min-width: 0; border: 0; background: transparent; padding: 9px 4px; outline: none; font-size: 15.5px; }
+input[type=text]::placeholder { color: #85786a; }
+select {
+  appearance: none; border: 0; background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%234a4036' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") no-repeat right 12px center;
+  border-radius: 999px; padding: 8px 30px 8px 14px; font-size: 14px; cursor: pointer; border: 1px solid var(--line);
+}
+button { cursor: pointer; border: 0; }
+#mic {
+  flex: none; display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 22px 0 8px;
+  border-radius: 999px; background: var(--teal); color: #fff; font-weight: 600; font-size: 15.5px; white-space: nowrap;
+  box-shadow: 0 8px 18px -10px rgba(14, 92, 86, .9); transition: background .15s, transform .1s;
+}
+#mic:hover { background: var(--teal-2); } #mic:active { transform: scale(.98); }
+#mic .mic-ico { width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, .16); display: grid; place-items: center; position: relative; }
+#mic.rec { background: var(--rec); box-shadow: 0 8px 18px -10px rgba(180, 54, 31, .9); }
+#mic.rec .mic-ico::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .7); animation: ring 1.2s ease-out infinite; }
+@keyframes ring { from { transform: scale(.85); opacity: 1; } to { transform: scale(1.25); opacity: 0; } }
+#stop {
+  flex: none; display: inline-flex; align-items: center; gap: 7px; height: 44px; padding: 0 16px; border-radius: 999px;
+  background: var(--surface); color: var(--ink-2); border: 1px solid var(--line-strong); font-weight: 500; font-size: 14px;
+}
+#stop:hover { border-color: var(--rec); color: var(--rec); }
+.send { width: 40px; height: 40px; border-radius: 50%; background: var(--teal); color: #fff; display: grid; place-items: center; flex: none; }
+.send:hover { background: var(--teal-2); }
+
+.statusbar { display: flex; align-items: center; gap: 10px; margin-top: 10px; min-height: 22px; }
+.state-dot { width: 10px; height: 10px; border-radius: 50%; background: #b9ad99; flex: none; }
+#status { font-size: 13.5px; color: var(--ink-2); }
+.wave { display: none; gap: 3px; align-items: center; height: 16px; }
+.wave i { width: 3px; border-radius: 2px; background: currentColor; animation: wave .9s ease-in-out infinite; }
+.wave i:nth-child(2) { animation-delay: .15s } .wave i:nth-child(3) { animation-delay: .3s } .wave i:nth-child(4) { animation-delay: .45s }
+@keyframes wave { 0%, 100% { height: 4px; } 50% { height: 16px; } }
+@keyframes pulse { 50% { opacity: .35; } }
+body[data-state="idle"] .state-dot { background: var(--ok); }
+body[data-state="listening"] .state-dot { background: var(--rec); animation: pulse 1s infinite; }
+body[data-state="listening"] #status { color: var(--rec); font-weight: 600; }
+body[data-state="thinking"] .state-dot { background: var(--marigold); animation: pulse .8s infinite; }
+body[data-state="speaking"] .state-dot { display: none; }
+body[data-state="speaking"] .wave { display: inline-flex; color: var(--teal); }
+body[data-state="speaking"] #status { color: var(--teal); font-weight: 600; }
+body[data-state="error"] .state-dot { background: var(--err); }
+body[data-state="error"] #status { color: var(--err); font-weight: 600; }
+.hint { margin-left: auto; font-size: 12px; color: var(--muted); }
+kbd { font: 11px var(--mono); border: 1px solid var(--line-strong); border-bottom-width: 2px; border-radius: 5px; padding: 0 5px; background: var(--paper); }
+
+/* ---------- side panel ---------- */
+aside { display: grid; gap: 16px; }
+.panel { padding: 18px 20px; }
+.panel h3 { margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.panel h3 small { margin-left: auto; font-weight: 500; letter-spacing: 0; text-transform: none; font-size: 12px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+td { padding: 7px 0; border-bottom: 1px dashed var(--line); vertical-align: middle; color: var(--ink-2); }
+tr:last-child td { border-bottom: 0; }
+td:last-child { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--mono); font-size: 12.5px; color: var(--ink); white-space: nowrap; padding-left: 10px; }
+td .bar { display: block; height: 4px; margin-top: 5px; border-radius: 4px; background: var(--paper-2); overflow: hidden; }
+td .bar i { display: block; height: 100%; width: 0; background: var(--teal); border-radius: 4px; transition: width .4s ease; }
+tr.key td { color: var(--ink); font-weight: 600; }
+tr.key td:last-child { color: var(--teal); font-size: 14px; font-weight: 600; }
+tr.key .bar i { background: var(--marigold); }
+.tag { display: inline-block; font-size: 11px; color: var(--muted); font-family: var(--mono); }
+#langinfo { display: flex; flex-wrap: wrap; gap: 6px; min-height: 28px; align-items: center; color: var(--muted); }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); font-size: 13px; color: var(--ink-2); }
+.pill.main { background: var(--teal-tint); border-color: #b8d6d0; color: var(--teal-2); font-weight: 600; }
+#audiocount { font-size: 14px; color: var(--ink-2); }
+.features { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 14px; color: var(--ink-2); }
+.features li { display: flex; gap: 10px; align-items: flex-start; }
+.features b { color: var(--ink); font-weight: 600; display: block; }
+.features span.ic { flex: none; width: 30px; height: 30px; border-radius: 9px; background: var(--paper); border: 1px solid var(--line); display: grid; place-items: center; font-size: 15px; }
+.dev summary { cursor: pointer; list-style: none; }
+.dev summary::-webkit-details-marker { display: none; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px) {
+  main { grid-template-columns: 1fr; }
+  .chat { height: calc(100dvh - 128px); min-height: 460px; }
+  aside { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+  .top { padding: 14px 14px 8px; gap: 10px; }
+  .brand-mark { width: 38px; height: 38px; border-radius: 11px; }
+  .brand h1 { font-size: 21px; }
+  .brand-sub .long { display: none; }
+  .conn span { display: none; } .conn { padding: 8px; }
+  main { padding: 4px 10px 16px; gap: 14px; }
+  .chat { height: calc(100dvh - 86px); min-height: 0; border-radius: 16px; }
+  #log { padding: 16px 12px 8px; }
+  .msg { max-width: 88%; }
+  .empty h2 { font-size: 22px; }
+  .composer { padding: 10px 10px calc(10px + env(safe-area-inset-bottom)); }
+  .controls { flex-wrap: wrap; gap: 8px; }
+  .field { order: 1; flex-basis: 100%; }
+  .controls { flex-wrap: wrap; }
+  #mic { order: 2; flex: 1 1 0; min-width: 0; justify-content: center; height: 52px; padding: 0 16px 0 6px; }
+  #lang { order: 3; padding-left: 12px; padding-right: 28px; }
+  #stop { order: 4; padding: 0 12px; }
+  #stop .lbl { display: none; }
+  .hint { display: none; }
+  aside { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001s !important; animation-iteration-count: 1 !important; transition: none !important; scroll-behavior: auto !important; }
+}
 </style>
 </head>
-<body>
-<header><h1>🎓 VTU Saathi</h1><span>Hindi · ಕನ್ನಡ · English voice study assistant — exams, syllabus, reminders, SGPA/CGPA</span></header>
-<main>
-  <section class="card">
-    <div id="log"></div>
-    <div class="controls">
-      <button id="mic">🎤 Start talking</button>
-      <select id="lang" title="Language (auto-detect by default)">
-        <option value="">Auto-detect</option><option value="hi">हिन्दी</option>
-        <option value="kn">ಕನ್ನಡ</option><option value="en">English</option>
-      </select>
-      <input id="text" type="text" placeholder="…or type a question and press Enter">
-      <button id="stop" class="secondary" title="Barge-in: stop the current reply">⏹ Stop</button>
+<body data-state="connecting" data-conn="wait">
+<header class="top">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 32 32"><path d="M5 12.5 16 7l11 5.5L16 18z" fill="#f2b84b"/><path d="M10 15.5v5.2c0 1.8 2.7 3.3 6 3.3s6-1.5 6-3.3v-5.2" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M27 12.5v6" stroke="#f2b84b" stroke-width="2" stroke-linecap="round"/></svg>
     </div>
-    <div id="status">Connecting…</div>
+    <div>
+      <h1 data-brand>Vidya Saathi</h1>
+      <div class="brand-sub"><span lang="hi">हिन्दी</span> · <span lang="kn">ಕನ್ನಡ</span> · English<span class="long"> — voice study buddy for VTU students</span></div>
+    </div>
+  </div>
+  <div class="top-right">
+    <div class="conn" role="status"><i></i><span id="connlabel">Connecting</span></div>
+  </div>
+</header>
+
+<main>
+  <section class="card chat" aria-label="Conversation">
+    <div id="log" role="log" aria-live="polite" aria-label="Conversation">
+      <div class="empty">
+        <h2>Ask about exams, syllabus or your SGPA — out loud.</h2>
+        <p>Tap the mic and speak in Hindi, Kannada or English. I’ll answer in the same language.</p>
+        <div class="suggest">
+          <button class="chip" type="button" data-q="When is the Big Data Analytics exam?">When is the BDA exam?</button>
+          <button class="chip" type="button" data-q="सातवें सेमेस्टर की छुट्टियाँ कब हैं?" lang="hi">सातवें सेमेस्टर की छुट्टियाँ कब हैं?</button>
+          <button class="chip" type="button" data-q="ನಾಳೆ ಸಂಜೆ 6 ಗಂಟೆಗೆ ಓದಲು ನೆನಪಿಸು" lang="kn">ನಾಳೆ 6ಕ್ಕೆ ಓದಲು ನೆನಪಿಸು</button>
+          <button class="chip" type="button" data-q="How many credits is Big Data Analytics and does it have an external lab?">BDA credits &amp; lab?</button>
+        </div>
+      </div>
+    </div>
+    <div class="composer">
+      <div class="controls">
+        <button id="mic" type="button" aria-label="Start talking"><span class="mic-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></span><span class="mic-label">Start talking</span></button>
+        <div class="field">
+          <label for="text" class="sr-only">Type a question</label>
+          <input id="text" type="text" placeholder="…or type a question and press Enter" autocomplete="off" enterkeyhint="send">
+          <button class="send" id="send" type="button" aria-label="Send question"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+        <label for="lang" class="sr-only">Reply language</label>
+        <select id="lang" title="Language (auto-detect by default)">
+          <option value="">Auto-detect</option><option value="hi" lang="hi">हिन्दी</option>
+          <option value="kn" lang="kn">ಕನ್ನಡ</option><option value="en">English</option>
+        </select>
+        <button id="stop" type="button" title="Barge-in: stop the current reply" aria-label="Stop the current reply"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="2" width="10" height="10" rx="2.5" fill="currentColor"/></svg><span class="lbl">Stop</span></button>
+      </div>
+      <div class="statusbar">
+        <span class="state-dot" aria-hidden="true"></span>
+        <span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div id="status" role="status" aria-live="polite">Connecting…</div>
+        <span class="hint">Talking again interrupts the reply · <kbd>Enter</kbd> sends</span>
+      </div>
+    </div>
   </section>
-  <aside class="card">
-    <h3 style="margin-top:0">Per-stage timings (last turn)</h3>
-    <table id="timings"><tbody>
-      <tr><td>STT (faster-whisper)</td><td id="t_stt">–</td></tr>
-      <tr><td>LLM tool decision</td><td id="t_tool">–</td></tr>
-      <tr><td>LLM time-to-first-token</td><td id="t_ttft">–</td></tr>
-      <tr><td>TTS first audio (edge-tts)</td><td id="t_tts">–</td></tr>
-      <tr><td><b>End-to-end → first audio</b></td><td id="t_e2e">–</td></tr>
-      <tr><td>Total turn</td><td id="t_total">–</td></tr>
-      <tr><td>LLM provider</td><td id="t_prov">–</td></tr>
-    </tbody></table>
-    <h3>Detected language</h3><div id="langinfo">–</div>
-    <h3>Audio replies</h3><div id="audiocount">0 clips played</div>
+
+  <aside>
+    <section class="card panel" aria-labelledby="h-lang">
+      <h3 id="h-lang">Detected language</h3>
+      <div id="langinfo">–</div>
+    </section>
+    <section class="card panel" aria-labelledby="h-time">
+      <h3 id="h-time">Per-stage timings <small>last turn</small></h3>
+      <table id="timings"><tbody>
+        <tr><td>STT <span class="tag">faster-whisper</span><span class="bar"><i></i></span></td><td id="t_stt">–</td></tr>
+        <tr><td>LLM tool decision<span class="bar"><i></i></span></td><td id="t_tool">–</td></tr>
+        <tr><td>LLM time-to-first-token<span class="bar"><i></i></span></td><td id="t_ttft">–</td></tr>
+        <tr><td>TTS first audio <span class="tag">edge-tts</span><span class="bar"><i></i></span></td><td id="t_tts">–</td></tr>
+        <tr class="key"><td>End-to-end → first audio<span class="bar"><i></i></span></td><td id="t_e2e">–</td></tr>
+        <tr><td>Total turn<span class="bar"><i></i></span></td><td id="t_total">–</td></tr>
+        <tr><td>LLM provider</td><td id="t_prov">–</td></tr>
+      </tbody></table>
+      <div class="meta" style="margin-top:10px">🔊 <span id="audiocount">0 clips played</span></div>
+    </section>
+    <section class="card panel" aria-labelledby="h-can">
+      <h3 id="h-can">What I can do</h3>
+      <ul class="features">
+        <li><span class="ic" aria-hidden="true">📅</span><div><b>Exam timetable</b>Official VTU dates by subject</div></li>
+        <li><span class="ic" aria-hidden="true">🗓️</span><div><b>Academic calendar</b>Last working day, exam windows, holidays</div></li>
+        <li><span class="ic" aria-hidden="true">🎓</span><div><b>Course facts</b>Credits, labs and marks (ISE, sem 5–8)</div></li>
+        <li><span class="ic" aria-hidden="true">📚</span><div><b>Syllabus search</b>Modules, lab experiments, textbooks</div></li>
+        <li><span class="ic" aria-hidden="true">⏰</span><div><b>Study reminders</b>“Remind me tomorrow at 6”</div></li>
+        <li><span class="ic" aria-hidden="true">🧮</span><div><b>SGPA / CGPA</b>From your credits and grades</div></li>
+      </ul>
+    </section>
   </aside>
 </main>
+
 <script>
+// ---- Branding: change the product name here only ----
+const BRAND = { name: "Vidya Saathi", tagline: "voice study assistant" };
+document.title = BRAND.name + " — " + BRAND.tagline;
+document.querySelectorAll("[data-brand]").forEach(el => el.textContent = BRAND.name);
+
 const $ = (id) => document.getElementById(id);
 const log = $("log");
 let ws, recorder, chunks = [], recording = false, botEl = null;
 let playQueue = [], playing = null, clipsPlayed = 0, clipsReceived = 0;
+let lastTool = null, turnActive = false;
 window.__voice = { events: [], clipsReceived: 0, clipsPlayed: 0, playErrors: 0, playedSeconds: 0, turnsDone: 0 };
 
-function add(cls, html) { const d = document.createElement("div"); d.className = "msg " + cls; d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; return d; }
-const esc = (s) => String(s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const LANGS = { hi: "हिन्दी · Hindi", kn: "ಕನ್ನಡ · Kannada", en: "English" };
+const ICON_TOOL = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3b2a06" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>';
+
+function setState(s) { document.body.dataset.state = s; }
+function add(cls, html) {
+  const d = document.createElement("div"); d.className = "msg " + cls; d.innerHTML = html;
+  log.appendChild(d); log.classList.add("log-has-msgs"); log.scrollTop = log.scrollHeight; return d;
+}
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const fmt = (v) => (v === undefined || v === null) ? "–" : (v * 1000).toFixed(0) + " ms";
+const humanize = (n) => String(n).replace(/^(get|set|search|calc|calculate|add|create)_/, (m, v) => v === "search" ? "search " : v === "add" || v === "create" ? "add " : "").replace(/_/g, " ").replace(/^./, c => c.toUpperCase());
+
+// compact "key: value" chips for tool args/results (raw JSON stays one click away)
+function chips(obj, max = 6, skip = null) {
+  if (obj === null || obj === undefined) return "";
+  if (typeof obj !== "object") return `<div class="kv"><span>${esc(obj)}</span></div>`;
+  let o = obj;
+  const keys = Object.keys(o);
+  if (keys.length === 1 && o[keys[0]] && typeof o[keys[0]] === "object" && !Array.isArray(o[keys[0]])) o = o[keys[0]];  // unwrap {exam:{...}}
+  const out = [];
+  for (const [k, v] of Object.entries(o)) {
+    if (out.length >= max) break;
+    if (v === null || v === "") continue;
+    if (skip && typeof v !== "object" && skip[k] !== undefined && String(skip[k]).toLowerCase() === String(v).toLowerCase()) continue;  // already shown as an argument
+    let val;
+    if (Array.isArray(v)) { if (k === "aliases") continue; val = v.length && typeof v[0] !== "object" ? v.slice(0, 4).join(", ") + (v.length > 4 ? "…" : "") : v.length + " item" + (v.length === 1 ? "" : "s"); }
+    else if (typeof v === "object") val = Object.keys(v).length + " fields";
+    else val = String(v);
+    if (val.length > 90) val = val.slice(0, 88) + "…";
+    out.push(`<span><b>${esc(k.replace(/_/g, " "))}</b>${esc(val)}</span>`);
+  }
+  return out.length ? `<div class="kv">${out.join("")}</div>` : "";
+}
+function toolCard(name, args) {
+  const d = add("tool", `
+    <div class="tool-head"><span class="tool-ico" aria-hidden="true">${ICON_TOOL}</span>
+      <div><div class="tool-name">${esc(humanize(name))}</div><div class="tool-fn">${esc(name)}()</div></div>
+      <span class="tool-state">Running</span></div>
+    <div class="tool-body">${chips(args) || '<div class="meta">No arguments</div>'}
+      <div class="tool-res"></div>
+      <details class="raw"><summary>Raw JSON</summary><pre></pre></details></div>`);
+  d.dataset.tool = name; d._args = (args && typeof args === "object") ? args : {};
+  d.querySelector("pre").textContent = "// call\n" + JSON.stringify({name, arguments: args}, null, 2);
+  return d;
+}
+function toolResult(name, result) {
+  let card = lastTool && (!name || lastTool.dataset.tool === name) && !lastTool.classList.contains("done") ? lastTool : null;
+  if (!card) card = toolCard(name || "tool", {});
+  const failed = result && typeof result === "object" && (result.error || result.ok === false);
+  card.classList.add(failed ? "failed" : "done");
+  card.querySelector(".tool-state").textContent = failed ? "Failed" : "Done";
+  card.querySelector(".tool-res").innerHTML = `<div class="res-label">Result</div>` + (chips(result, 6, card._args) || '<div class="meta">(empty)</div>');
+  card.querySelector("pre").textContent += "\n\n// result\n" + JSON.stringify(result, null, 2);
+  log.scrollTop = log.scrollHeight;
+}
+function setBars(ev) {
+  const total = ev.total_s || Math.max(ev.e2e_first_audio_s || 0, 0.001);
+  const ids = { t_stt: ev.stt_s, t_tool: ev.llm_tool_decision_s, t_ttft: ev.llm_ttft_s, t_tts: ev.tts_first_audio_s, t_e2e: ev.e2e_first_audio_s, t_total: ev.total_s };
+  for (const [id, v] of Object.entries(ids)) {
+    const bar = $(id).parentElement.querySelector(".bar i");
+    if (bar) bar.style.width = (v ? Math.min(100, (v / total) * 100) : 0).toFixed(1) + "%";
+  }
+}
+function maybeIdle() { if (!turnActive && !playing && !playQueue.length && !recording && document.body.dataset.state !== "error") setState("idle"); }
 
 function connect() {
   ws = new WebSocket((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/ws");
-  ws.onopen = () => $("status").textContent = "Ready. Press the mic and ask in Hindi, Kannada or English.";
-  ws.onclose = () => { $("status").textContent = "Disconnected — retrying…"; setTimeout(connect, 1500); };
+  ws.onopen = () => { $("status").textContent = "Ready. Press the mic and ask in Hindi, Kannada or English."; document.body.dataset.conn = "on"; $("connlabel").textContent = "Connected"; setState("idle"); };
+  ws.onclose = () => { $("status").textContent = "Disconnected — retrying…"; document.body.dataset.conn = "off"; $("connlabel").textContent = "Offline"; setState("error"); setTimeout(connect, 1500); };
   ws.onmessage = (e) => handle(JSON.parse(e.data));
 }
 
@@ -83,29 +420,37 @@ function handle(ev) {
   window.__voice.events.push(ev.type === "audio" ? {type: "audio", seq: ev.seq, sentence: ev.sentence, bytes: ev.mp3.length} : ev);
   switch (ev.type) {
     case "stt":
-      add("user", esc(ev.text || "(silence)") + `<div class="meta">${ev.language}${ev.whisper_language ? " · whisper LID " + ev.whisper_language + " p=" + ev.language_prob : ""}</div>`);
-      $("langinfo").innerHTML = `<span class="pill">${ev.language}</span>` + Object.entries(ev.lid_probs || {}).map(([k, v]) => `<span class="pill">${k}: ${v}</span>`).join("");
-      botEl = null; $("status").textContent = "Thinking…"; break;
-    case "tool_call": add("tool", "🔧 " + esc(ev.name) + "(" + esc(JSON.stringify(ev.arguments)) + ")"); break;
-    case "tool_result": add("tool", "↳ " + esc(JSON.stringify(ev.result).slice(0, 300))); break;
-    case "token": if (!botEl) botEl = add("bot", ""); botEl.textContent += ev.text; break;
+      turnActive = true;
+      add("user", esc(ev.text || "(silence)") + `<div class="meta">${esc(LANGS[ev.language] || ev.language)}${ev.whisper_language ? " · whisper LID " + esc(ev.whisper_language) + " p=" + esc(ev.language_prob) : ""}</div>`);
+      $("langinfo").innerHTML = `<span class="pill main">${esc(LANGS[ev.language] || ev.language)}</span>` + Object.entries(ev.lid_probs || {}).map(([k, v]) => `<span class="pill">${esc(k)}: ${esc(v)}</span>`).join("");
+      botEl = null; lastTool = null; $("status").textContent = "Thinking…"; setState("thinking"); break;
+    case "tool_call": lastTool = toolCard(ev.name, ev.arguments); $("status").textContent = "Looking it up…"; break;
+    case "tool_result": toolResult(ev.name, ev.result); break;
+    case "token":
+      if (!botEl) botEl = add("bot live", "");
+      botEl.textContent += ev.text; log.scrollTop = log.scrollHeight; break;
     case "audio": clipsReceived++; window.__voice.clipsReceived = clipsReceived; enqueue(ev.mp3); break;
     case "timings":
       $("t_stt").textContent = fmt(ev.stt_s); $("t_tool").textContent = fmt(ev.llm_tool_decision_s);
       $("t_ttft").textContent = fmt(ev.llm_ttft_s); $("t_tts").textContent = fmt(ev.tts_first_audio_s);
       $("t_e2e").textContent = fmt(ev.e2e_first_audio_s); $("t_total").textContent = fmt(ev.total_s);
-      $("t_prov").textContent = ev.provider || "–"; break;
-    case "done": window.__voice.turnsDone++; $("status").textContent = "Done. Speak again any time (talking interrupts the reply)."; break;
-    case "cancelled": $("status").textContent = "Reply interrupted."; break;
-    case "error": add("tool", "⚠️ " + esc(ev.message)); $("status").textContent = "Error"; break;
+      $("t_prov").textContent = ev.provider || "–"; setBars(ev); break;
+    case "done":
+      window.__voice.turnsDone++; turnActive = false; if (botEl) { botEl.classList.remove("live"); if (ev.language) botEl.lang = ev.language; }
+      $("status").textContent = "Done. Speak again any time (talking interrupts the reply)."; maybeIdle(); break;
+    case "cancelled": turnActive = false; botEl && botEl.classList.remove("live"); $("status").textContent = "Reply interrupted."; maybeIdle(); break;
+    case "error":
+      turnActive = false; botEl && botEl.classList.remove("live");
+      add("error", `<span aria-hidden="true">⚠️</span><span>${esc(ev.message)}</span>`); $("status").textContent = "Error"; setState("error"); break;
   }
 }
 
 function enqueue(b64) { playQueue.push("data:audio/mpeg;base64," + b64); if (!playing) playNext(); }
 function playNext() {
-  const src = playQueue.shift(); if (!src) { playing = null; return; }
+  const src = playQueue.shift(); if (!src) { playing = null; maybeIdle(); return; }
   playing = new Audio(src);
   const p = playing;
+  if (!recording) setState("speaking");
   p.onended = () => { clipsPlayed++; window.__voice.clipsPlayed = clipsPlayed; window.__voice.playedSeconds = (window.__voice.playedSeconds || 0) + (p.duration || 0); $("audiocount").textContent = clipsPlayed + " clips played"; playNext(); };
   const fail = () => { window.__voice.playErrors = (window.__voice.playErrors || 0) + 1; playNext(); };
   p.onerror = fail;
@@ -114,8 +459,14 @@ function playNext() {
 function bargeIn() {  // stop local playback and tell the server to stop generating
   playQueue = []; if (playing) { playing.pause(); playing = null; }
   if (ws && ws.readyState === 1) ws.send(JSON.stringify({type: "cancel"}));
+  if (!recording && document.body.dataset.state === "speaking") setState(turnActive ? "thinking" : "idle");
 }
 
+function setMic(rec) {
+  $("mic").querySelector(".mic-label").textContent = rec ? "Stop & send" : "Start talking";
+  $("mic").setAttribute("aria-label", rec ? "Stop and send" : "Start talking");
+  $("mic").classList.toggle("rec", rec);
+}
 async function startRec() {
   bargeIn();
   const stream = await navigator.mediaDevices.getUserMedia({audio: {echoCancellation: true, noiseSuppression: true}});
@@ -126,18 +477,26 @@ async function startRec() {
     const blob = new Blob(chunks, {type: "audio/webm"});
     const b64 = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result.split(",")[1]); fr.readAsDataURL(blob); });
     ws.send(JSON.stringify({type: "audio", data: b64, language: $("lang").value || null}));
-    $("status").textContent = "Transcribing…";
+    $("status").textContent = "Transcribing…"; setState("thinking");
   };
-  recorder.start(); recording = true; $("mic").textContent = "■ Stop & send"; $("mic").classList.add("rec");
-  $("status").textContent = "Listening…";
+  recorder.start(); recording = true; setMic(true);
+  $("status").textContent = "Listening…"; setState("listening");
 }
-function stopRec() { recording = false; recorder && recorder.state !== "inactive" && recorder.stop(); $("mic").textContent = "🎤 Start talking"; $("mic").classList.remove("rec"); }
+function stopRec() { recording = false; recorder && recorder.state !== "inactive" && recorder.stop(); setMic(false); }
 
-$("mic").onclick = () => recording ? stopRec() : startRec().catch(e => { $("status").textContent = "Mic error: " + e.message; });
+function sendText(q) {
+  q = (q || "").trim(); if (!q || !ws || ws.readyState !== 1) return false;
+  bargeIn(); ws.send(JSON.stringify({type: "text", text: q, language: $("lang").value || null}));
+  $("status").textContent = "Thinking…"; setState("thinking"); return true;
+}
+
+$("mic").onclick = () => recording ? stopRec() : startRec().catch(e => { recording = false; setMic(false); $("status").textContent = "Mic error: " + e.message; setState("error"); });
 $("stop").onclick = bargeIn;
 $("text").addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && e.target.value.trim()) { bargeIn(); ws.send(JSON.stringify({type: "text", text: e.target.value.trim(), language: $("lang").value || null})); e.target.value = ""; }
+  if (e.key === "Enter" && e.target.value.trim()) { if (sendText(e.target.value)) e.target.value = ""; }
 });
+$("send").onclick = () => { if (sendText($("text").value)) $("text").value = ""; $("text").focus(); };
+document.querySelectorAll(".chip[data-q]").forEach(c => c.onclick = () => sendText(c.dataset.q));
 connect();
 </script>
 </body>

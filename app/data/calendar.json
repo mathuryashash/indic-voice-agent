@@ -1,0 +1,129 @@
+{
+ "_note": "Official VTU academic calendars. VTU does not publish holidays or internal assessment (IA) test dates; those come from the college. RVITM has not published its 2026-27 calendar of events online (checked 3 Nov 2026).",
+ "calendars": [
+  {
+   "semester": "VII",
+   "year": "2026-27",
+   "ref": "VTU/BGM/BoS/VII sem AC/2026-27/4297 (31 Oct 2026, revised)",
+   "url": "https://vtu.ac.in/wp-content/uploads/2026/10/4297-2Revised-Academic-Calendar-VII-Sem-BE-BTech.pdf.pdf",
+   "events": {
+    "classes_start": "2026-07-20",
+    "last_working_day": "2026-11-30",
+    "theory_exams": "2026-12-02 to 2026-12-21",
+    "practical_exams": "2026-12-22 to 2026-12-31",
+    "next_semester_starts": "2027-01-04"
+   },
+   "notes": "Replaces the 30 Jun 2026 calendar (Ref 1467: last working day 09.11.2026, theory 14.11-04.12.2026). The subject-wise timetable published on 22 Oct still follows the old dates."
+  },
+  {
+   "semester": "V",
+   "year": "2026-27",
+   "ref": "VTU/BGM/BoS/5th sem AC/2026-27/2125 (30 Jul 2026, tentative)",
+   "url": "https://vtu.ac.in/wp-content/uploads/2026/08/2125-Tentative-Academic-Calendar-for-V-semester-of-all-UG-programmes-of-VTU.pdf",
+   "events": {
+    "classes_start": "2026-09-07",
+    "last_working_day": "2026-12-30",
+    "theory_exams": "2027-01-04 to 2027-02-05",
+    "practical_exams": "2027-02-08 to 2027-02-20",
+    "next_semester_starts": "2027-02-22"
+   },
+   "notes": "Subject-wise V sem timetable not yet published."
+  },
+  {
+   "semester": "VI",
+   "year": "2025-26",
+   "ref": "VTU/BGM/BoS/II, IV & VI sem UG/2025-26/6556 (20 Mar 2026, revised)",
+   "url": "https://vtu.ac.in/wp-content/uploads/2026/03/26.-6556.-Revised-AC-II-IV-and-VI-sem-UG-programme.pdf",
+   "events": {
+    "theory_exams": "2026-05-18 to 2026-06-17",
+    "practical_exams": "2026-06-18 to 2026-06-30",
+    "next_semester_starts": "2026-07-06"
+   },
+   "notes": "This is LAST year's (already finished) VI sem. The 2026-27 VI sem (even semester) calendar is not published yet."
+  }
+ ],
+ "holidays_source": "Karnataka Government 2026 general holiday list (as reported by Economic Times; DPAR original not checked): https://m.economictimes.com/wealth/save/karnataka-government-holiday-list-2026-released-full-list-of-general-and-restricted-holidays/articleshow/125758288.cms",
+ "holidays_note": "State government general holidays. Colleges usually follow them, but the college may differ.",
+ "holidays": [
+  [
+   "2026-01-14",
+   "Makara Sankranti"
+  ],
+  [
+   "2026-01-26",
+   "Republic Day"
+  ],
+  [
+   "2026-03-19",
+   "Ugadi"
+  ],
+  [
+   "2026-03-21",
+   "Khutub-E-Ramzan"
+  ],
+  [
+   "2026-03-31",
+   "Mahaveera Jayanthi"
+  ],
+  [
+   "2026-04-03",
+   "Good Friday"
+  ],
+  [
+   "2026-04-14",
+   "Dr. B.R. Ambedkar Jayanthi"
+  ],
+  [
+   "2026-04-20",
+   "Basava Jayanthi, Akshaya Tritiya"
+  ],
+  [
+   "2026-05-01",
+   "May Day"
+  ],
+  [
+   "2026-05-28",
+   "Bakrid"
+  ],
+  [
+   "2026-06-26",
+   "Last Day of Moharam"
+  ],
+  [
+   "2026-08-15",
+   "Independence Day"
+  ],
+  [
+   "2026-08-26",
+   "Eid-Milad"
+  ],
+  [
+   "2026-09-14",
+   "Varasiddhi Vinayaka Vrata"
+  ],
+  [
+   "2026-10-02",
+   "Gandhi Jayanthi"
+  ],
+  [
+   "2026-10-20",
+   "Mahanavami, Ayudhapooja"
+  ],
+  [
+   "2026-10-21",
+   "Vijayadasami"
+  ],
+  [
+   "2026-11-10",
+   "Balipadyami, Deepavali"
+  ],
+  [
+   "2026-11-27",
+   "Kanakadasa Jayanthi"
+  ],
+  [
+   "2026-12-25",
+   "Christmas"
+  ]
+ ]
+}

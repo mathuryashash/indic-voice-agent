@@ -40,7 +40,7 @@ async def lifespan(app: FastAPI):
     STATE.clear()
 
 
-app = FastAPI(title="VTU Saathi voice agent", lifespan=lifespan)
+app = FastAPI(title="Vidya Saathi voice agent (formerly VTU Saathi)", lifespan=lifespan)
 
 
 @app.get("/")
