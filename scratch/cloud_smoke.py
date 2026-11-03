@@ -6,6 +6,7 @@ import websockets
 
 URL = sys.argv[1]
 CLIPS = ["hi01", "kn10", "en06"]
+VOICE = __import__("os").environ.get("VOICE", "female")
 ROOT = "D:/ai-build/indic-voice-agent/eval/audio/"
 
 
@@ -16,7 +17,7 @@ async def turn(ws, msg):
         k = ev["type"]
         if k == "stt": out["heard"] = ev["text"]; out["lang"] = ev["language"]
         elif k == "tool_call": out["tools"].append(ev["name"])
-        elif k == "audio": out["audio"] += 1; out.setdefault("first_audio_s", round(time.perf_counter() - t0, 2))
+        elif k == "audio": out["audio"] += 1; out.setdefault("voice_used", ev.get("voice")); out.setdefault("first_audio_s", round(time.perf_counter() - t0, 2))
         elif k == "speak": out["speak"] += 1
         elif k == "timings": out["stt_s"] = ev.get("stt_s"); out["e2e_s"] = ev.get("e2e_first_audio_s")
         elif k in ("done", "error", "need_key"):
@@ -33,7 +34,7 @@ async def main():
             print("key", json.loads(await asyncio.wait_for(ws.recv(), 60)))
         for c in CLIPS:
             b64 = base64.b64encode(open(ROOT + c + ".wav", "rb").read()).decode()
-            print(c, json.dumps(await turn(ws, {"type": "audio", "data": b64}), ensure_ascii=False))
-        print("text", json.dumps(await turn(ws, {"type": "text", "text": "How many credits is Big Data Analytics?"}), ensure_ascii=False))
+            print(c, json.dumps(await turn(ws, {"type": "audio", "data": b64, "voice": VOICE}), ensure_ascii=False))
+        print("text", json.dumps(await turn(ws, {"type": "text", "text": "How many credits is Big Data Analytics?", "voice": VOICE}), ensure_ascii=False))
 
 asyncio.run(main())

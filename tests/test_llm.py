@@ -80,3 +80,11 @@ def test_midstream_error_before_any_text_still_fails_over(monkeypatch):
     c = ChatClient(providers(monkeypatch), transport=httpx.MockTransport(handler))
     evs = collect(c)
     assert [e.text for e in evs if e.kind == "text"] == ["ok"]
+
+
+def test_byo_key_gets_smaller_groq_model_as_fallback(monkeypatch):
+    from app.llm import groq_providers
+    monkeypatch.delenv("GROQ_MODEL_FALLBACK", raising=False)
+    provs = groq_providers("gsk_test")
+    assert [p.model for p in provs] == ["openai/gpt-oss-120b", "openai/gpt-oss-20b"]
+    assert all(p.key == "gsk_test" for p in provs)

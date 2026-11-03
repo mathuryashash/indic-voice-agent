@@ -31,7 +31,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse
 
 from .config import load_keys
-from .llm import ChatClient, LLMError, groq_provider
+from .llm import ChatClient, LLMError, groq_providers
 from .pipeline import run_turn
 
 log = logging.getLogger("voice")
@@ -184,7 +184,7 @@ async def ws_endpoint(ws: WebSocket):
             if kind == "auth":
                 key = str(msg.get("key") or "").strip()
                 if await validate_groq_key(key):
-                    own["llm"] = ChatClient(providers=[groq_provider(key)])
+                    own["llm"] = ChatClient(providers=groq_providers(key))
                     own["stt"] = make_stt(key) if STT_BACKEND == "groq" else STATE.get("stt")
                     await emit({"type": "auth_ok"})
                 else:

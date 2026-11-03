@@ -34,10 +34,22 @@ def groq_provider(api_key: str) -> Provider:
                     os.environ.get("GROQ_MODEL_VOICE", "openai/gpt-oss-120b"), "GROQ_API_KEY", api_key)
 
 
+def groq_providers(api_key: str) -> list[Provider]:
+    """A visitor's own key: the main model, then a smaller Groq model. Groq rate-limits each model
+    separately (free gpt-oss-120b is 8k tokens/min), so a 429 on one usually leaves the other free."""
+    main = groq_provider(api_key)
+    fb_model = os.environ.get("GROQ_MODEL_FALLBACK", "openai/gpt-oss-20b")
+    if not fb_model or fb_model == main.model:
+        return [main]
+    return [main, Provider("groq-fallback", main.base_url, fb_model, "GROQ_API_KEY", api_key)]
+
+
 def default_providers() -> list[Provider]:
     return [
         Provider("groq", "https://api.groq.com/openai/v1",
                  os.environ.get("GROQ_MODEL_VOICE", "openai/gpt-oss-120b"), "GROQ_API_KEY"),
+        Provider("groq-fallback", "https://api.groq.com/openai/v1",
+                 os.environ.get("GROQ_MODEL_FALLBACK", "openai/gpt-oss-20b"), "GROQ_API_KEY"),
         Provider("nvidia", os.environ.get("NVIDIA_BASE_URL", "https://integrate.api.nvidia.com/v1"),
                  os.environ.get("NVIDIA_MODEL_VOICE", "openai/gpt-oss-20b"), "NVIDIA_API_KEY"),
     ]
