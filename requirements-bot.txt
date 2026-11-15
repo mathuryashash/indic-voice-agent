@@ -1,0 +1,2 @@
+-r requirements-cloud.txt
+aiogram==3.31.0

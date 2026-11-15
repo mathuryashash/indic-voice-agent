@@ -17,6 +17,8 @@ from .stt import STTResult, SUPPORTED
 
 URL = "https://api.groq.com/openai/v1/audio/transcriptions"
 _NAMES = {"hindi": "hi", "kannada": "kn", "english": "en", "urdu": "hi"}
+_RETRY_AS = {"telugu": "kn", "tamil": "kn", "malayalam": "kn", "marathi": "hi", "nepali": "hi", "sanskrit": "hi",
+             "punjabi": "hi", "gujarati": "hi", "bengali": "hi"}
 
 
 class GroqSTT:
@@ -35,11 +37,22 @@ class GroqSTT:
         form = {"model": self.model_size, "response_format": "verbose_json", "temperature": "0"}
         if language in SUPPORTED:
             form["language"] = language
+        name, mime = (("speech.ogg", "audio/ogg") if data[:4] == b"OggS" else ("speech.webm", "audio/webm"))
         r = httpx.post(URL, headers={"Authorization": f"Bearer {self.api_key}"}, data=form,
-                       files={"file": ("speech.webm", data, "audio/webm")}, timeout=self.timeout)
+                       files={"file": (name, data, mime)}, timeout=self.timeout)
         if r.status_code != 200:
             raise RuntimeError(f"Groq STT HTTP {r.status_code}: {r.text[:160]}")
         j = r.json()
+        retry = _RETRY_AS.get(str(j.get("language") or "").lower())
+        if language not in SUPPORTED and retry:
+            # Whisper often labels Kannada speech as Telugu/Tamil (measured 15 Nov 2026: whisper-large-v3 said
+            # "Telugu" for a Kannada question and wrote it in Telugu script). Our users speak hi/kn/en, so
+            # re-run once with the closest supported language forced.
+            r2 = httpx.post(URL, headers={"Authorization": f"Bearer {self.api_key}"},
+                            data={**form, "language": retry}, files={"file": (name, data, mime)},
+                            timeout=self.timeout)
+            if r2.status_code == 200:
+                j, language = r2.json(), retry
         text = (j.get("text") or "").strip()
         raw = str(j.get("language") or "").lower()
         code = language if language in SUPPORTED else _NAMES.get(raw, raw if raw in SUPPORTED else "")

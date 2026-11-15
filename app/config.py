@@ -8,7 +8,7 @@ from pathlib import Path
 KEY_FILES = [Path(__file__).resolve().parent.parent / ".env"] + [
     Path(p) for p in os.environ.get("VOICE_AGENT_ENV_FILES", "").split(os.pathsep) if p
 ]
-WANTED = ("GROQ_API_KEY", "NVIDIA_API_KEY", "NVIDIA_BASE_URL")
+WANTED = ("GROQ_API_KEY", "NVIDIA_API_KEY", "NVIDIA_BASE_URL", "NEBIUS_API_KEY", "VIDYA_BOT_TOKEN")
 
 
 def load_keys(files: list[Path] | None = None) -> list[str]:

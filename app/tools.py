@@ -238,10 +238,15 @@ def _connect(db_path: Path | str) -> sqlite3.Connection:
     con.execute("""CREATE TABLE IF NOT EXISTS reminders (
         id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT NOT NULL,
         due_at TEXT NOT NULL, created_at TEXT NOT NULL)""")
+    cols = {r[1] for r in con.execute("PRAGMA table_info(reminders)")}
+    if "owner" not in cols:  # Telegram bot: each reminder belongs to one chat and is delivered once
+        con.execute("ALTER TABLE reminders ADD COLUMN owner TEXT")
+    if "delivered" not in cols:
+        con.execute("ALTER TABLE reminders ADD COLUMN delivered INTEGER NOT NULL DEFAULT 0")
     return con
 
 
-def set_reminder(text: str, time: str, db_path: Path | str = DEFAULT_DB) -> dict:
+def set_reminder(text: str, time: str, db_path: Path | str = DEFAULT_DB, owner: str | None = None) -> dict:
     """Store a reminder. `time` must be ISO 8601 local time, e.g. 2026-10-05 18:00."""
     text = (text or "").strip()
     if not text:
@@ -251,16 +256,39 @@ def set_reminder(text: str, time: str, db_path: Path | str = DEFAULT_DB) -> dict
     except ValueError:
         return {"error": f"Could not parse time '{time}'. Use ISO format YYYY-MM-DD HH:MM."}
     with _connect(db_path) as con:
-        cur = con.execute("INSERT INTO reminders(text, due_at, created_at) VALUES (?,?,?)",
-                          (text, due.strftime("%Y-%m-%d %H:%M"), datetime.now().isoformat(timespec="seconds")))
+        cur = con.execute("INSERT INTO reminders(text, due_at, created_at, owner) VALUES (?,?,?,?)",
+                          (text, due.strftime("%Y-%m-%d %H:%M"), datetime.now().isoformat(timespec="seconds"),
+                           owner))
         rid = cur.lastrowid
     return {"ok": True, "id": rid, "text": text, "due_at": due.strftime("%Y-%m-%d %H:%M")}
 
 
-def list_reminders(db_path: Path | str = DEFAULT_DB) -> list[dict]:
+def list_reminders(db_path: Path | str = DEFAULT_DB, owner: str | None = None) -> list[dict]:
     with _connect(db_path) as con:
-        rows = con.execute("SELECT id, text, due_at FROM reminders ORDER BY due_at").fetchall()
+        if owner is None:
+            rows = con.execute("SELECT id, text, due_at FROM reminders ORDER BY due_at").fetchall()
+        else:
+            rows = con.execute("SELECT id, text, due_at FROM reminders WHERE owner=? AND delivered=0 "
+                               "ORDER BY due_at", (owner,)).fetchall()
     return [{"id": r[0], "text": r[1], "due_at": r[2]} for r in rows]
+
+
+def due_reminders(now: str, db_path: Path | str = DEFAULT_DB) -> list[dict]:
+    """Undelivered reminders with an owner whose due time (YYYY-MM-DD HH:MM) is at or before `now`."""
+    with _connect(db_path) as con:
+        rows = con.execute("SELECT id, owner, text, due_at FROM reminders WHERE owner IS NOT NULL "
+                           "AND delivered=0 AND due_at <= ? ORDER BY due_at", (now,)).fetchall()
+    return [{"id": r[0], "owner": r[1], "text": r[2], "due_at": r[3]} for r in rows]
+
+
+def mark_reminder_delivered(rid: int, db_path: Path | str = DEFAULT_DB) -> None:
+    with _connect(db_path) as con:
+        con.execute("UPDATE reminders SET delivered=1 WHERE id=?", (rid,))
+
+
+def delete_reminders(owner: str, db_path: Path | str = DEFAULT_DB) -> int:
+    with _connect(db_path) as con:
+        return con.execute("DELETE FROM reminders WHERE owner=?", (owner,)).rowcount
 
 # ---------------------------------------------------------------- VTU SGPA / CGPA
 
@@ -404,7 +432,7 @@ TOOLS = {
 }
 
 
-def run_tool(name: str, arguments: str | dict, db_path: Path | str | None = None) -> dict:
+def run_tool(name: str, arguments: str | dict, db_path: Path | str | None = None, owner: str | None = None) -> dict:
     """Dispatch a tool call coming from the LLM (arguments may be a JSON string)."""
     if name not in TOOLS:
         return {"error": f"Unknown tool {name}"}
@@ -412,8 +440,13 @@ def run_tool(name: str, arguments: str | dict, db_path: Path | str | None = None
         args = json.loads(arguments) if isinstance(arguments, str) else dict(arguments or {})
     except json.JSONDecodeError:
         return {"error": "Tool arguments were not valid JSON."}
-    if name == "set_reminder" and db_path is not None:
-        args["db_path"] = db_path
+    if name == "set_reminder":
+        args.pop("db_path", None)
+        args.pop("owner", None)  # never let the model pick whose reminder it is
+        if db_path is not None:
+            args["db_path"] = db_path
+        if owner is not None:
+            args["owner"] = owner
     try:
         return TOOLS[name](**args)
     except TypeError as exc:

@@ -67,6 +67,23 @@ browser's own speech voice reads the reply. `.github/workflows/keep-awake.yml` p
 05:30 to 00:30 IST, so daytime visitors don't hit the free plan's 15-minute sleep while staying inside Render's 750
 free instance-hours a month.
 
+## Telegram bot (beta)
+
+The same agent also runs as a Telegram bot (`python -m app.telegram_bot`, guide in
+[docs/TELEGRAM_BOT.md](docs/TELEGRAM_BOT.md)), so students use it inside an app they already have:
+
+- text, voice notes (Groq Whisper; Kannada misread as Telugu/Tamil is retried with Kannada forced) and photos of
+  past-paper questions (vision model on Nebius, NVIDIA as backup)
+- a text answer plus a short voice reply (edge-tts MP3 re-encoded to OGG/Opus, capped at ~450 characters of speech)
+- a "Quiz me" button that sends 3 Telegram quiz polls, 👍/👎 on every answer, and reminders delivered by the bot
+- consent at /start, `/deletemydata`, and per-student / global daily caps that protect the free API quotas
+- only metadata is stored (chat id, settings, counts, ratings), never question text, audio or photos
+- `/stats` for the admin, and per-invite-link sources so you can see which group a student came from
+
+`tests/test_bot_core.py` and `tests/test_telegram_bot.py` drive the real aiogram dispatcher with Telegram updates and
+a fake HTTP session. `scripts/bot_live_smoke.py` runs 9 live cases (text, exam-date abstain, reminder, SGPA, Hindi and
+Kannada voice notes, photo, prompt injection, quiz) against the real providers.
+
 ## Setup
 
 ```bash

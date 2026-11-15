@@ -55,6 +55,17 @@ def default_providers() -> list[Provider]:
     ]
 
 
+def chat_providers() -> list[Provider]:
+    """Telegram bot: the server's keys only. Groq limits each model separately, so the 20b model is a real
+    fallback; Nebius and NVIDIA take over when both Groq models are rate-limited for the day."""
+    return [
+        *default_providers()[:2],
+        Provider("nebius", os.environ.get("NEBIUS_BASE_URL", "https://api.tokenfactory.nebius.com/v1"),
+                 os.environ.get("NEBIUS_MODEL_CHAT", "openai/gpt-oss-120b"), "NEBIUS_API_KEY"),
+        default_providers()[2],
+    ]
+
+
 @dataclass
 class StreamEvent:
     """kind: 'text' (delta), 'tool_calls' (final list), 'done', 'meta'."""
