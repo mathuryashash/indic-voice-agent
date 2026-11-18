@@ -43,8 +43,6 @@ html, body { height: 100%; }
 body {
   margin: 0; font-family: var(--font); font-size: 15.5px; line-height: 1.55;
   color: var(--ink); background: var(--paper);
-  background-image: radial-gradient(1200px 500px at 85% -10%, #fbe9c4 0%, transparent 60%);
-  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
 }
 :lang(hi), :lang(kn) { line-height: 1.7; }
@@ -62,7 +60,7 @@ button, input, select { font: inherit; color: inherit; }
   width: 44px; height: 44px; border-radius: 13px; background: var(--teal);
   display: grid; place-items: center; box-shadow: 0 6px 16px -8px rgba(14, 92, 86, .7);
 }
-.brand h1 { font-family: var(--display); font-weight: 700; font-size: 25px; letter-spacing: -.01em; margin: 0; line-height: 1.1; }
+.brand h1 { font-family: var(--display); font-weight: 500; font-size: 25px; letter-spacing: -.01em; margin: 0; line-height: 1.1; }
 .brand-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
 .brand-sub [lang] { color: var(--ink-2); }
 .top-right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
@@ -88,12 +86,12 @@ main {
   scroll-behavior: smooth;
 }
 .empty { margin: auto; text-align: center; max-width: 520px; padding: 12px 8px 24px; }
-.empty h2 { font-family: var(--display); font-weight: 600; font-size: 26px; line-height: 1.25; margin: 0 0 8px; letter-spacing: -.01em; }
+.empty h2 { font-family: var(--display); font-weight: 500; font-size: 26px; line-height: 1.25; margin: 0 0 8px; letter-spacing: -.01em; }
 .empty p { color: var(--muted); margin: 0 0 18px; }
 .suggest { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .chip {
   border: 1px solid var(--line-strong); background: var(--paper); color: var(--ink-2);
-  border-radius: 999px; padding: 8px 14px; font-size: 14px; cursor: pointer; transition: background .15s, border-color .15s;
+  border-radius: 8px; padding: 8px 14px; font-size: 14px; cursor: pointer; transition: background .15s, border-color .15s;
 }
 .chip:hover { background: var(--marigold-tint); border-color: var(--marigold); color: var(--ink); }
 .log-has-msgs .empty { display: none; }
@@ -127,7 +125,7 @@ main {
 .kv { display: flex; flex-wrap: wrap; gap: 6px; }
 .kv span { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 3px 9px; font-size: 13px; }
 .kv b { font-weight: 600; color: var(--muted); margin-right: 5px; font-size: 12px; text-transform: capitalize; }
-.res-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.res-label { font-size: 11px; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; color: var(--muted); }
 details.raw summary { cursor: pointer; font-size: 12.5px; color: var(--teal); font-weight: 600; width: max-content; list-style: none; }
 details.raw summary::-webkit-details-marker { display: none; }
 details.raw summary::before { content: "▸ "; } details.raw[open] summary::before { content: "▾ "; }
@@ -136,7 +134,7 @@ details.raw pre { margin: 8px 0 0; padding: 10px 12px; background: #2a241d; colo
 .msg.error { align-self: stretch; max-width: none; background: var(--err-tint); color: var(--err); border: 1px solid #efb9ad; font-size: 14px; display: flex; gap: 8px; align-items: flex-start; }
 
 /* ---------- composer ---------- */
-.composer { border-top: 1px solid var(--line); padding: 14px 18px 12px; background: linear-gradient(var(--surface), #fcf8ef); }
+.composer { border-top: 1px solid var(--line); padding: 14px 18px 12px; background: var(--surface); }
 .controls { display: flex; gap: 10px; align-items: center; }
 .field { flex: 1; min-width: 0; display: flex; align-items: center; background: var(--paper); border: 1px solid var(--line-strong); border-radius: 999px; padding: 4px 4px 4px 16px; transition: border-color .15s, box-shadow .15s; }
 .field:focus-within { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(14, 92, 86, .15); }
@@ -146,15 +144,15 @@ select {
   appearance: none; border: 0; background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%234a4036' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") no-repeat right 12px center;
   border-radius: 999px; padding: 8px 30px 8px 14px; font-size: 14px; cursor: pointer; border: 1px solid var(--line);
 }
-button { cursor: pointer; border: 0; }
+button { cursor: pointer; border: 0; transition: background 150ms, border-color 150ms, opacity 150ms; }
 #mic {
   flex: none; display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 22px 0 8px;
   border-radius: 999px; background: var(--teal); color: #fff; font-weight: 600; font-size: 15.5px; white-space: nowrap;
-  box-shadow: 0 8px 18px -10px rgba(14, 92, 86, .9); transition: background .15s, transform .1s;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12); transition: background .15s, transform .1s;
 }
 #mic:hover { background: var(--teal-2); } #mic:active { transform: scale(.98); }
 #mic .mic-ico { width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, .16); display: grid; place-items: center; position: relative; }
-#mic.rec { background: var(--rec); box-shadow: 0 8px 18px -10px rgba(180, 54, 31, .9); }
+#mic.rec { background: var(--rec); box-shadow: 0 2px 8px rgba(0,0,0,.12); }
 #mic.rec .mic-ico::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .7); animation: ring 1.2s ease-out infinite; }
 @keyframes ring { from { transform: scale(.85); opacity: 1; } to { transform: scale(1.25); opacity: 0; } }
 #stop {
@@ -188,7 +186,7 @@ kbd { font: 11px var(--mono); border: 1px solid var(--line-strong); border-botto
 /* ---------- side panel ---------- */
 aside { display: grid; gap: 16px; }
 .panel { padding: 18px 20px; }
-.panel h3 { margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.panel h3 { margin: 0 0 12px; font-size: 11px; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 8px; }
 .panel h3 small { margin-left: auto; font-weight: 500; letter-spacing: 0; text-transform: none; font-size: 12px; }
 table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 td { padding: 7px 0; border-bottom: 1px dashed var(--line); vertical-align: middle; color: var(--ink-2); }
@@ -264,6 +262,7 @@ body[data-key="ask"] .keybox { display: flex; }
 .tryq span { font-size: 12px; color: var(--muted, #6b7a78); padding-left: 4px; }
 #voice { margin-left: 0; }
 </style>
+
 </head>
 <body data-state="connecting" data-conn="wait">
 <div class="keybox" role="dialog" aria-modal="true" aria-labelledby="keyh">
