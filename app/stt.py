@@ -68,7 +68,7 @@ class WhisperSTT:
 
     def detect_language(self, audio) -> tuple[str, float, dict]:
         _, _, all_probs = self.model.detect_language(audio)
-        probs = {l: p for l, p in all_probs if l in SUPPORTED}
+        probs = {lang_code: p for lang_code, p in all_probs if lang_code in SUPPORTED}
         # Whisper frequently labels Hindi speech as Urdu (same spoken language) -> fold it into hi
         probs["hi"] = probs.get("hi", 0.0) + dict(all_probs).get("ur", 0.0)
         lang = max(probs, key=probs.get)
