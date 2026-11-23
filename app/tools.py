@@ -28,10 +28,6 @@ def _load_json(name: str) -> dict:
     return json.loads((DATA_DIR / name).read_text(encoding="utf-8"))
 
 
-def _load_exams() -> list[dict]:
-    return _load_json("exams.json")["exams"]
-
-
 def _norm(s: str) -> str:
     return re.sub(r"[^a-z0-9 ]+", " ", s.lower()).strip()
 
@@ -50,15 +46,9 @@ def get_exam_schedule(subject: str = "") -> dict:
     best, best_score = None, 0.0
     for e in exams:
         names = [e["code"].lower(), _norm(e["subject"]), *[_norm(a) for a in e["aliases"]]]
-        for n in names:
-            if q == n:
-                score = 1.0
-            elif re.search(rf"\b{re.escape(n)}\b", q) or re.search(rf"\b{re.escape(q)}\b", n):
-                score = 0.9 if len(n) > 3 else 0.75
-            else:
-                score = SequenceMatcher(None, q, n).ratio()
-            if score > best_score:
-                best, best_score = e, score
+        score = _match_score(q, names)
+        if score > best_score:
+            best, best_score = e, score
     if best is None or best_score < 0.6:
         out = {"error": f"No exam found for '{subject}'.",
                "known_subjects": [e["subject"] for e in exams], **meta}
@@ -155,7 +145,8 @@ def get_academic_calendar(semester: str = "", query: str = "") -> dict:
     if sem and not cals:
         out["error"] = f"No published VTU calendar for semester {sem}."
     out["calendars"] = cals or doc["calendars"]
-    if "holiday" in _norm(query) or "leave" in _norm(query) or "vacation" in _norm(query) or not query:
+    nq = _norm(query)
+    if "holiday" in nq or "leave" in nq or "vacation" in nq or not query:
         today = datetime.now().strftime("%Y-%m-%d")
         out["upcoming_holidays"] = [{"date": d, "name": n} for d, n in doc["holidays"] if d >= today]
         out["holidays_note"] = doc["holidays_note"]
