@@ -91,8 +91,6 @@ class TurnTimer:
     def mark(self, name: str) -> None:
         self.marks.setdefault(name, time.perf_counter() - self.t0)
 
-    def since(self, name: str) -> float:
-        return time.perf_counter() - self.t0 - self.marks[name]
 
 
 async def run_turn(*, emit: Emit, llm, stt=None, audio=None, text: str | None = None,
