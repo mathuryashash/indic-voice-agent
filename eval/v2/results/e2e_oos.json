@@ -1,0 +1,2007 @@
+{
+ "scope": "oos",
+ "stt_model": "large-v3",
+ "stt_device": "cuda",
+ "run_at": "2026-11-23 12:49:08",
+ "rows": [
+  {
+   "clip": "oos_mr_exam_0",
+   "scope": "oos",
+   "lang": "mr",
+   "variant": "mr-IN-AarohiNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "माझी Computer Networks ची परीक्षा कधी आहे?",
+   "transcript": "माझी कम्प्यूटर नेटवर्क्स ची परिक्षा कधी आहे?",
+   "detected_lang": "hi",
+   "reply": "कम्प्यूटर नेटवर्क्स की परीक्षा 14 दिसंबर को सुबह 9:30 से दोपहर 12:30 तक है।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.398,
+    "llm_tool_decision_s": 0.623,
+    "llm_ttft_s": 1.546,
+    "tts_first_audio_s": 1.121,
+    "tts_first_clip_s": 1.552,
+    "e2e_first_audio_s": 5.564,
+    "total_s": 5.564,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_mr_exam_1",
+   "scope": "oos",
+   "lang": "mr",
+   "variant": "mr-IN-ManoharNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "माझी Computer Networks ची परीक्षा कधी आहे?",
+   "transcript": "माझी कम्प्यूटर नेटवर्क्स ची परिक्षा कधिया है।",
+   "detected_lang": "hi",
+   "reply": "कम्प्यूटर नेटवर्क्स की परीक्षा 14 दिसंबर को सुबह 9:30 से 12:30 तक है।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.243,
+    "llm_tool_decision_s": 0.79,
+    "llm_ttft_s": 1.454,
+    "tts_first_audio_s": 1.98,
+    "tts_first_clip_s": 2.484,
+    "e2e_first_audio_s": 6.245,
+    "total_s": 6.245,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_mr_sgpa_0",
+   "scope": "oos",
+   "lang": "mr",
+   "variant": "mr-IN-AarohiNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "माझा SGPA काढ: 4 क्रेडिटच्या विषयात 92 गुण, दुसऱ्या 4 क्रेडिटच्या विषयात 85 गुण आणि 3 क्रेडिटच्या विषयात 72 गुण.",
+   "transcript": "माझा काड चार क्रेडिट चा विशाद ब्याननव गुण, दूस्या चार क्रेडिट चा विशाद 85 गुण आनी तीन क्रेडिट चा विशाद 72 गुण.",
+   "detected_lang": "hi",
+   "reply": "आपका SGPA 5.45 है।",
+   "tools": [
+    {
+     "name": "calculate_sgpa",
+     "arguments": {
+      "courses": [
+       {
+        "credits": 4,
+        "marks": 0
+       },
+       {
+        "credits": 4,
+        "marks": 85
+       },
+       {
+        "credits": 3,
+        "marks": 72
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 4.385,
+    "llm_tool_decision_s": 0.847,
+    "llm_ttft_s": 1.412,
+    "tts_first_audio_s": 0.959,
+    "tts_first_clip_s": 1.309,
+    "e2e_first_audio_s": 7.13,
+    "total_s": 7.131,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": false
+  },
+  {
+   "clip": "oos_mr_sgpa_1",
+   "scope": "oos",
+   "lang": "mr",
+   "variant": "mr-IN-ManoharNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "माझा SGPA काढ: 4 क्रेडिटच्या विषयात 92 गुण, दुसऱ्या 4 क्रेडिटच्या विषयात 85 गुण आणि 3 क्रेडिटच्या विषयात 72 गुण.",
+   "transcript": "माज़ा काड चार क्रेडिट चा विशात ब्यानव गुन, दूस्या चार क्रेडिट चा विशात पंचाएंशी गुन और तीन क्रेडिट चा विशात बहत्तर गुन।",
+   "detected_lang": "hi",
+   "reply": "SGPA 6.55 है, कुल 11 क्रेडिट।",
+   "tools": [
+    {
+     "name": "calculate_sgpa",
+     "arguments": {
+      "courses": [
+       {
+        "credits": 4,
+        "marks": 56
+       },
+       {
+        "credits": 4,
+        "marks": 55
+       },
+       {
+        "credits": 3,
+        "marks": 72
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 8.338,
+    "llm_tool_decision_s": 1.361,
+    "llm_ttft_s": 1.947,
+    "tts_first_audio_s": 1.34,
+    "tts_first_clip_s": 1.826,
+    "e2e_first_audio_s": 12.153,
+    "total_s": 12.153,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": false
+  },
+  {
+   "clip": "oos_mr_dns_0",
+   "scope": "oos",
+   "lang": "mr",
+   "variant": "mr-IN-AarohiNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "कॉम्प्युटर नेटवर्क्सच्या अभ्यासक्रमात DNS कुठे येतो?",
+   "transcript": "कॉम्प्यूटर नेटवर्क्स चा अभ्यास क्रमात दीएनेस कुठे ये तो",
+   "detected_lang": "hi",
+   "reply": "माफ़ कीजिए, अभी मेरे पास कॉम्प्यूटर नेटवर्क्स के सेमेस्टर या क्रम की जानकारी उपलब्ध नहीं है।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Computer Networks"
+     }
+    },
+    {
+     "name": "get_course_info",
+     "arguments": {
+      "semester": "7",
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.708,
+    "llm_tool_decision_s": 0.692,
+    "llm_ttft_s": 2.246,
+    "tts_first_audio_s": 1.681,
+    "tts_first_clip_s": 2.318,
+    "e2e_first_audio_s": 7.334,
+    "total_s": 7.335,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 3,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_mr_dns_1",
+   "scope": "oos",
+   "lang": "mr",
+   "variant": "mr-IN-ManoharNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "कॉम्प्युटर नेटवर्क्सच्या अभ्यासक्रमात DNS कुठे येतो?",
+   "transcript": "कॉम्प्यूटर नेटवर्क्स चा अभ्यासक्रमात डीएनेस कुठे ये तो।",
+   "detected_lang": "hi",
+   "reply": "DNS कंप्यूटर नेटवर्क्स के मॉड्यूल 5 — एप्लिकेशन लेयर में पढ़ाया जाता है।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "DNS Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.664,
+    "llm_tool_decision_s": 0.643,
+    "llm_ttft_s": 1.355,
+    "tts_first_audio_s": 1.171,
+    "tts_first_clip_s": 1.787,
+    "e2e_first_audio_s": 5.873,
+    "total_s": 5.873,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_mr_hello_0",
+   "scope": "oos",
+   "lang": "mr",
+   "variant": "mr-IN-AarohiNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "नमस्कार, तू कोण आहेस आणि काय करू शकतोस?",
+   "transcript": "नमस्कार, तू कोण आहेस आणी काई करूँ शक्तोस?",
+   "detected_lang": "hi",
+   "reply": "मैं Vidya Saathi हूँ, आपका वॉइस स्टडी असिस्टेंट। मैं VTU ISE के कोर्स‑सिलेबस, परीक्षा‑तारीख, रिमाइंडर और ग्रेड‑कैल्कुलेशन में मदद कर सकता हूँ।",
+   "tools": [],
+   "timings": {
+    "stt_s": 2.195,
+    "llm_ttft_s": 0.652,
+    "tts_first_audio_s": 1.255,
+    "tts_first_clip_s": 1.644,
+    "e2e_first_audio_s": 4.529,
+    "total_s": 6.595,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_mr_hello_1",
+   "scope": "oos",
+   "lang": "mr",
+   "variant": "mr-IN-ManoharNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "नमस्कार, तू कोण आहेस आणि काय करू शकतोस?",
+   "transcript": "नमस्कार, तू कोण आहेस आणि काई करूँ शक्तोस?",
+   "detected_lang": "hi",
+   "reply": "मैं Vidya Saathi हूँ, आपका VTU ISE अध्ययन सहायक। मैं परीक्षा की तिथियाँ, पाठ्यक्रम जानकारी, सिलेबस, रिमाइंडर सेट करना और SGPA/CGPA की गणना में मदद कर सकता हूँ।",
+   "tools": [],
+   "timings": {
+    "stt_s": 2.251,
+    "llm_ttft_s": 0.64,
+    "tts_first_audio_s": 1.717,
+    "tts_first_clip_s": 2.183,
+    "e2e_first_audio_s": 5.116,
+    "total_s": 5.366,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_bn_exam_0",
+   "scope": "oos",
+   "lang": "bn",
+   "variant": "bn-IN-TanishaaNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "আমার Computer Networks পরীক্ষা কবে?",
+   "transcript": "अमार कंप्यूटर नेटवर्क्स पुरिखा कोबे",
+   "detected_lang": "hi",
+   "reply": "कम्प्यूटर नेटवर्क्स का परीक्षा 14 दिसंबर को सुबह 9:30 से दोपहर 12:30 तक है।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.161,
+    "llm_tool_decision_s": 0.502,
+    "llm_ttft_s": 1.315,
+    "tts_first_audio_s": 2.196,
+    "tts_first_clip_s": 2.736,
+    "e2e_first_audio_s": 6.218,
+    "total_s": 6.218,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_bn_exam_1",
+   "scope": "oos",
+   "lang": "bn",
+   "variant": "bn-IN-BashkarNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "আমার Computer Networks পরীক্ষা কবে?",
+   "transcript": "अमार कंप्यूटर नेटवर्क्स पुरिखा कोबे",
+   "detected_lang": "hi",
+   "reply": "कम्प्यूटर नेटवर्क्स का परीक्षा 14 दिसंबर को सुबह 9:30 से दोपहर 12:30 तक है।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.077,
+    "llm_tool_decision_s": 0.578,
+    "llm_ttft_s": 1.08,
+    "tts_first_audio_s": 0.834,
+    "tts_first_clip_s": 1.337,
+    "e2e_first_audio_s": 4.556,
+    "total_s": 4.556,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_bn_sgpa_0",
+   "scope": "oos",
+   "lang": "bn",
+   "variant": "bn-IN-TanishaaNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "আমার SGPA হিসাব করো: 4 ক্রেডিটের বিষয়ে 92 নম্বর, আরেকটি 4 ক্রেডিটের বিষয়ে 85 আর 3 ক্রেডিটের বিষয়ে 72।",
+   "transcript": "Amar Siddha Hisap Koro, Char Krediter Bishoy Biranbui Nombor, Aarikti Char Krediter Bishoy Pachashi Aar 3 Krediter Bishoy Bahattar.",
+   "detected_lang": "en",
+   "reply": "I’m sorry, but I don’t have enough information to calculate the SGPA. Could you provide the marks (or grade points) for each subject?",
+   "tools": [],
+   "timings": {
+    "stt_s": 2.473,
+    "llm_ttft_s": 1.178,
+    "tts_first_audio_s": 0.969,
+    "tts_first_clip_s": 1.354,
+    "e2e_first_audio_s": 5.043,
+    "total_s": 5.043,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": false,
+   "reply_lang": "en",
+   "answer_ok": false
+  },
+  {
+   "clip": "oos_bn_sgpa_1",
+   "scope": "oos",
+   "lang": "bn",
+   "variant": "bn-IN-BashkarNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "আমার SGPA হিসাব করো: 4 ক্রেডিটের বিষয়ে 92 নম্বর, আরেকটি 4 ক্রেডিটের বিষয়ে 85 আর 3 ক্রেডিটের বিষয়ে 72।",
+   "transcript": "Amar sirpe hisap koro, 4 kredit er bishoy biranobboi nombor, arekti 4 kredit er bishoy pochashi ar 3 kredit er bishoy bahaktor.",
+   "detected_lang": "en",
+   "reply": "Your SGPA is 8.73.",
+   "tools": [
+    {
+     "name": "calculate_sgpa",
+     "arguments": {
+      "courses": [
+       {
+        "credits": 4,
+        "marks": 85
+       },
+       {
+        "credits": 4,
+        "marks": 85
+       },
+       {
+        "credits": 3,
+        "marks": 70
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.384,
+    "llm_tool_decision_s": 1.036,
+    "llm_ttft_s": 1.529,
+    "tts_first_audio_s": 1.468,
+    "tts_first_clip_s": 1.844,
+    "e2e_first_audio_s": 5.781,
+    "total_s": 5.781,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": false
+  },
+  {
+   "clip": "oos_bn_dns_0",
+   "scope": "oos",
+   "lang": "bn",
+   "variant": "bn-IN-TanishaaNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "কম্পিউটার নেটওয়ার্কস সিলেবাসে DNS কোথায় আছে?",
+   "transcript": "कम्प्यूटर नेटवर्क सिलेबा से डिन्स को थाया छे?",
+   "detected_lang": "hi",
+   "reply": "कम्प्यूटर नेटवर्क (BCS502) का सिलेबस मुख्यतः ये टॉपिक कवर करता है: नेटवर्क का परिचय, फिजिकल लेयर, ट्रांसमिशन मीडिया, स्विचिंग तकनीक, डेटा लिंक लेयर, नेटवर्क लेयर, ट्रांसपोर्ट लेयर, और एप्लीकेशन लेयर में HTTP, FTP, ई‑मेल, DNS आदि। टेक्स्टबुक Forouzan की “Data Communications and Networking” (5th एडिशन) है, और इस विषय के 4 क्रेडिट हैं।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Computer Networks syllabus topics"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.32,
+    "llm_tool_decision_s": 0.425,
+    "llm_ttft_s": 1.099,
+    "tts_first_audio_s": 1.092,
+    "tts_first_clip_s": 1.48,
+    "e2e_first_audio_s": 4.951,
+    "total_s": 6.59,
+    "sentences": 3,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_bn_dns_1",
+   "scope": "oos",
+   "lang": "bn",
+   "variant": "bn-IN-BashkarNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "কম্পিউটার নেটওয়ার্কস সিলেবাসে DNS কোথায় আছে?",
+   "transcript": "Where are the Dons in Computer Network Syllabus?",
+   "detected_lang": "en",
+   "reply": "The syllabus lists the “Dons” topic under the Application Layer module, covering client‑server and peer‑to‑peer paradigms, web protocols, FTP, email, SSH, DNS and SNMP.",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Computer Networks Dons"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.349,
+    "llm_tool_decision_s": 0.69,
+    "llm_ttft_s": 1.506,
+    "tts_first_audio_s": 1.137,
+    "tts_first_clip_s": 1.507,
+    "e2e_first_audio_s": 4.393,
+    "total_s": 5.986,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_bn_hello_0",
+   "scope": "oos",
+   "lang": "bn",
+   "variant": "bn-IN-TanishaaNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "নমস্কার, তুমি কে আর কী করতে পারো?",
+   "transcript": "नमस्कार तुम्ही के आर्की कुर्टे पारू",
+   "detected_lang": "hi",
+   "reply": "नमस्ते! मैं आपकी पढ़ाई में मदद के लिए यहाँ हूँ। आप किस विषय या जानकारी के बारे में पूछना चाहेंगे?",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.996,
+    "llm_ttft_s": 0.443,
+    "tts_first_audio_s": 1.09,
+    "tts_first_clip_s": 2.341,
+    "e2e_first_audio_s": 4.812,
+    "total_s": 4.812,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_bn_hello_1",
+   "scope": "oos",
+   "lang": "bn",
+   "variant": "bn-IN-BashkarNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "নমস্কার, তুমি কে আর কী করতে পারো?",
+   "transcript": "Namaskar, tunike arki korte paru.",
+   "detected_lang": "en",
+   "reply": "Hello! How can I assist you with your VTU ISE studies today?",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.331,
+    "llm_ttft_s": 0.372,
+    "tts_first_audio_s": 1.311,
+    "tts_first_clip_s": 2.028,
+    "e2e_first_audio_s": 3.768,
+    "total_s": 3.768,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_gu_exam_0",
+   "scope": "oos",
+   "lang": "gu",
+   "variant": "gu-IN-DhwaniNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "મારી Computer Networks ની પરીક્ષા ક્યારે છે?",
+   "transcript": "मारी कंप्यूटर नेटवर्क्स नी परिक्षा क्यारे छे?",
+   "detected_lang": "hi",
+   "reply": "कंप्यूटर नेटवर्क्स की परीक्षा 14 दिसंबर को सुबह 9:30 से दोपहर 12:30 तक है।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.213,
+    "llm_tool_decision_s": 0.567,
+    "llm_ttft_s": 1.056,
+    "tts_first_audio_s": 1.726,
+    "tts_first_clip_s": 2.266,
+    "e2e_first_audio_s": 5.603,
+    "total_s": 5.603,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_gu_exam_1",
+   "scope": "oos",
+   "lang": "gu",
+   "variant": "gu-IN-NiranjanNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "મારી Computer Networks ની પરીક્ષા ક્યારે છે?",
+   "transcript": "मारी कम्प्यूटर नेटवर्क्स नी परिक्षा क्यारे छे?",
+   "detected_lang": "hi",
+   "reply": "कम्प्यूटर नेटवर्क्स की परीक्षा 14 December को सुबह 9:30 से 12:30 बजे तक है।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.403,
+    "llm_tool_decision_s": 0.514,
+    "llm_ttft_s": 0.888,
+    "tts_first_audio_s": 1.642,
+    "tts_first_clip_s": 2.326,
+    "e2e_first_audio_s": 5.679,
+    "total_s": 5.679,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_gu_sgpa_0",
+   "scope": "oos",
+   "lang": "gu",
+   "variant": "gu-IN-DhwaniNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "મારો SGPA ગણો: 4 ક્રેડિટના વિષયમાં 92 માર્ક્સ, બીજા 4 ક્રેડિટના વિષયમાં 85 અને 3 ક્રેડિટના વિષયમાં 72.",
+   "transcript": "मारो गणो चार क्रेडिट ना विश्यमा बानू मार्क्स, बीजा चार क्रेडिट ना विश्यमा पिच्यासी अने त्रण क्रेडिट ना विश्यमा बोनते।",
+   "detected_lang": "hi",
+   "reply": "माफ़ कीजिए, आपके पहले 4‑क्रेडिट विषय के अंक नहीं बताए गए हैं, इसलिए मैं SGPA नहीं निकाल सकता। कृपया सभी विषयों के अंक बताइए।",
+   "tools": [],
+   "timings": {
+    "stt_s": 4.848,
+    "llm_ttft_s": 0.66,
+    "tts_first_audio_s": 1.37,
+    "tts_first_clip_s": 1.827,
+    "e2e_first_audio_s": 7.409,
+    "total_s": 7.409,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": false,
+   "reply_lang": "hi",
+   "answer_ok": false
+  },
+  {
+   "clip": "oos_gu_sgpa_1",
+   "scope": "oos",
+   "lang": "gu",
+   "variant": "gu-IN-NiranjanNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "મારો SGPA ગણો: 4 ક્રેડિટના વિષયમાં 92 માર્ક્સ, બીજા 4 ક્રેડિટના વિષયમાં 85 અને 3 ક્રેડિટના વિષયમાં 72.",
+   "transcript": "मारो गणो, चार क्रेडिट ना विश्यमा बानू मार्क्स, बीजा चार क्रेडिट ना विश्यमा पिचासी अने त्रन क्रेडिट ना विश्यमा बोनते।",
+   "detected_lang": "hi",
+   "reply": "कृपया प्रत्येक विषय के अंक बताइए, ताकि मैं आपका SGPA निकाल सकूँ।",
+   "tools": [],
+   "timings": {
+    "stt_s": 19.758,
+    "llm_ttft_s": 0.611,
+    "tts_first_audio_s": 0.995,
+    "tts_first_clip_s": 1.344,
+    "e2e_first_audio_s": 21.743,
+    "total_s": 21.784,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": false,
+   "reply_lang": "hi",
+   "answer_ok": false
+  },
+  {
+   "clip": "oos_gu_dns_0",
+   "scope": "oos",
+   "lang": "gu",
+   "variant": "gu-IN-DhwaniNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "કમ્પ્યુટર નેટવર્ક્સના સિલેબસમાં DNS ક્યાં આવે છે?",
+   "transcript": "कम्प्यूटर नेटवर्क्स ना सिलेब्स मा दियेनेस क्या आवे छे?",
+   "detected_lang": "hi",
+   "reply": "कम्प्यूटर नेटवर्क्स के सिलेबस में नेटवर्क का परिचय, फिजिकल लेयर, ट्रांसमिशन मीडिया, स्विचिंग, TCP/IP और OSI मॉडल, तथा एप्लिकेशन लेयर के प्रोटोकॉल जैसे HTTP, FTP, SMTP आदि शामिल हैं।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Computer Networks syllabus topics"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.667,
+    "llm_tool_decision_s": 0.462,
+    "llm_ttft_s": 0.991,
+    "tts_first_audio_s": 0.99,
+    "tts_first_clip_s": 1.42,
+    "e2e_first_audio_s": 5.11,
+    "total_s": 5.71,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_gu_dns_1",
+   "scope": "oos",
+   "lang": "gu",
+   "variant": "gu-IN-NiranjanNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "કમ્પ્યુટર નેટવર્ક્સના સિલેબસમાં DNS ક્યાં આવે છે?",
+   "transcript": "कंप्यूटर नेटवर्क्स ना सिलेब्स मार दिये नेस क्या आवेचे?",
+   "detected_lang": "hi",
+   "reply": "कंप्यूटर नेटवर्क्स (BCS502) का कोर्स 4 क्रेडिट का है, CIE 50 और SEE 50 मार्क का। मुख्य विषयों में‑\n\n- परिचय, फिजिकल लेयर, ट्रांसमिशन मीडिया, सर्किट व पैकेट स्विचिंग  \n- डेटा लिंक, नेटवर्क, ट्रांसपोर्ट लेयर (TCP/UDP)  \n- एप्लिकेशन लेयर: HTTP, FTP, ई‑मेल, DNS, SSH आदि  \n\nपाठ्यपुस्तक: फ़ोरुज़ान, *Data Communications and Networking* (5th एडिशन)।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.508,
+    "llm_tool_decision_s": 0.508,
+    "llm_ttft_s": 1.082,
+    "tts_first_audio_s": 1.514,
+    "tts_first_clip_s": 1.955,
+    "e2e_first_audio_s": 5.597,
+    "total_s": 8.461,
+    "sentences": 5,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_gu_hello_0",
+   "scope": "oos",
+   "lang": "gu",
+   "variant": "gu-IN-DhwaniNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "નમસ્તે, તમે કોણ છો અને શું કરી શકો છો?",
+   "transcript": "नमस्ते तमे कौन छो अने शू करी शको छो",
+   "detected_lang": "hi",
+   "reply": "मैं विद्या साथी हूँ, आपका वॉइस स्टडी असिस्टेंट। मैं परीक्षा की तिथियाँ, सिलेबस, ग्रेड कैलकुलेशन और रिमाइंडर सेट करने में मदद कर सकता हूँ।",
+   "tools": [],
+   "timings": {
+    "stt_s": 2.073,
+    "llm_ttft_s": 0.66,
+    "tts_first_audio_s": 1.004,
+    "tts_first_clip_s": 1.42,
+    "e2e_first_audio_s": 4.19,
+    "total_s": 4.543,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_gu_hello_1",
+   "scope": "oos",
+   "lang": "gu",
+   "variant": "gu-IN-NiranjanNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "નમસ્તે, તમે કોણ છો અને શું કરી શકો છો?",
+   "transcript": "नमस्ते तमे कौन छो अने शु करी शको छो",
+   "detected_lang": "hi",
+   "reply": "मैं Vidya Saathi हूँ, आपका वॉइस स्टडी असिस्टेंट। मैं परीक्षा की तिथियाँ, सिलेबस, ग्रेड गणना और रिमाइंडर सेट करने में मदद कर सकता हूँ।",
+   "tools": [],
+   "timings": {
+    "stt_s": 2.04,
+    "llm_ttft_s": 0.596,
+    "tts_first_audio_s": 0.69,
+    "tts_first_clip_s": 0.97,
+    "e2e_first_audio_s": 3.647,
+    "total_s": 6.184,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ta_exam_0",
+   "scope": "oos",
+   "lang": "ta",
+   "variant": "ta-IN-PallaviNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "என்னுடைய Computer Networks தேர்வு எப்போது?",
+   "transcript": "When is my computer network selection?",
+   "detected_lang": "en",
+   "reply": "Your Computer Networks exam is on 14 December, Monday, from 09:30 am to 12:30 pm.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.103,
+    "llm_tool_decision_s": 0.537,
+    "llm_ttft_s": 0.926,
+    "tts_first_audio_s": 0.637,
+    "tts_first_clip_s": 0.891,
+    "e2e_first_audio_s": 2.96,
+    "total_s": 3.0,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ta_exam_1",
+   "scope": "oos",
+   "lang": "ta",
+   "variant": "ta-IN-ValluvarNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "என்னுடைய Computer Networks தேர்வு எப்போது?",
+   "transcript": "When will my computer networks arrive?",
+   "detected_lang": "en",
+   "reply": "The Computer Networks exam is scheduled for 14 December, Monday, from 09:30 am to 12:30 pm.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.159,
+    "llm_tool_decision_s": 0.712,
+    "llm_ttft_s": 1.312,
+    "tts_first_audio_s": 0.909,
+    "tts_first_clip_s": 1.289,
+    "e2e_first_audio_s": 3.854,
+    "total_s": 3.854,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ta_sgpa_0",
+   "scope": "oos",
+   "lang": "ta",
+   "variant": "ta-IN-PallaviNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "என் SGPA கணக்கிடு: 4 கிரெடிட் பாடத்தில் 92 மதிப்பெண், இன்னொரு 4 கிரெடிட் பாடத்தில் 85, 3 கிரெடிட் பாடத்தில் 72.",
+   "transcript": "My ECPA is 90 out of 4 credits 85 out of 4 credits 72 out of 3 credits",
+   "detected_lang": "en",
+   "reply": "I’m sorry, but I don’t have enough information to calculate your SGPA. I’d need the grade points (or the VTU conversion table) for each subject.",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.739,
+    "llm_ttft_s": 0.676,
+    "tts_first_audio_s": 2.523,
+    "tts_first_clip_s": 3.015,
+    "e2e_first_audio_s": 5.471,
+    "total_s": 5.471,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": false,
+   "reply_lang": "en",
+   "answer_ok": false
+  },
+  {
+   "clip": "oos_ta_sgpa_1",
+   "scope": "oos",
+   "lang": "ta",
+   "variant": "ta-IN-ValluvarNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "என் SGPA கணக்கிடு: 4 கிரெடிட் பாடத்தில் 92 மதிப்பெண், இன்னொரு 4 கிரெடிட் பாடத்தில் 85, 3 கிரெடிட் பாடத்தில் 72.",
+   "transcript": "n a g b a kanakedu nangu kredit paadathil tonnuthrundu mathippin innoru nangu kredit paadathil enbattheindu moontu kredit paadathil",
+   "detected_lang": "en",
+   "reply": "I’m sorry, but I don’t have that credit information available yet.",
+   "tools": [],
+   "timings": {
+    "stt_s": 2.536,
+    "llm_ttft_s": 0.653,
+    "tts_first_audio_s": 1.474,
+    "tts_first_clip_s": 1.929,
+    "e2e_first_audio_s": 5.148,
+    "total_s": 5.148,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": false,
+   "reply_lang": "en",
+   "answer_ok": false
+  },
+  {
+   "clip": "oos_ta_dns_0",
+   "scope": "oos",
+   "lang": "ta",
+   "variant": "ta-IN-PallaviNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "கம்ப்யூட்டர் நெட்வொர்க்ஸ் பாடத்திட்டத்தில் DNS எங்கே வருகிறது?",
+   "transcript": "Where does DNS come from in the computer networks program?",
+   "detected_lang": "en",
+   "reply": "DNS is covered in the Application Layer module of the Computer Networks course.",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "DNS"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.262,
+    "llm_tool_decision_s": 0.469,
+    "llm_ttft_s": 1.122,
+    "tts_first_audio_s": 1.989,
+    "tts_first_clip_s": 2.556,
+    "e2e_first_audio_s": 4.981,
+    "total_s": 4.981,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ta_dns_1",
+   "scope": "oos",
+   "lang": "ta",
+   "variant": "ta-IN-ValluvarNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "கம்ப்யூட்டர் நெட்வொர்க்ஸ் பாடத்திட்டத்தில் DNS எங்கே வருகிறது?",
+   "transcript": "Where does DNS come from in Computer Networks?",
+   "detected_lang": "en",
+   "reply": "DNS, or Domain Name System, was introduced as part of the early Internet architecture to replace the cumbersome host‑files; it became standardized in the 1980s with RFC 1034 and RFC 1035.",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.185,
+    "llm_ttft_s": 2.287,
+    "tts_first_audio_s": 1.735,
+    "tts_first_clip_s": 2.951,
+    "e2e_first_audio_s": 6.524,
+    "total_s": 6.524,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": false,
+   "reply_lang": "en",
+   "answer_ok": false
+  },
+  {
+   "clip": "oos_ta_hello_0",
+   "scope": "oos",
+   "lang": "ta",
+   "variant": "ta-IN-PallaviNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "வணக்கம், நீங்கள் யார், என்ன செய்ய முடியும்?",
+   "transcript": "Hello, who are you? What can I do for you?",
+   "detected_lang": "en",
+   "reply": "I’m Vidya Saathi, your VTU ISE study assistant. I can help with exam dates, syllabus topics, credit details, reminders and grade calculations. Just ask!",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.443,
+    "llm_ttft_s": 0.499,
+    "tts_first_audio_s": 1.7,
+    "tts_first_clip_s": 2.048,
+    "e2e_first_audio_s": 4.026,
+    "total_s": 4.636,
+    "sentences": 3,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ta_hello_1",
+   "scope": "oos",
+   "lang": "ta",
+   "variant": "ta-IN-ValluvarNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "வணக்கம், நீங்கள் யார், என்ன செய்ய முடியும்?",
+   "transcript": "Hello, who are you? What can I do for you?",
+   "detected_lang": "en",
+   "reply": "I’m Vidya Saathi, your VTU ISE study assistant. I can help you with exam dates, syllabus topics, credit details, reminders and grade calculations. Just ask me anything about your engineering courses.",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.259,
+    "llm_ttft_s": 0.568,
+    "tts_first_audio_s": 0.639,
+    "tts_first_clip_s": 0.913,
+    "e2e_first_audio_s": 2.778,
+    "total_s": 3.485,
+    "sentences": 3,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_te_exam_0",
+   "scope": "oos",
+   "lang": "te",
+   "variant": "te-IN-ShrutiNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "నా Computer Networks పరీక్ష ఎప్పుడు?",
+   "transcript": "ना कंप्यूटर नेटवर्क्स परीक्ष एप्पुडो",
+   "detected_lang": "hi",
+   "reply": "Computer Networks की परीक्षा 14 December को सुबह 9:30 से 12:30 बजे है।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.123,
+    "llm_tool_decision_s": 0.443,
+    "llm_ttft_s": 0.971,
+    "tts_first_audio_s": 2.505,
+    "tts_first_clip_s": 3.159,
+    "e2e_first_audio_s": 6.358,
+    "total_s": 6.358,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_te_exam_1",
+   "scope": "oos",
+   "lang": "te",
+   "variant": "te-IN-MohanNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "నా Computer Networks పరీక్ష ఎప్పుడు?",
+   "transcript": "When is my computer networks test?",
+   "detected_lang": "en",
+   "reply": "Your Computer Networks exam is on 14 December, Monday, from 09:30 am to 12:30 pm.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.263,
+    "llm_tool_decision_s": 0.598,
+    "llm_ttft_s": 1.034,
+    "tts_first_audio_s": 1.278,
+    "tts_first_clip_s": 1.507,
+    "e2e_first_audio_s": 3.831,
+    "total_s": 3.897,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_te_sgpa_0",
+   "scope": "oos",
+   "lang": "te",
+   "variant": "te-IN-ShrutiNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "నా SGPA లెక్కించు: 4 క్రెడిట్ సబ్జెక్ట్‌లో 92 మార్కులు, ఇంకో 4 క్రెడిట్ సబ్జెక్ట్‌లో 85, 3 క్రెడిట్ సబ్జెక్ట్‌లో 72.",
+   "transcript": "ना एस जीपिया लिक्किंचू, 4 क्रेडिट सब्जेक्ट लो 92 मार्कुलू, इंको 4 क्रेडिट सब्जेक्ट लो 85, 3 क्रेडिट सब्जेक्ट लो 72।",
+   "detected_lang": "hi",
+   "reply": "आपका SGPA 9.09 है।",
+   "tools": [
+    {
+     "name": "calculate_sgpa",
+     "arguments": {
+      "courses": [
+       {
+        "credits": 4,
+        "marks": 92
+       },
+       {
+        "credits": 4,
+        "marks": 85
+       },
+       {
+        "credits": 3,
+        "marks": 72
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 4.36,
+    "llm_tool_decision_s": 1.776,
+    "llm_ttft_s": 2.321,
+    "tts_first_audio_s": 0.729,
+    "tts_first_clip_s": 1.025,
+    "e2e_first_audio_s": 7.736,
+    "total_s": 7.736,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_te_sgpa_1",
+   "scope": "oos",
+   "lang": "te",
+   "variant": "te-IN-MohanNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "నా SGPA లెక్కించు: 4 క్రెడిట్ సబ్జెక్ట్‌లో 92 మార్కులు, ఇంకో 4 క్రెడిట్ సబ్జెక్ట్‌లో 85, 3 క్రెడిట్ సబ్జెక్ట్‌లో 72.",
+   "transcript": "ना S.G.P.A. लिक्किंचू, नालगु क्रेडिट सब्जिक्ट लो 92 मार्कुलु, इंको नालगु क्रेडिट सब्जिक्ट लो 85, मूडु क्रेडिट सब्जिक्ट लो 72।",
+   "detected_lang": "hi",
+   "reply": "कृपया प्रत्येक विषय का क्रेडिट बताइए, फिर मैं आपका SGPA निकाल दूँगा।",
+   "tools": [],
+   "timings": {
+    "stt_s": 4.861,
+    "llm_ttft_s": 0.495,
+    "tts_first_audio_s": 0.955,
+    "tts_first_clip_s": 1.326,
+    "e2e_first_audio_s": 6.739,
+    "total_s": 6.773,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": false,
+   "reply_lang": "hi",
+   "answer_ok": false
+  },
+  {
+   "clip": "oos_te_dns_0",
+   "scope": "oos",
+   "lang": "te",
+   "variant": "te-IN-ShrutiNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "కంప్యూటర్ నెట్‌వర్క్స్ సిలబస్‌లో DNS ఎక్కడ వస్తుంది?",
+   "transcript": "कंप्यूटर नेटवर्क्स सिलबस लो डियनिस एकड़ा वस्तुन दी?",
+   "detected_lang": "hi",
+   "reply": "कंप्यूटर नेटवर्क्स का कोर्स 4 क्रेडिट का है, CIE 50 और SEE 50 अंक के साथ। मुख्य टेकबुक Forouzan की “Data Communications and Networking” (5th edition) है। इसमें परिचय, फिजिकल लेयर, ट्रांसमिशन मीडिया, स्विचिंग, और एप्लिकेशन लेयर जैसे टॉपिक शामिल हैं।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.545,
+    "llm_tool_decision_s": 0.732,
+    "llm_ttft_s": 1.313,
+    "tts_first_audio_s": 1.586,
+    "tts_first_clip_s": 2.013,
+    "e2e_first_audio_s": 5.912,
+    "total_s": 6.365,
+    "sentences": 4,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_te_dns_1",
+   "scope": "oos",
+   "lang": "te",
+   "variant": "te-IN-MohanNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "కంప్యూటర్ నెట్‌వర్క్స్ సిలబస్‌లో DNS ఎక్కడ వస్తుంది?",
+   "transcript": "कंप्यूटर नेटवर्क्स सिलबस लो डियनेस एकड़ वस्तुन्दी?",
+   "detected_lang": "hi",
+   "reply": "कंप्यूटर नेटवर्क्स (BCS502) का सिलबस मुख्यतः ये मॉड्यूल शामिल करता है: परिचय और फिजिकल लेयर (नेटवर्क प्रकार, प्रोटोकॉल लेयरिंग, ट्रांसमिशन मीडिया, सर्किट व पैकेट स्विचिंग), डेटा कम्युनिकेशन, और एप्लीकेशन लेयर (क्लाइंट‑सर्वर, वेब, HTTP, FTP, ई‑मेल, DNS, SNMP आदि)।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Computer Networks syllabus"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.549,
+    "llm_tool_decision_s": 0.693,
+    "llm_ttft_s": 1.639,
+    "tts_first_audio_s": 1.332,
+    "tts_first_clip_s": 1.833,
+    "e2e_first_audio_s": 6.077,
+    "total_s": 9.108,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_te_hello_0",
+   "scope": "oos",
+   "lang": "te",
+   "variant": "te-IN-ShrutiNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "నమస్కారం, మీరు ఎవరు, ఏమి చేయగలరు?",
+   "transcript": "Hello, who are you? What can I do for you?",
+   "detected_lang": "en",
+   "reply": "I’m Vidya Saathi, your VTU ISE study assistant. I can help with exam dates, syllabus topics, credit details, reminders and grade calculations. Just ask!",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.501,
+    "llm_ttft_s": 0.572,
+    "tts_first_audio_s": 0.707,
+    "tts_first_clip_s": 0.967,
+    "e2e_first_audio_s": 3.066,
+    "total_s": 3.153,
+    "sentences": 3,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_te_hello_1",
+   "scope": "oos",
+   "lang": "te",
+   "variant": "te-IN-MohanNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "నమస్కారం, మీరు ఎవరు, ఏమి చేయగలరు?",
+   "transcript": "Namaskaram, miru yavaru, emi chayegalaru.",
+   "detected_lang": "en",
+   "reply": "I’m Vidya Saathi, your VTU voice study assistant. How can I help you today?",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.405,
+    "llm_ttft_s": 0.412,
+    "tts_first_audio_s": 0.951,
+    "tts_first_clip_s": 1.29,
+    "e2e_first_audio_s": 3.144,
+    "total_s": 3.144,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ml_exam_0",
+   "scope": "oos",
+   "lang": "ml",
+   "variant": "ml-IN-SobhanaNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "എന്റെ Computer Networks പരീക്ഷ എപ്പോഴാണ്?",
+   "transcript": "When is my computer going to test my storytelling skills?",
+   "detected_lang": "en",
+   "reply": "Your Computer Networks exam is on 14 December, Monday, from 09:30 am to 12:30 pm.",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.255,
+    "llm_tool_decision_s": 1.501,
+    "llm_ttft_s": 2.213,
+    "tts_first_audio_s": 0.687,
+    "tts_first_clip_s": 1.038,
+    "e2e_first_audio_s": 4.534,
+    "total_s": 4.671,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ml_exam_1",
+   "scope": "oos",
+   "lang": "ml",
+   "variant": "ml-IN-MidhunNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "എന്റെ Computer Networks പരീക്ഷ എപ്പോഴാണ്?",
+   "transcript": "My computer has just arrived.",
+   "detected_lang": "en",
+   "reply": "Great! Let me know if you need any help with your studies or exam schedule.",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.254,
+    "llm_ttft_s": 0.447,
+    "tts_first_audio_s": 0.832,
+    "tts_first_clip_s": 1.5,
+    "e2e_first_audio_s": 3.238,
+    "total_s": 3.238,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": false,
+   "reply_lang": "en",
+   "answer_ok": false
+  },
+  {
+   "clip": "oos_ml_sgpa_0",
+   "scope": "oos",
+   "lang": "ml",
+   "variant": "ml-IN-SobhanaNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "എന്റെ SGPA കണക്കാക്കൂ: 4 ക്രെഡിറ്റ് വിഷയത്തിൽ 92 മാർക്ക്, മറ്റൊരു 4 ക്രെഡിറ്റ് വിഷയത്തിൽ 85, 3 ക്രെഡിറ്റ് വിഷയത്തിൽ 72.",
+   "transcript": "My estimate is 92 for 4 credits, 85 for 4 credits and 72 for 3 credits.",
+   "detected_lang": "en",
+   "reply": "Your SGPA comes out to about 9.09.",
+   "tools": [
+    {
+     "name": "calculate_sgpa",
+     "arguments": {
+      "courses": [
+       {
+        "credits": 4,
+        "marks": 92
+       },
+       {
+        "credits": 4,
+        "marks": 85
+       },
+       {
+        "credits": 3,
+        "marks": 72
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.415,
+    "llm_tool_decision_s": 0.62,
+    "llm_ttft_s": 1.235,
+    "tts_first_audio_s": 1.472,
+    "tts_first_clip_s": 1.985,
+    "e2e_first_audio_s": 4.666,
+    "total_s": 4.666,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ml_sgpa_1",
+   "scope": "oos",
+   "lang": "ml",
+   "variant": "ml-IN-MidhunNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "എന്റെ SGPA കണക്കാക്കൂ: 4 ക്രെഡിറ്റ് വിഷയത്തിൽ 92 മാർക്ക്, മറ്റൊരു 4 ക്രെഡിറ്റ് വിഷയത്തിൽ 85, 3 ക്രെഡിറ്റ് വിഷയത്തിൽ 72.",
+   "transcript": "My estimate is 92 marks for 4 credits, 85 marks for 4 credits, and 72 marks for 3 credits.",
+   "detected_lang": "en",
+   "reply": "Your SGPA comes out to about 9.09.",
+   "tools": [
+    {
+     "name": "calculate_sgpa",
+     "arguments": {
+      "courses": [
+       {
+        "credits": 4,
+        "marks": 92
+       },
+       {
+        "credits": 4,
+        "marks": 85
+       },
+       {
+        "credits": 3,
+        "marks": 72
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.561,
+    "llm_tool_decision_s": 0.475,
+    "llm_ttft_s": 1.037,
+    "tts_first_audio_s": 0.655,
+    "tts_first_clip_s": 0.971,
+    "e2e_first_audio_s": 3.593,
+    "total_s": 3.593,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ml_dns_0",
+   "scope": "oos",
+   "lang": "ml",
+   "variant": "ml-IN-SobhanaNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "കമ്പ്യൂട്ടർ നെറ്റ്‌വർക്ക്സ് സിലബസിൽ DNS എവിടെയാണ് വരുന്നത്?",
+   "transcript": "Where does the verb dhadava come from in the computer networks syllabus?",
+   "detected_lang": "en",
+   "reply": "I’m sorry, but I don’t have that information in the computer networks syllabus.",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "dhadava"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 1.389,
+    "llm_tool_decision_s": 0.756,
+    "llm_ttft_s": 1.335,
+    "tts_first_audio_s": 1.317,
+    "tts_first_clip_s": 1.841,
+    "e2e_first_audio_s": 4.608,
+    "total_s": 4.608,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ml_dns_1",
+   "scope": "oos",
+   "lang": "ml",
+   "variant": "ml-IN-MidhunNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "കമ്പ്യൂട്ടർ നെറ്റ്‌വർക്ക്സ് സിലബസിൽ DNS എവിടെയാണ് വരുന്നത്?",
+   "transcript": "Where does the computer network syllabus come from?",
+   "detected_lang": "en",
+   "reply": "The computer network syllabus is taken from the official VTU ISE curriculum published by Visvesvaraya Technological University.",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.169,
+    "llm_ttft_s": 0.739,
+    "tts_first_audio_s": 2.836,
+    "tts_first_clip_s": 3.552,
+    "e2e_first_audio_s": 5.517,
+    "total_s": 5.517,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": false,
+   "reply_lang": "en",
+   "answer_ok": false
+  },
+  {
+   "clip": "oos_ml_hello_0",
+   "scope": "oos",
+   "lang": "ml",
+   "variant": "ml-IN-SobhanaNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "നമസ്കാരം, നിങ്ങൾ ആരാണ്, എന്തൊക്കെ ചെയ്യാൻ കഴിയും?",
+   "transcript": "Hello, who are you? What can I do for you?",
+   "detected_lang": "en",
+   "reply": "I’m Vidya Saathi, your VTU ISE study assistant. I can help with exam dates, syllabus topics, credit details, reminders and grade calculations. Just ask!",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.234,
+    "llm_ttft_s": 0.679,
+    "tts_first_audio_s": 0.677,
+    "tts_first_clip_s": 1.028,
+    "e2e_first_audio_s": 2.981,
+    "total_s": 3.061,
+    "sentences": 3,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ml_hello_1",
+   "scope": "oos",
+   "lang": "ml",
+   "variant": "ml-IN-MidhunNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "നമസ്കാരം, നിങ്ങൾ ആരാണ്, എന്തൊക്കെ ചെയ്യാൻ കഴിയും?",
+   "transcript": "Namaskaram! Who are you? What can I do for you?",
+   "detected_lang": "en",
+   "reply": "I’m Vidya Saathi, your VTU ISE voice study assistant. I can help you with exam dates, syllabus topics, credit details, reminders and grade calculations. Just ask me anything about your engineering courses.",
+   "tools": [],
+   "timings": {
+    "stt_s": 1.29,
+    "llm_ttft_s": 0.887,
+    "tts_first_audio_s": 0.783,
+    "tts_first_clip_s": 1.05,
+    "e2e_first_audio_s": 3.267,
+    "total_s": 3.447,
+    "sentences": 3,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "en",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ur_exam_0",
+   "scope": "oos",
+   "lang": "ur",
+   "variant": "ur-IN-GulNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "میرا Computer Networks کا امتحان کب ہے؟",
+   "transcript": "मेरा कम्प्यूटर निट्वर्क्स का इंतिहान कब है?",
+   "detected_lang": "hi",
+   "reply": "कम्प्यूटर नेटवर्क्स का इम्तिहान 14 दिसंबर को सुबह 9:30 से दोपहर 12:30 तक है।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.238,
+    "llm_tool_decision_s": 0.635,
+    "llm_ttft_s": 1.174,
+    "tts_first_audio_s": 1.765,
+    "tts_first_clip_s": 2.399,
+    "e2e_first_audio_s": 5.882,
+    "total_s": 5.882,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ur_exam_1",
+   "scope": "oos",
+   "lang": "ur",
+   "variant": "ur-IN-SalmanNeural",
+   "cond": "clean",
+   "base_id": "exam",
+   "expected_tool": "get_exam_schedule",
+   "ref": "میرا Computer Networks کا امتحان کب ہے؟",
+   "transcript": "मेरा कम्प्यूटर नेटवर्क्स का इंतिहान कब है?",
+   "detected_lang": "hi",
+   "reply": "कम्प्यूटर नेटवर्क्स का इम्तिहान 14 दिसंबर को सुबह 9:30 से दोपहर 12:30 तक है।",
+   "tools": [
+    {
+     "name": "get_exam_schedule",
+     "arguments": {
+      "subject": "Computer Networks"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.104,
+    "llm_tool_decision_s": 0.598,
+    "llm_ttft_s": 1.118,
+    "tts_first_audio_s": 0.765,
+    "tts_first_clip_s": 1.149,
+    "e2e_first_audio_s": 4.462,
+    "total_s": 4.462,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ur_sgpa_0",
+   "scope": "oos",
+   "lang": "ur",
+   "variant": "ur-IN-GulNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "میرا SGPA نکالو: 4 کریڈٹ والے مضمون میں 92 نمبر، دوسرے 4 کریڈٹ والے مضمون میں 85 اور 3 کریڈٹ والے مضمون میں 72۔",
+   "transcript": "मेरा निकालो 4 क्रेडित वाले मजमून में 92 नमबर, दूसरे 4 क्रेडित वाले मजमून में 85 और 3 क्रेडित वाले मजमून में 72।",
+   "detected_lang": "hi",
+   "reply": "आपका SGPA 9.09 है।",
+   "tools": [
+    {
+     "name": "calculate_sgpa",
+     "arguments": {
+      "courses": [
+       {
+        "credits": 4,
+        "marks": 92
+       },
+       {
+        "credits": 4,
+        "marks": 85
+       },
+       {
+        "credits": 3,
+        "marks": 72
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 4.139,
+    "llm_tool_decision_s": 1.636,
+    "llm_ttft_s": 2.174,
+    "tts_first_audio_s": 0.689,
+    "tts_first_clip_s": 1.052,
+    "e2e_first_audio_s": 7.39,
+    "total_s": 7.39,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ur_sgpa_1",
+   "scope": "oos",
+   "lang": "ur",
+   "variant": "ur-IN-SalmanNeural",
+   "cond": "clean",
+   "base_id": "sgpa",
+   "expected_tool": "calculate_sgpa",
+   "ref": "میرا SGPA نکالو: 4 کریڈٹ والے مضمون میں 92 نمبر، دوسرے 4 کریڈٹ والے مضمون میں 85 اور 3 کریڈٹ والے مضمون میں 72۔",
+   "transcript": "मेरा निकालो, चार क्रेडिट वाले मजमून में 92 नमबर, दूसरे चार क्रेडिट वाले मजमून में 85 और तीन क्रेडिट वाले मजमून में 72.",
+   "detected_lang": "hi",
+   "reply": "आपका SGPA 9.09 है।",
+   "tools": [
+    {
+     "name": "calculate_sgpa",
+     "arguments": {
+      "courses": [
+       {
+        "credits": 4,
+        "marks": 92
+       },
+       {
+        "credits": 4,
+        "marks": 85
+       },
+       {
+        "credits": 3,
+        "marks": 72
+       }
+      ]
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 4.308,
+    "llm_tool_decision_s": 0.667,
+    "llm_ttft_s": 1.082,
+    "tts_first_audio_s": 0.69,
+    "tts_first_clip_s": 0.941,
+    "e2e_first_audio_s": 6.357,
+    "total_s": 6.357,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ur_dns_0",
+   "scope": "oos",
+   "lang": "ur",
+   "variant": "ur-IN-GulNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "کمپیوٹر نیٹ ورکس کے سلیبس میں DNS کہاں آتا ہے؟",
+   "transcript": "कम्प्यूटर नेटवर्क्स के सिलेबस में DNS कहा आता है।",
+   "detected_lang": "hi",
+   "reply": "डोमेन नेम सिस्टम (DNS) कंप्यूटर नेटवर्क्स के **Application Layer** मॉड्यूल में आता है।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "DNS Computer Networks syllabus"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.587,
+    "llm_tool_decision_s": 0.885,
+    "llm_ttft_s": 1.298,
+    "tts_first_audio_s": 1.578,
+    "tts_first_clip_s": 2.167,
+    "e2e_first_audio_s": 6.112,
+    "total_s": 6.112,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ur_dns_1",
+   "scope": "oos",
+   "lang": "ur",
+   "variant": "ur-IN-SalmanNeural",
+   "cond": "clean",
+   "base_id": "dns",
+   "expected_tool": "search_syllabus",
+   "ref": "کمپیوٹر نیٹ ورکس کے سلیبس میں DNS کہاں آتا ہے؟",
+   "transcript": "कम्प्यूटर नेटवर्क्स के सीलेबस में DNS कहां आता है?",
+   "detected_lang": "hi",
+   "reply": "डोमेन नेम सिस्टम (DNS) कंप्यूटर नेटवर्क्स के **मॉड्यूल 5 – एप्लिकेशन लेयर** में आता है।",
+   "tools": [
+    {
+     "name": "search_syllabus",
+     "arguments": {
+      "query": "Computer Networks DNS"
+     }
+    }
+   ],
+   "timings": {
+    "stt_s": 2.42,
+    "llm_tool_decision_s": 0.581,
+    "llm_ttft_s": 1.842,
+    "tts_first_audio_s": 1.287,
+    "tts_first_clip_s": 1.678,
+    "e2e_first_audio_s": 6.017,
+    "total_s": 6.017,
+    "sentences": 1,
+    "provider": "groq",
+    "llm_http_attempts": 2,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ur_hello_0",
+   "scope": "oos",
+   "lang": "ur",
+   "variant": "ur-IN-GulNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "السلام علیکم، آپ کون ہیں اور کیا کر سکتے ہیں؟",
+   "transcript": "असलाम अलेकूम, आप कौन हैं और क्या कर सकते हैं?",
+   "detected_lang": "hi",
+   "reply": "मैं \"विद्या साथी\" हूँ, आपके VTU ISE के पढ़ाई में मदद करने वाला वॉइस असिस्टेंट। मैं परीक्षा की तिथियाँ, सिलेबस, कोर्स की जानकारी और ग्रेड की गणना जैसे काम कर सकता हूँ।",
+   "tools": [],
+   "timings": {
+    "stt_s": 2.132,
+    "llm_ttft_s": 0.622,
+    "tts_first_audio_s": 1.92,
+    "tts_first_clip_s": 2.537,
+    "e2e_first_audio_s": 5.346,
+    "total_s": 5.346,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  },
+  {
+   "clip": "oos_ur_hello_1",
+   "scope": "oos",
+   "lang": "ur",
+   "variant": "ur-IN-SalmanNeural",
+   "cond": "clean",
+   "base_id": "hello",
+   "expected_tool": null,
+   "ref": "السلام علیکم، آپ کون ہیں اور کیا کر سکتے ہیں؟",
+   "transcript": "असलाम अलेकुम, अब कौन हैं और क्या कर सकते हैं?",
+   "detected_lang": "hi",
+   "reply": "मैं विद्या साथी हूँ, आपका वॉइस स्टडी असिस्टेंट। मैं VTU ISE के कोर्स‑सिलेबस, परीक्षा‑तारीख, रिमाइंडर सेट करना और SGPA/CGPA की गणना जैसे काम कर सकता हूँ।",
+   "tools": [],
+   "timings": {
+    "stt_s": 2.176,
+    "llm_ttft_s": 0.634,
+    "tts_first_audio_s": 0.617,
+    "tts_first_clip_s": 0.858,
+    "e2e_first_audio_s": 3.706,
+    "total_s": 4.692,
+    "sentences": 2,
+    "provider": "groq",
+    "llm_http_attempts": 1,
+    "llm_retry_wait_s": 0.0
+   },
+   "tool_ok": true,
+   "reply_lang": "hi",
+   "answer_ok": true
+  }
+ ]
+}
