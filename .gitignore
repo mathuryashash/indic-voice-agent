@@ -11,3 +11,5 @@ eval/audio/
 eval/cache/
 .llm_cache/
 tmp/
+eval/v2/audio/
+eval/v2/__pycache__/
